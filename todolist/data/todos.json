@@ -1,0 +1,18 @@
+[
+	{
+		"title": "External List",
+		"data": [
+			{"complete": false, "text": "Forget Javascript"},
+			{"complete": false, "text": "Forget TypeScript"},
+			{"complete": false, "text": "Lorem ipsum dolo sit amet, consectetur adipisicing elit. Cumque voluptates corporis nam ratione inventore et doloremque ut dolores esse aspernatur!"}
+		]
+	},
+	{
+		"title": "External List 2",
+		"data": [
+			{"complete": false, "text": "Some Text"},
+			{"complete": false, "text": "Another Text"},
+			{"complete": false, "text": "Third Item to be beautiful"}
+		]
+	}
+]
