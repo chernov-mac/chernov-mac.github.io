@@ -1,4 +1,18 @@
 self.addEventListener('install', function (event) {
+    event.waitUntil(
+        caches.open('v1').then(function (cache) {
+            return cache.addAll([
+                'index.html',
+                'style.css',
+                'style.css.map',
+                'bundle.js',
+                'bundle.js.map'
+            ]);
+        })
+    );
+});
+
+self.addEventListener('install', function (event) {
     var indexPage = new Request('index.html');
     event.waitUntil(
         fetch(indexPage).then(function (response) {
@@ -8,7 +22,6 @@ self.addEventListener('install', function (event) {
             });
         }));
 });
-
 
 self.addEventListener('fetch', function (event) {
     var updateCache = function (request) {
