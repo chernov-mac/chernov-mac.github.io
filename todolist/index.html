@@ -1,62 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>TodoList | Keepsolid</title>
-    <link rel="stylesheet" href="css/grid.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.min.css">
-</head>
-<body data-content-area="1200px">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffe200">
+    <meta name="apple-mobile-web-app-title" content="ToDO List">
+    <meta name="application-name" content="ToDO List">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="style.css" rel="stylesheet"></head>
 
-    <div class="wrapper">
-        <section class="presentation" id="todolist">
-            <h2>TodoList</h2>
-            <div class="examples">
-                <h3>Examples:</h3>
-                <div class="row-24">
-                    <div class="col xxs-24 md-12 lg-8">
-                        <h4>As in task</h4>
-                        <form class="custom-form">
-                            <div class="form-control">
-                                <input type="text" placeholder="What we must learn?">
-                            </div>
-                            <button class="btn btn-icon blue">
-                                <span class="text">Submit</span>
-                                <span class="icon">
-                                    <span class="fa fa-plus"></span>
-                                    <span class="fa fa-check success"></span>
-                                    <span class="fa fa-remove error"></span>
-                                </span>
-                            </button>
-                        </form>
-                        <div id="todolist-default"></div>
-                    </div>
-                    <div class="col xxs-24 md-12 lg-8">
-                        <h4>Custom styles, default adding</h4>
-                        <div id="todolist-custom"></div>
-                    </div>
-                    <div class="col xxs-24 md-12 lg-8">
-                        <h4>Readonly</h4>
-                        <div id="todolist-disabled"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="presentation" id="todolist-builder">
-            <h2>TodoListBuilder</h2>
-            <div class="examples">
-                <h3>Board:</h3>
-                <div id="todo-board"></div>
-            </div>
-        </section>
+<body>
+
+    <div class="primary-toolbar">
+        <h1 class="title">Todo List</h1>
     </div>
 
-    <!-- Data -->
-    <script src="data/todos.js"></script>
+    <div class="content">
+        <div id="todo-board"></div>
+    </div>
 
-    <!-- Main script -->
-    <script src="js/bundle.js"></script>
-</body>
+
+<script type="text/javascript" src="bundle.js"></script></body>
 </html>
