@@ -211,7 +211,7 @@ class TodoBuilder {
 		}
 
 		// build empty list if no data set
-		if (this.data.length === 0 && this.options.sources.length === 0) {
+		if (this.data.length === 0) {
 			this.build();
 		}
 
