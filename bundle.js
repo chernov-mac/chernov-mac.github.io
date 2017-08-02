@@ -73,7 +73,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./js/sw.js').then(function (reg) {
+    navigator.serviceWorker.register('/sw.js').then(function (reg) {
         console.log('Registration succeeded. Scope is ' + reg.scope);
     }).catch(function (error) {
         console.log('Registration failed with ' + error);
