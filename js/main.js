@@ -74,13 +74,20 @@ $(function() {
 		var citiesData = [];
 	    var activeName = '';
 		var cities = curInput.closest('.autocomplete').querySelectorAll('.autocomplete-results li a');
-		cities.forEach(curCity => {
+		$.each(cities, function(i, curCity){
 			citiesData.push({
 				href: curCity.getAttribute('href'),
 				name: curCity.textContent
 			});
 	        if (curCity.parentNode.classList.contains('active')) activeName = curCity.textContent;
 		});
+		// cities.forEach(curCity => {
+		// 	citiesData.push({
+		// 		href: curCity.getAttribute('href'),
+		// 		name: curCity.textContent
+		// 	});
+	    //     if (curCity.parentNode.classList.contains('active')) activeName = curCity.textContent;
+		// });
 
 		new Autocomplete(curInput, citiesData, {
 	        activeName: activeName,
@@ -153,16 +160,21 @@ $(function() {
 	});
 
 	// Categories dragging
-	$('#mainMenuCategories').on('mousedown', function(event) {
+	$('#mainMenu .categories').on('mousedown', function(event) {
 		event.preventDefault();
-		$('#mainMenuCategories').css('cursor', '-webkit-grabbing');
-		$('body').on('mousemove', drag.bind(this, event, $(this).scrollLeft()));
+		$('#mainMenu .categories').css('cursor', '-webkit-grabbing');
+
+		var clickEvent = event;
+		var scrollOnStart = $('#mainMenu .categories').scrollLeft();
+		$('body').on('mousemove', function(event){
+			drag($('#mainMenu .categories'), clickEvent, event, scrollOnStart);
+		});
 	});
 	$('body').on('mouseup', function(event) {
-		$('#mainMenuCategories').css('cursor', '-webkit-grab');
+		$('#mainMenu .categories').css('cursor', '-webkit-grab');
 		$('body').off('mousemove');
 	});
-	$('#mainMenuCategories a').on('click', function(event) {
+	$('#mainMenu .categories a').on('click', function(event) {
 		if (menuDragDistance > 5) {
 			menuDragDistance = 0;
 			event.preventDefault();
@@ -375,7 +387,7 @@ function setTabIndicator(nav, activeTab, indicator) {
 	var arrowPart = $cur.hasClass('dropdown') ? 10 : 0;
 
 	$ind.css({
-		left: (($cur.offset().left - $nav.offset().left) + 16) + 'px',
+		left: (($cur.offset().left - $nav.offset().left) + $nav.scrollLeft() + 16) + 'px',
 		width: $cur.width() - arrowPart + 'px',
 		backgroundColor: '#ffc800'
 	});
@@ -391,14 +403,15 @@ function calcTourDescHeight() {
 		$(this).remove();
 	});
 }
-function drag(clickEvent, scrollOnStart) {
+function drag(element, clickEvent, moveEvent, scrollOnStart) {
 	var startPos = clickEvent.pageX;
-	var distance = - (event.clientX - clickEvent.pageX);
+	var curPos = moveEvent.clientX;
+
+	var distance = - (curPos - startPos);
 	menuDragDistance = Math.abs(distance);
 
 	if (distance === 0) return;
-
-	$(this).scrollLeft(scrollOnStart + distance);
+	$(element).scrollLeft(scrollOnStart + distance);
 }
 function setDDMenuPos(reference, menu, fixed) {
 	if (fixed) {
@@ -441,8 +454,6 @@ function setDDHeight(dropdown) {
 		footHeight	= $(menu).find('.dd-menu-footer').length ? $(menu).find('.dd-menu-footer').outerHeight() : 0,
 		target		= $(menu).find('.dd-menu-body') ? (menu).find('.dd-menu-body') : $(menu);
 
-	// console.log(target);
-	// console.log(headHeight);
 	var maxHeight 	= $(window).outerHeight() - $(reference).offset().top - $(reference).outerHeight() - headHeight - footHeight - 24;
 
 	$(target).css({
@@ -458,7 +469,6 @@ function onFormControlFocus(input) {
 function onFormControlBlur(input) {
 	$(this).attr('placeholder', '').closest('.form-control').removeClass('active');
 	if (this.value) $(this).closest('.form-control').addClass('filled');
-	// console.log(this.value);
 }
 
 // function initScheme() {
