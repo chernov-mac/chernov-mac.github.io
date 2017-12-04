@@ -187,6 +187,11 @@ $(function() {
 
 	// Events
 
+	// Dropdowns height
+	$('#mainMenu .dropdown').on('shown.bs.dropdown', function(event){
+		setDDHeight(this);
+	});
+
 	// Dropdown hover
 	$('.dropdown.expand-hover').on('mouseenter', function(event){
 		var dropdown = this.closest('.dropdown');
@@ -297,6 +302,12 @@ $(function() {
 		$(this).closest('.box').removeClass('e2e-off-xs-down');
 	});
 
+	// Form control
+	$.each($('.form-control input'), function(i, input) {
+		$(input).on('focus', onFormControlFocus.bind(this));
+		$(input).on('blur', onFormControlBlur.bind(this));
+	});
+
 
     // Resize
 	$(window).on('resize', function(event) {
@@ -305,6 +316,10 @@ $(function() {
 			setTimeout(function(){
 				setTabIndicator(nav, $(nav).find('.nav-link.active').closest('.nav-item'));
 			}, 200);
+		});
+
+		$.each($('#mainMenu .dropdown.show'), function(i, dropdown){
+			setDDHeight(dropdown);
 		});
 
 		$('#mainMenuCategories.show').css({
@@ -416,6 +431,34 @@ function setShownDDMenuPos() {
 			setDDMenuPos(dropdown, menu, fixed);
 		}, 1);
 	});
+}
+function setDDHeight(dropdown) {
+	var toggler 	= $(dropdown).find('a[data-toggle="dropdown"]'),
+		id 			= $(toggler).attr('id'),
+		menu 		= $('.dropdown-menu[aria-labelledby="' + id + '"]'),
+		reference 	= $(dropdown).hasClass('reference') ? dropdown : toggler,
+		headHeight	= $(menu).find('.dd-menu-header').length ? $(menu).find('.dd-menu-header').outerHeight() : 0,
+		footHeight	= $(menu).find('.dd-menu-footer').length ? $(menu).find('.dd-menu-footer').outerHeight() : 0,
+		target		= $(menu).find('.dd-menu-body') ? (menu).find('.dd-menu-body') : $(menu);
+
+	// console.log(target);
+	// console.log(headHeight);
+	var maxHeight 	= $(window).outerHeight() - $(reference).offset().top - $(reference).outerHeight() - headHeight - footHeight - 24;
+
+	$(target).css({
+		maxHeight: maxHeight + 'px',
+		overflowY: 'auto'
+	});
+	$(dropdown).dropdown('update');
+}
+function onFormControlFocus(input) {
+	$(this).closest('.form-control').addClass('active').removeClass('filled');
+	$(this).addClass('focus').attr('placeholder', $(this).data('placeholder'));
+}
+function onFormControlBlur(input) {
+	$(this).attr('placeholder', '').closest('.form-control').removeClass('active');
+	if (this.value) $(this).closest('.form-control').addClass('filled');
+	// console.log(this.value);
 }
 
 // function initScheme() {
