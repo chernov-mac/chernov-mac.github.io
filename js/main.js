@@ -153,21 +153,21 @@ $(function() {
 	});
 
 	// Categories dragging
-	$('#mainMenu .categories').on('mousedown', function(event) {
+	$('#mainMenuCategories').on('mousedown', function(event) {
 		event.preventDefault();
-		$('#mainMenu .categories').css('cursor', '-webkit-grabbing');
+		$('#mainMenuCategories').css('cursor', '-webkit-grabbing');
 
 		var clickEvent = event;
-		var scrollOnStart = $('#mainMenu .categories').scrollLeft();
+		var scrollOnStart = $('#mainMenuCategories').scrollLeft();
 		$('body').on('mousemove', function(event){
-			drag($('#mainMenu .categories'), clickEvent, event, scrollOnStart);
+			drag($('#mainMenuCategories'), clickEvent, event, scrollOnStart);
 		});
 	});
 	$('body').on('mouseup', function(event) {
-		$('#mainMenu .categories').css('cursor', '-webkit-grab');
+		$('#mainMenuCategories').css('cursor', '-webkit-grab');
 		$('body').off('mousemove');
 	});
-	$('#mainMenu .categories a').on('click', function(event) {
+	$('#mainMenuCategories a').on('click', function(event) {
 		if (menuDragDistance > 5) {
 			menuDragDistance = 0;
 			event.preventDefault();
@@ -207,6 +207,15 @@ $(function() {
 		var dropdown = this.closest('.dropdown');
 		$(this).removeClass('show');
 		$(this).find('.dropdown-menu').removeClass('show');
+	});
+
+	// Categories expand
+	$('#mainMenuCategories').on('shown.bs.collapse', function() {
+		setMenuHeight();
+	});
+	$('#mainMenuCategories').on('show.bs.collapse', function() {
+		var menuPos = $('#mainMenu').offset().top;
+		if (menuPos > 0) $("html, body").animate({ scrollTop: menuPos }, "slow");
 	});
 
 	// Top menu
@@ -317,6 +326,8 @@ $(function() {
     // Resize
 	$(window).on('resize', function(event) {
 
+		setMenuHeight()
+
 		$.each($('.nav-tabs.indicated, #mainMenu .categories'), function(i, nav) {
 			setTimeout(function(){
 				setTabIndicator(nav, $(nav).find('.nav-link.active').closest('.nav-item'));
@@ -340,14 +351,30 @@ $(function() {
 	});
 
 	$(window).on('scroll', function(event) {
+		var requiredOffset = $('header').outerHeight() - $('#mainMenu').outerHeight();
 
-		if ($(window).scrollTop() > ($('header').outerHeight() - $('#mainMenu').outerHeight())) {
+		if ($(window).scrollTop() > requiredOffset || $(window).scrollTop() == requiredOffset) {
 			$('#mainMenu').addClass('fixed-top');
 			$('body').addClass('fixed-nav');
+
+			if (!$('#mainMenu .menu-item.optional').hasClass('in')) {
+				$('#mainMenu .menu-item.optional').removeClass('out').addClass('moving in');
+				setTimeout(function(){
+					$('#mainMenu .menu-item.optional').removeClass('moving');
+				}, 225);
+			}
 		} else {
 			$('body').removeClass('fixed-nav');
 			$('#mainMenu').removeClass('fixed-top');
+
+			if (!$('#mainMenu .menu-item.optional').hasClass('out')) {
+				$('#mainMenu .menu-item.optional').removeClass('in').addClass('moving out');
+				setTimeout(function(){
+					$('#mainMenu .menu-item.optional').removeClass('moving');
+				}, 225);
+			}
 		}
+
 
 		setShownDDMenuPos();
 
@@ -408,8 +435,8 @@ function setDDMenuPos(reference, menu, fixed) {
 	if (fixed) {
 		$(menu).css({
 			position: 'fixed',
-			top: ($(reference).offset().top + $(reference).outerHeight()) + 'px',
-			left: $(reference).offset().left + 'px',
+			top: (reference.getBoundingClientRect().top + $(reference).outerHeight()) + 'px',
+			left: reference.getBoundingClientRect().left + 'px',
 			transform: 'translate3d(0, 0, 0)'
 		}).addClass('fixed');
 	} else {
@@ -444,8 +471,9 @@ function setDDHeight(dropdown) {
 		headHeight	= $(menu).find('.dd-menu-header').length ? $(menu).find('.dd-menu-header').outerHeight() : 0,
 		footHeight	= $(menu).find('.dd-menu-footer').length ? $(menu).find('.dd-menu-footer').outerHeight() : 0,
 		target		= $(menu).find('.dd-menu-body') ? (menu).find('.dd-menu-body') : $(menu);
+	console.log();
 
-	var maxHeight 	= $(window).outerHeight() - $(reference).offset().top - $(reference).outerHeight() - headHeight - footHeight - 24;
+	var maxHeight 	= $(window).outerHeight() - reference.getBoundingClientRect().top - $(reference).outerHeight() - headHeight - footHeight - 24;
 
 	$(target).css({
 		maxHeight: maxHeight + 'px',
@@ -460,6 +488,13 @@ function onFormControlFocus(input) {
 function onFormControlBlur(input) {
 	$(this).attr('placeholder', '').closest('.form-control').removeClass('active');
 	if (this.value) $(this).closest('.form-control').addClass('filled');
+}
+function setMenuHeight() {
+	setTimeout(function(){
+		$('#mainMenuCategories.show').css({
+			maxHeight: $(window).outerHeight() - $('#mainMenu').outerHeight() - 24 + 'px'
+		});
+	}, 1);
 }
 
 // function initScheme() {
