@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'kontramarka-icons';
-  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?2269976');
-  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?2269976#iefix') format('embedded-opentype'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.woff2?2269976') format('woff2'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.woff?2269976') format('woff'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.ttf?2269976') format('truetype'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.svg?2269976#kontramarka-icons') format('svg');
+  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?41949361');
+  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?41949361#iefix') format('embedded-opentype'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.woff2?41949361') format('woff2'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.woff?41949361') format('woff'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.ttf?41949361') format('truetype'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.svg?41949361#kontramarka-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'kontramarka-icons';
-    src: url('../font/kontramarka-icons.svg?2269976#kontramarka-icons') format('svg');
+    src: url('../font/kontramarka-icons.svg?41949361#kontramarka-icons') format('svg');
   }
 }
 */
