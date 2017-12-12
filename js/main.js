@@ -455,6 +455,11 @@ $(function() {
 		setShownDDMenuPos();
 	});
 
+	setEventsState();
+	$('#eventTools .form-check-input').on('change', function(){
+		setEventsState();
+	});
+
 });
 
 
@@ -625,6 +630,70 @@ function showFadedImages(selector, maxPending) {
 			}
 		}, checkTime);
 	});
+}
+function setEventsState() {
+	var enabledAside = $('#enable_aside').prop('checked');
+	var type = $('input[name="card_type"]:checked').val();
+
+	// if (enabledAside) {
+	// 	$('#currentEvents .events').addClass('events-4');
+	// 	$('#currentEvents .events__item').addClass('events-4__item');
+	// 	$('#currentEvents .aside').removeClass('d-none');
+	// } else {
+	// 	$('#currentEvents .aside').addClass('d-none');
+	// 	$('#currentEvents .events').removeClass('events-4');
+	// 	$('#currentEvents .events__item').removeClass('events-4__item');
+	// }
+    //
+	// if (type == 'big') {
+	// 	$('#currentEvents .events').removeClass('events-horz-3');
+	// 	$('#currentEvents .events__item').removeClass('events-horz-3__item');
+	// 	$('#currentEvents .events').removeClass('events-horz-2');
+	// 	$('#currentEvents .events__item').removeClass('events-horz-2__item');
+    //
+	// 	$('#currentEvents .event, #currentEvents .event-horz').removeClass('event-horz').addClass('event');
+	// } else {
+    //
+	// 	if (enabledAside) {
+	// 		$('#currentEvents .events').addClass('events-horz-2');
+	// 		$('#currentEvents .events__item').addClass('events-horz-2__item');
+	// 	} else {
+	// 		$('#currentEvents .events').addClass('events-horz-3');
+	// 		$('#currentEvents .events__item').addClass('events-horz-3__item');
+	// 	}
+    //
+	// 	$('#currentEvents .event, #currentEvents .event-horz').removeClass('event').addClass('event-horz');
+	// }
+
+	$('#currentEvents .events-horz-2, #currentEvents .events-horz-3, #currentEvents .events, #currentEvents .aside').addClass('d-none');
+
+	if (enabledAside) {
+		$('#currentEvents .aside').removeClass('d-none');
+	}
+
+	if (type == 'vert') {
+		$('#currentEvents .events').removeClass('d-none');
+
+		if (enabledAside) {
+			$('#currentEvents .events')
+				.addClass('events-4')
+				.find('.events__item')
+					.addClass('events-4__item');
+		} else {
+			$('#currentEvents .events')
+				.removeClass('events-4')
+				.find('.events__item')
+					.removeClass('events-4__item');
+		}
+	}
+
+	if (type == 'horz') {
+		if (enabledAside) {
+			$('#currentEvents .events-horz-2').removeClass('d-none');
+		} else {
+			$('#currentEvents .events-horz-3').removeClass('d-none');
+		}
+	}
 }
 
 // function initScheme() {

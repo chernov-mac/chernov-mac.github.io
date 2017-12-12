@@ -268,6 +268,37 @@
 						</div>
 					</div> -->
 
+					<div class="menu-item dropdown reference event-tools">
+						<a href="#" id="eventToolsMenu" data-toggle="dropdown"><i class="fa fa-cogs"></i><span class="d-none d-md-inline">Events</span></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="eventToolsMenu">
+							<form id="eventTools" class="p-3">
+								<p>
+									Aside
+									<div class="form-check">
+										<label class="form-check-label" for="enable_aside">
+											<input type="checkbox" class="form-check-input" name="enable_aside" id="enable_aside" value="enable"> Enable aside
+										</label>
+									</div>
+								</p>
+								<p>
+									Card type
+									<div class="d-flex">
+										<div class="form-check mr-auto">
+											<label class="form-check-label" for="big_card">
+												<input type="radio" class="form-check-input" name="card_type" id="vert_card" value="vert" checked> Vertical
+											</label>
+										</div>
+										<div class="form-check">
+											<label class="form-check-label" for="small_card">
+												<input type="radio" class="form-check-input" name="card_type" id="horz_card" value="horz"> Horizontal
+											</label>
+										</div>
+									</div>
+								</p>
+							</form>
+						</div>
+					</div>
+
 					<div class="menu-item optional out dropdown reference date">
 						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
 							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
@@ -945,504 +976,1127 @@
         </section>
         <section id="currentEvents" class="page-block">
             <div class="container">
-                <h2 class="page-block-title">Текущие события</h2>
-				<div class="events">
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+				<div class="row">
+					<div class="col content">
+		                <h2 class="page-block-title">Текущие события</h2>
+
+						<div class="events">
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
 									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 7</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">21.08.2017</div>
+												<div class="d-none d-lg-inline">21 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Полина Гагарина</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Münich</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Спектакль “Игра на вылет”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 7</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">“Чужих мужей не бывает”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 3</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Münich</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Münich</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Петербургский театральный сезон</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 7</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alzey-Kirchheimbolanden</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/10.png" alt="Максим Галкин">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Максим Галкин</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alzey-Kirchheimbolanden</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="col-12 d-none d-xl-block">
+								<div class="event event--full-width">
+									<a href="#">
+										<img class="fade" src="/images/public/events/long-1.jpg" alt="Баста">
+									</a>
+								</div>
+							</div> -->
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 7</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">21.08.2017</div>
+												<div class="d-none d-lg-inline">21 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Полина Гагарина</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Münich</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Спектакль “Игра на вылет”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 7</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">“Чужих мужей не бывает”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 3</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Münich</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Münich</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Петербургский театральный сезон</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li class="multiple-places">Городов: 7</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alzey-Kirchheimbolanden</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events__item">
+								<div class="event">
+									<div class="event__img event__img--a4 preloading">
+										<img class="fade" src="/images/public/events/10.png" alt="Максим Галкин">
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Максим Галкин</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-lg-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alzey-Kirchheimbolanden</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="col-12 d-none d-xl-block">
+								<div class="event event--full-width">
+									<a href="#">
+										<img class="fade" src="/images/public/events/long-1.jpg" alt="Баста">
+									</a>
+								</div>
+							</div> -->
+						</div>
+						<div class="events-horz-2">
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">21.08.2017</div>
+												<div class="d-none d-sm-inline">21 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alte Münze, Molkenmarkt 2, 10179 Berlin</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/3.png" alt="Полина Гагарина">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Полина Гагарина</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Спектакль “Игра на вылет”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">“Чужих мужей не бывает”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Петербургский театральный сезон</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alzey-Kirchheimbolanden</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-2__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/10.png" alt="Максим Галкин">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Максим Галкин</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 d-none d-xl-block">
+								<div class="event event--full-width">
+									<a href="#">
+										<img src="/images/public/events/long-1.jpg" alt="Баста">
+									</a>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">21.08.2017</div>
-										<div class="d-none d-lg-inline">21 августа 2017</div>
+						<div class="events-horz-3">
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
 									</div>
-									<ul class="event__cities">
-										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
-									</ul>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">21.08.2017</div>
+												<div class="d-none d-sm-inline">21 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alte Münze, Molkenmarkt 2, 10179 Berlin</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/3.png" alt="Полина Гагарина">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Полина Гагарина</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Спектакль “Игра на вылет”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">“Чужих мужей не бывает”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Петербургский театральный сезон</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Alzey-Kirchheimbolanden</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="events-horz-3__item">
+								<div class="event-horz">
+									<div class="part-left">
+										<div class="event__img event__img--a4">
+											<img src="/images/public/events/10.png" alt="Максим Галкин">
+										</div>
+										<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+									</div>
+									<div class="event__body">
+										<a href="/tour.html" class="block-title">
+											<span class="block-title__text">Максим Галкин</span>
+										</a>
+										<div class="event__info">
+											<div class="event__date">
+												<div class="d-lg-none">с 17.08.2017</div>
+												<div class="d-none d-sm-inline">с 17 августа 2017</div>
+											</div>
+											<ul class="event__cities">
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li>Düsseldorf</li>
+												<li>Berlin</li>
+												<li>Münich</li>
+												<li>Hamburg</li>
+												<li><a href="/tour.html">Все города</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 d-none d-xl-block">
+								<div class="event event--full-width">
+									<a href="#">
+										<img src="/images/public/events/long-1.jpg" alt="Баста">
+									</a>
 								</div>
 							</div>
 						</div>
+
+		                <div class="page-block-action">
+		                    <button class="btn btn-primary d-block d-sm-inline-block"><i class="icon-refresh"></i><span>Загрузить еще</span></button>
+		                    <!-- Add class `processing` to make icon spin, showing processing -->
+		                    <!-- <button class="btn btn-primary d-block d-sm-inline-block processing"><i class="fa fa-refresh"></i>Загрузить еще</button> -->
+		                </div>
 					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Полина Гагарина</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
+					<div class="col-3 aside d-none">
+						<h2 class="page-block-title">Aside</h2>
+						<div class="box">
+							<div class="box-header">Some box</div>
+							<div class="box-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus consequatur unde commodi iure porro dolores sunt, ex cumque error sint recusandae, sequi iusto magni quas voluptate. Perspiciatis eveniet quibusdam nulla placeat doloremque quod accusantium odit nesciunt alias nihil temporibus ut laudantium blanditiis, quaerat voluptates magnam, harum pariatur a nisi laborum fuga soluta ducimus! Corrupti architecto accusamus nesciunt porro totam officiis, quia in at doloremque doloribus, autem incidunt iusto corporis debitis numquam. Qui suscipit et nam minima nobis nemo consequatur esse perferendis vitae quasi sint velit itaque voluptate, assumenda, quidem culpa aut veniam delectus enim eius rerum animi fugit voluptas provident. Qui numquam dolore totam, minima cupiditate modi est voluptas itaque iste, doloribus ratione nulla facilis officia ea error voluptatem repudiandae incidunt animi dicta. Aspernatur minus eligendi cupiditate aperiam iusto nobis consequatur reprehenderit animi, quod adipisci consectetur libero repellat. Aspernatur fugiat aliquam iste, velit sed ipsa, amet architecto perferendis ratione perspiciatis!</p>
 							</div>
 						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+						<div class="box">
+							<div class="box-header">Some box</div>
+							<div class="box-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus consequatur unde commodi iure porro dolores sunt, ex cumque error sint recusandae, sequi iusto magni quas voluptate. Perspiciatis eveniet quibusdam nulla placeat doloremque quod accusantium odit nesciunt alias nihil temporibus ut laudantium blanditiis, quaerat voluptates magnam, harum pariatur a nisi laborum fuga soluta ducimus! Corrupti architecto accusamus nesciunt porro totam officiis, quia in at doloremque doloribus, autem incidunt iusto corporis debitis numquam. Qui suscipit et nam minima nobis nemo consequatur esse perferendis vitae quasi sint velit itaque voluptate, assumenda, quidem culpa aut veniam delectus enim eius rerum animi fugit voluptas provident. Qui numquam dolore totam, minima cupiditate modi est voluptas itaque iste, doloribus ratione nulla facilis officia ea error voluptatem repudiandae incidunt animi dicta. Aspernatur minus eligendi cupiditate aperiam iusto nobis consequatur reprehenderit animi, quod adipisci consectetur libero repellat. Aspernatur fugiat aliquam iste, velit sed ipsa, amet architecto perferendis ratione perspiciatis!</p>
 							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Спектакль “Игра на вылет”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">“Чужих мужей не бывает”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 3</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/8.png" alt="Петербургский театральный сезон">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Петербургский театральный сезон</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/10.png" alt="Максим Галкин">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Максим Галкин</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 d-none d-xl-block">
-						<div class="event event--full-width">
-							<a href="#">
-								<img class="fade" src="/images/public/events/long-1.jpg" alt="Баста">
-							</a>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">21.08.2017</div>
-										<div class="d-none d-lg-inline">21 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Полина Гагарина</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Спектакль “Игра на вылет”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">“Чужих мужей не бывает”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 3</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/8.png" alt="Петербургский театральный сезон">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Петербургский театральный сезон</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/10.png" alt="Максим Галкин">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Максим Галкин</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 d-none d-xl-block">
-						<div class="event event--full-width">
-							<a href="#">
-								<img class="fade" src="/images/public/events/long-1.jpg" alt="Баста">
-							</a>
 						</div>
 					</div>
 				</div>
-                <div class="page-block-action">
-                    <button class="btn btn-primary d-block d-sm-inline-block"><i class="icon-refresh"></i><span>Загрузить еще</span></button>
-                    <!-- Add class `processing` to make icon spin, showing processing -->
-                    <!-- <button class="btn btn-primary d-block d-sm-inline-block processing"><i class="fa fa-refresh"></i>Загрузить еще</button> -->
-                </div>
             </div>
         </section>
         <section id="cities" class="page-block">
