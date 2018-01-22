@@ -255,19 +255,7 @@
         <section id="mainMenu">
 			<div class="container">
 				<div class="main-menu">
-					<!-- first toggler -->
 					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span class="d-none d-sm-inline">Меню</span></a>
-
-					<!-- than other elements in menu heading (that are on the right) -->
-					<!-- first of this will have margin left 40px -->
-					<!-- <div class="menu-item dropdown reference skins">
-						<a href="#" id="skinConfig" data-toggle="dropdown"><i class="fa fa-cogs"></i><span class="d-none d-md-inline">Skins</span></a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="skinConfig">
-							<li class="dropdown-item active"><a href="#" class="dropdown-item active">Default</a></li>
-							<li class="dropdown-item"><a href="#" class="dropdown-item">Kontramarka</a></li>
-						</div>
-					</div> -->
-
 					<div class="menu-item optional out dropdown reference date">
 						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
 							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
@@ -477,7 +465,6 @@
 					<a href="#" class="menu-item cart">
 						<span class="cart-outer">
 							<i class="icon-basket"></i>
-							<!-- <span class="d-none d-md-inline">Корзина</span> -->
 							<span class="badge badge-accent cart-count">2</span>
 						</span>
 					</a>
@@ -485,8 +472,6 @@
 						<i class="icon-sign-in"></i>
 						<span class="nav-item-text d-none d-md-inline">Войти</span>
 					</a>
-
-					<!-- categories list -->
 					<div class="menu-wrapper draggable-lg-up">
 						<div class="drag-fog left d-none d-lg-block"></div>
 						<div class="drag-item menu-body collapse" id="mainMenuCategories">
@@ -520,11 +505,12 @@
 				</div>
 			</div>
 			<div class="loader"></div>
+			<canvas id="confetti"></canvas>
         </section>
     </header>
 
     <main>
-		<!-- <section class="breadcrumbs">
+		<section class="breadcrumbs">
 			<div class="container">
 				<div id="speedbar">
 			        <div xmlns:v="http://rdf.data-vocabulary.org/#">
@@ -532,421 +518,189 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						<a href="/teatri/">Театры</a>
-						<i class="fa fa-angle-right"></i>
-						Балет
+						Подтверждение заказа
 					</div>
 			    </div>
 			</div>
-		</section> -->
-        <section id="topSlider" class="page-block">
-            <div class="container">
-                <div class="slider e2e e2e-off-sm-up preloading">
-                    <div class="slides fade">
-                        <div class="slide">
-                            <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан. Lorem <br> ipsum dolor sit amet, consectetur adipisicing elit. Quod, tenetur?</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-col">
-												<div class="full-list-item">Berlin</div>
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Berlin</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box nav nav-tabs steps">
+					<div class="nav-item complete">
+						<span class="tab-num">1</span>
+						<span class="tab-text">Корзина</span>
+					</div>
+					<div class="nav-item complete">
+						<span class="tab-num">2</span>
+						<span class="tab-text">Оформление заказа</span>
+					</div>
+					<div class="nav-item complete">
+						<span class="tab-num">3</span>
+						<span class="tab-text">Обзор заказа</span>
+					</div>
+					<div class="nav-item active">
+						<span class="tab-num">4</span>
+						<span class="tab-text">Подтверждение</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div id="cartMessager"></div>
+				<div class="box">
+					<div class="box-header bg-secondary">Заказ №4700 от 22.01.2015</div>
+					<div class="box-body">
+						<div class="event-info extended">
+							<div class="event-info__pic">
+								<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+								</a>
+							</div>
+							<div class="event-info__content">
+								<div class="event-info__main">
+									<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/">Хор турецкого в германии</a></h1>
+									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
+								</div>
+								<div class="event-info__extend">
+									<div class="d-flex-col">
+										<div class="tickets">
+											<div class="tickets-item">
+	                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
+	                                            <div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>3</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+	                                            <div class="tickets-item__price">42 €</div>
+	                                        </div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
 											</div>
-											<div class="full-list-col">
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Böblingen</div>
-												<div class="full-list-item">Gießen</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
 											</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан.</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Alzey-Kirchheimbolanden</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Veitshöchheim (Würzburg)</div>
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Leinfelden-Echterdingen</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Ludwigshafen am Rhein</div>
-											<div class="full-list-item">Böblingen</div>
-											<div class="full-list-item">Gießen</div>
-											<div class="full-list-item">Villingen-Schwenningen</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary d-block d-sm-inline-block">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-						<div class="slide">
-                            <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан. Lorem <br> ipsum dolor sit amet, consectetur adipisicing elit. Quod, tenetur?</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-col">
-												<div class="full-list-item">Berlin</div>
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Berlin</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
 											</div>
-											<div class="full-list-col">
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Böblingen</div>
-												<div class="full-list-item">Gießen</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
 											</div>
 										</div>
-										<span class="hint-popover">все города</span>
+										<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
 									</div>
-                                    <a href="#" class="btn btn-primary">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан.</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Alzey-Kirchheimbolanden</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Veitshöchheim (Würzburg)</div>
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Leinfelden-Echterdingen</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Ludwigshafen am Rhein</div>
-											<div class="full-list-item">Böblingen</div>
-											<div class="full-list-item">Gießen</div>
-											<div class="full-list-item">Villingen-Schwenningen</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary d-block d-sm-inline-block">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-						<div class="slide">
-                            <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан. Lorem <br> ipsum dolor sit amet, consectetur adipisicing elit. Quod, tenetur?</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-col">
-												<div class="full-list-item">Berlin</div>
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Berlin</div>
+								</div>
+							</div>
+						</div>
+						<div class="event-info extended">
+							<div class="event-info__pic">
+								<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+								</a>
+							</div>
+							<div class="event-info__content">
+								<div class="event-info__main">
+									<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/">Хор турецкого в германии</a></h1>
+									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
+								</div>
+								<div class="event-info__extend">
+									<div class="d-flex-col">
+										<div class="tickets">
+											<div class="tickets-item">
+	                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
+	                                            <div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>3</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+	                                            <div class="tickets-item__price">42 €</div>
+	                                        </div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
 											</div>
-											<div class="full-list-col">
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Böblingen</div>
-												<div class="full-list-item">Gießen</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
 											</div>
 										</div>
-										<span class="hint-popover">все города</span>
+										<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
 									</div>
-                                    <a href="#" class="btn btn-primary">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан.</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Alzey-Kirchheimbolanden</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Veitshöchheim (Würzburg)</div>
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Leinfelden-Echterdingen</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Ludwigshafen am Rhein</div>
-											<div class="full-list-item">Böblingen</div>
-											<div class="full-list-item">Gießen</div>
-											<div class="full-list-item">Villingen-Schwenningen</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary d-block d-sm-inline-block">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-						<div class="slide">
-                            <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан. Lorem <br> ipsum dolor sit amet, consectetur adipisicing elit. Quod, tenetur?</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-col">
-												<div class="full-list-item">Berlin</div>
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Berlin</div>
-											</div>
-											<div class="full-list-col">
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Böblingen</div>
-												<div class="full-list-item">Gießen</div>
-											</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан.</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Alzey-Kirchheimbolanden</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Veitshöchheim (Würzburg)</div>
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Leinfelden-Echterdingen</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Ludwigshafen am Rhein</div>
-											<div class="full-list-item">Böblingen</div>
-											<div class="full-list-item">Gießen</div>
-											<div class="full-list-item">Villingen-Schwenningen</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary d-block d-sm-inline-block">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-						<div class="slide">
-                            <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан. Lorem <br> ipsum dolor sit amet, consectetur adipisicing elit. Quod, tenetur?</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-col">
-												<div class="full-list-item">Berlin</div>
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Berlin</div>
-											</div>
-											<div class="full-list-col">
-												<div class="full-list-item">Münich</div>
-												<div class="full-list-item">Hamburg</div>
-												<div class="full-list-item">Düsseldorf</div>
-												<div class="full-list-item">Böblingen</div>
-												<div class="full-list-item">Gießen</div>
-											</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            <div class="caption">
-                                <h2 class="event-title">Дима Билан.</h2>
-                                <div class="event-info">
-                                    <div class="event-info-item date">16 &mdash; 18 октября 2017</div>
-									<div class="event-info-item cities-list">
-										Berlin, Münich, Hamburg, Düsseldorf, Berlin, Münich, Hamburg, Düsseldorf
-										<div class="full-list">
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Alzey-Kirchheimbolanden</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Veitshöchheim (Würzburg)</div>
-											<div class="full-list-item">Berlin</div>
-											<div class="full-list-item">Leinfelden-Echterdingen</div>
-											<div class="full-list-item">Münich</div>
-											<div class="full-list-item">Hamburg</div>
-											<div class="full-list-item">Düsseldorf</div>
-											<div class="full-list-item">Ludwigshafen am Rhein</div>
-											<div class="full-list-item">Böblingen</div>
-											<div class="full-list-item">Gießen</div>
-											<div class="full-list-item">Villingen-Schwenningen</div>
-										</div>
-										<span class="hint-popover">все города</span>
-									</div>
-                                    <a href="#" class="btn btn-primary d-block d-sm-inline-block">Купить билет</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="controls fade">
-                        <div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-                        <div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-						<div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-                        <div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-						<div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-                        <div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-						<div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-                        <div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-						<div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-                        <div class="thumbs">
-                            <div class="thumbs-img">
-                                <img src="/images/public/slider/2.png" alt="Дима Билан.">
-                            </div>
-                            <div class="thumbs-info">
-                                <div class="title">Дима Билан.</div>
-                                <div class="name">Опять 35.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="currentEvents" class="page-block">
-            <div class="container">
-				<h2 class="page-block-title">Текущие события</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-12 col-md-6 mb-3 mb-md-0">
+								<div class="action-block-big action-block-highlited">
+									<div class="action-block-item"><span>Количество билетов:</span><span class="value">7</span></div>
+									<div class="action-block-item"><span>MwSt: 7%</span><span class="value">10,64&euro;</span></div>
+									<div class="action-block-item"><span>Сумма по билетам:</span><span class="value">152,00&euro;</span></div>
+									<div class="action-block-item"><span>Доставка:</span><span class="value">2,00&euro;</span></div>
+									<div class="action-block-item"><span>Общая стоимость заказа:</span><span class="value">154&euro;</span></div>
+								</div>
+							</div>
+							<div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-start">
+								<p>Просим оплатить Ваш заказ в течении 7 дней!<br>Напоминаем, что Ваш заказ может быть отправлен только после поступления всей суммы на наш банковский счет.</p>
+								<button class="download-btn btn btn-primary btn-block d-sm-none">Скачать реквизиты</button>
+								<button class="download-btn btn btn-primary d-none d-sm-inline-block">Скачать реквизиты</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box">
+					<div class="box-body">
+						<div class="countdown">
+							<div class="countdown__time">
+								<i class="icon-watch"></i><span id="cartCountdown"></span>
+							</div>
+							<div class="countdown__text">
+								<h5>Мы уверены, что другие события также могут заинтересовать Вас.</h5>
+								<p class="plain-text">Оформите следующую покупку и получите бесплатную доставку для второго заказа!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<h2 class="page-block-title">Похожие события</h2>
 				<div class="events">
 					<div class="events__item">
 						<div class="event">
@@ -1074,12 +828,12 @@
 					<div class="events__item">
 						<div class="event">
 							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
 							</div>
 							<div class="event__body">
 								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
 								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+									<span class="block-title__text">“Чужих мужей не бывает”</span>
 								</a>
 								<div class="event__info">
 									<div class="event__date">
@@ -1087,178 +841,10 @@
 										<div class="d-none d-lg-inline">с 17 августа 2017</div>
 									</div>
 									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/8.png" alt="Петербургский театральный сезон">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Петербургский театральный сезон</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
+										<li class="multiple-places">Городов: 3</li>
 										<li>Berlin</li>
 										<li>Münich</li>
 										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/10.png" alt="Максим Галкин">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Максим Галкин</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 d-none d-xl-block">
-						<div class="preloading event event--full-width">
-							<a href="#">
-								<img class="fade" src="/images/public/events/long-1.jpg" alt="Баста">
-							</a>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">21.08.2017</div>
-										<div class="d-none d-lg-inline">21 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Полина Гагарина</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
 									</ul>
 								</div>
 							</div>
@@ -1294,37 +880,12 @@
 					<div class="events__item">
 						<div class="event">
 							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
 							</div>
 							<div class="event__body">
 								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
 								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">“Чужих мужей не бывает”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 3</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+									<span class="block-title__text">Полина Гагарина</span>
 								</a>
 								<div class="event__info">
 									<div class="event__date">
@@ -1341,20 +902,20 @@
 					<div class="events__item">
 						<div class="event">
 							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
 							</div>
 							<div class="event__body">
 								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
 								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
 								</a>
 								<div class="event__info">
 									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+										<div class="d-lg-none">21.08.2017</div>
+										<div class="d-none d-lg-inline">21 августа 2017</div>
 									</div>
 									<ul class="event__cities">
-										<li>Münich</li>
+										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
 									</ul>
 								</div>
 							</div>
@@ -1363,12 +924,12 @@
 					<div class="events__item">
 						<div class="event">
 							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
 							</div>
 							<div class="event__body">
 								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
 								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Петербургский театральный сезон</span>
+									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
 								</a>
 								<div class="event__info">
 									<div class="event__date">
@@ -1384,212 +945,6 @@
 										<li><a href="/tour.html">Все города</a></li>
 									</ul>
 								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/10.png" alt="Максим Галкин">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Максим Галкин</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li>Alzey-Kirchheimbolanden</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 d-none d-xl-block">
-						<div class="preloading event event--full-width">
-							<a href="#">
-								<img class="fade" src="/images/public/events/long-1.jpg" alt="Баста">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="page-block-action">
-					<button class="btn btn-primary d-block d-sm-inline-block"><i class="icon-refresh"></i><span>Загрузить еще</span></button>
-					<!-- Add class `processing` to make icon spin, showing processing -->
-					<!-- <button class="btn btn-primary d-block d-sm-inline-block processing"><i class="fa fa-refresh"></i>Загрузить еще</button> -->
-				</div>
-            </div>
-        </section>
-        <section id="cities" class="page-block">
-            <div class="container">
-                <h2 class="page-block-title">События в избранных городах</h2>
-				<div class="cities">
-					<div class="cities__item">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/berlin.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Berlin</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/hamburg.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Hamburg</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/munchen.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">München</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/bern.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Bern</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/koln.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Köln</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/stuttgart.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Stuttgart</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item d-lg-none d-xl-block">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/dusseldorf.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Düsseldorf</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="cities__item d-lg-none d-xl-block">
-						<a href="#" class="card">
-							<div class="card__img card__img--fix card__img--animated">
-								<img src="/images/cities/dortmund.png" alt="Berlin">
-							</div>
-							<div class="card__body">
-								<div class="block-title">
-									<span class="block-title__text">Dortmund</span>
-									<small class="block-title__label d-none d-sm-block">2 события</small>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-            </div>
-        </section>
-		<section id="metaInfo" class="page-block">
-			<div class="container">
-				<div class="benefits">
-					<div class="benefits__item">
-						<div class="benefit">
-							<span class="benefit__icon convenience"></span>
-							<div class="benefit__description">
-								<div class="benefit__header">
-									<h3 class="benefit__title">Это удобно</h3>
-								</div>
-								<p>Билеты на представления, которые так долго ждали в Германии, раскупаются в кратчайший период. Сервис kontramarka.de уже подобрал лучшие места на концертные и театральные мероприятия задолго до того момента, как откроется продажа в кассах.</p>
-							</div>
-						</div>
-					</div>
-					<div class="benefits__item">
-						<div class="benefit">
-							<span class="benefit__icon profit"></span>
-							<div class="benefit__description">
-								<div class="benefit__header">
-									<h3 class="benefit__title">Это выгодно</h3>
-								</div>
-								<p>В отличие от большинства аналогичных сервисов в Германии, kontramarka.de предоставляет билеты по номинальной цене — без наценок, сервисного или системного сбора и пр. Дополнительно вы оплачиваете только стоимость доставки.</p>
-							</div>
-						</div>
-					</div>
-					<div class="benefits__item">
-						<div class="benefit">
-							<span class="benefit__icon taste"></span>
-							<div class="benefit__description">
-								<div class="benefit__header">
-									<h3 class="benefit__title">На любой вкус</h3>
-								</div>
-								<p>На сайте представлен широкий ассортимент мероприятий в Германии на любой вкус. У нас можно заказать онлайн-билеты на детские или взрослые представления, грандиозные шоу и мюзиклы, концерты легендарных исполнителей и известных русских юмористов.</p>
 							</div>
 						</div>
 					</div>
@@ -1777,7 +1132,7 @@
 								<div class="form-check">
 									<label class="form-check-label">
 										<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
-										Не запоминать меня на этом компьютере
+										<span class="form-check-text">Не запоминать меня на этом компьютере</span>
 									</label>
 								</div>
 								<input name="login" type="hidden" id="login" value="submit">
@@ -1857,6 +1212,7 @@
 
 <!-- jQuery -->
 <script src="/plugins/js/jquery.min.js"></script>
+<script src="/plugins/js/jquery.countdown.min.js"></script>
 <!-- Bootstrap -->
 <script src="/plugins/js/popper.min.js"></script>
 <script src="/plugins/js/bootstrap.min.js"></script>
@@ -1864,10 +1220,38 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
+<!-- <script src="/components/js/confetti.js"></script> -->
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var start = new Date();
+		var diff = 60; // minutes
+		var afterDiff = new Date(start.getTime() + diff * 60000);
+		$('#cartCountdown')
+		.countdown(afterDiff, function(event) {
+			$(this).text(event.strftime('%M : %S'));
+		});
+
+		var msg = BoxMessage('Заказ №4700 оформлен. Спасибо!', 'Вам на почту выслан счет для оплаты заказа. Также Вы можете скачать его ниже.', {
+			container: '#cartMessager',
+			size: 'lg',
+			mode: 'success',
+			animate: true,
+			showOnInit: false,
+			// closing: true
+		});
+		$(msg).collapse('show');
+		// setTimeout(function(){
+		// 	$(msg).collapse('hide');
+		// }, 5000);
+	});
+</script>
 </body>
 </html>

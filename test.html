@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Kontramarka</title>
+	<link rel="stylesheet" href="/css/kontramarka-theme.min.css">
+</head>
+<body>
+
+	<header>
+		<section id="topMenu" class="bg-secondary">
+			<div class="container">
+				<nav class="navbar">
+					<a class="navbar-brand" href="/"></a>
+					<ul class="navbar-nav" id="navbar">
+						<li class="nav-item search">
+							<a class="nav-link">
+								<i class="icon-search"></i>
+							</a>
+							<form id="search">
+								<input type="text" placeholder="Поиск">
+								<button type="submit" hidden>Search</button>
+							</form>
+						</li>
+						<li class="nav-item dropdown date">
+							<a class="nav-link dropdown-toggle" id="topMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-calendar"></i><span class="d-none d-md-inline">Дата</span>
+							</a>
+							<div class="dropdown-menu fixed-width" aria-labelledby="topMenuDate">
+								<div id="topMenuCalendar" class="calendar">
+									<div class="title">
+										<a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
+										<a class="month" href="/2017-september/">Cентябрь 2017</a>
+										<a class="next" onclick="listMonth('2017-10', 'ru');" title="Следующий месяц"></a>
+									</div>
+									<div class="divider"></div>
+									<div class="dates">
+										<table cellpadding="0" cellspacing="0">
+											<thead>
+												<tr class="week">
+													<th>Пн</th>
+													<th>Вт</th>
+													<th>Ср</th>
+													<th>Чт</th>
+													<th>Пт</th>
+													<th>Сб</th>
+													<th>Вс</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><span class="old">28</span></td>
+													<td><span class="old">29</span></td>
+													<td><span class="old">30</span></td>
+													<td><span class="old">31</span></td>
+													<td><span>1</span></td>
+													<td><span>2</span></td>
+													<td><span>3</span></td>
+												</tr>
+												<tr>
+													<td><span>4</span></td>
+													<td><span>5</span></td>
+													<td><span>6</span></td>
+													<td><span>7</span></td>
+													<td><span>8</span></td>
+													<td><span>9</span></td>
+													<td><span>10</span></td>
+												</tr>
+												<tr>
+													<td><span>11</span></td>
+													<td><span>12</span></td>
+													<td><span>13</span></td>
+													<td><span>14</span></td>
+													<td><span>15</span></td>
+													<td><span>16</span></td>
+													<td><span>17</span></td>
+												</tr>
+												<tr>
+													<td><span>18</span></td>
+													<td><span>19</span></td>
+													<td><span>20</span></td>
+													<td><span class="today">21</span></td>
+													<td><a href="/date/viewday/2017-09-22/">22</a></td>
+													<td><span>23</span></td>
+													<td><span>24</span></td>
+												</tr>
+												<tr>
+													<td><span>25</span></td>
+													<td><a href="/date/viewday/2017-09-26/">26</a></td>
+													<td><a href="/date/viewday/2017-09-27/">27</a></td>
+													<td><a href="/date/viewday/2017-09-28/">28</a></td>
+													<td><a href="/date/viewday/2017-09-29/">29</a></td>
+													<td><a href="/date/viewday/2017-09-30/">30</a></td>
+													<td><span class="new">1</span></td>
+												</tr>
+												<tr>
+													<td><span class="new">2</span></td>
+													<td><span class="new">3</span></td>
+													<td><span class="new">4</span></td>
+													<td><span class="new">5</span></td>
+													<td><span class="new">6</span></td>
+													<td><span class="new">7</span></td>
+													<td><span class="new">8</span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown city">
+							<a class="nav-link dropdown-toggle" id="topMenuCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-map-marker"></i>
+								<span class="d-none d-md-inline">Город</span>
+							</a>
+							<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="topMenuCity">
+								<div class="list-search">
+									<i class="icon-search"></i>
+									<input type="text" data-autocomplete="cities" placeholder="Искать город">
+								</div>
+								<ul class="autocomplete-results">
+									<li class="active"><a href="/city/view/aachen/">Aachen</a></li>
+									<li><a href="/city/view/altenkirchen/">Altenkirchen</a></li>
+									<li><a href="/city/view/altoetting/">Altötting</a></li>
+									<li><a href="/city/view/alzey-kirchheimbolanden/">Alzey-Kirchheimbolanden</a></li>
+									<li><a href="/city/view/amberg/">Amberg</a></li>
+									<li><a href="/city/view/ansbach/">Ansbach</a></li>
+									<li><a href="/city/view/aschaffenburg/">Aschaffenburg</a></li>
+									<li><a href="/city/view/bad-godesberg/">Bad Godesberg (Bonn)</a></li>
+									<li><a href="/city/view/bamberg/">Bamberg</a></li>
+									<li><a href="/city/view/bayreuth/">Bayreuth</a></li>
+									<li><a href="/city/view/berlin/">Berlin</a></li>
+									<li><a href="/city/view/bielefeld/">Bielefeld</a></li>
+									<li><a href="/city/view/boeblingen/">Böblingen</a></li>
+									<li><a href="/city/view/bonn/">Bonn</a></li>
+									<li><a href="/city/view/bremen/">Bremen</a></li>
+									<li><a href="/city/view/buende/">Bünde</a></li>
+									<li><a href="/city/view/cloppenburg/">Cloppenburg</a></li>
+									<li><a href="/city/view/coburg/">Coburg</a></li>
+									<li><a href="/city/view/coesfeld/">Coesfeld</a></li>
+									<li><a href="/city/view/darmstadt/">Darmstadt</a></li>
+									<li><a href="/city/view/deggendorf/">Deggendorf</a></li>
+									<li><a href="/city/view/delbrueck/">Delbrück</a></li>
+									<li><a href="/city/view/detmold/">Detmold</a></li>
+									<li><a href="/city/view/dillingen-saar/">Dillingen Saar</a></li>
+									<li><a href="/city/view/dortmund/">Dortmund</a></li>
+									<li><a href="/city/view/duisburg/">Duisburg</a></li>
+									<li><a href="/city/view/dueren/">Düren</a></li>
+									<li><a href="/city/view/duesseldorf/">Düsseldorf</a></li>
+									<li><a href="/city/view/erlangen/">Erlangen</a></li>
+									<li><a href="/city/view/essen/">Essen</a></li>
+									<li><a href="/city/view/frankfurt-am-main/">Frankfurt am Main</a></li>
+									<li><a href="/city/view/freiburg/">Freiburg</a></li>
+									<li><a href="/city/view/friedrichshafen/">Friedrichshafen</a></li>
+									<li><a href="/city/view/fulda/">Fulda</a></li>
+									<li><a href="/city/view/fuerth/">Fürth</a></li>
+									<li><a href="/city/view/giessen/">Gießen</a></li>
+									<li><a href="/city/view/goettingen/">Göttingen</a></li>
+									<li><a href="/city/view/gummersbach/">Gummersbach</a></li>
+									<li><a href="/city/view/guetersloh/">Gütersloh</a></li>
+									<li><a href="/city/view/gamburg/">Hamburg</a></li>
+									<li><a href="/city/view/hamm/">Hamm</a></li>
+									<li><a href="/city/view/hanau/">Hanau</a></li>
+									<li><a href="/city/view/hannover/">Hannover</a></li>
+									<li><a href="/city/view/heidenheim/">Heidenheim</a></li>
+									<li><a href="/city/view/heilbronn/">Heilbronn</a></li>
+									<li><a href="/city/view/herford/">Herford</a></li>
+									<li><a href="/city/view/hilden/">Hilden</a></li>
+									<li><a href="/city/view/idar-oberstein/">Idar-Oberstein</a></li>
+									<li><a href="/city/view/ingolstadt/">Ingolstadt</a></li>
+									<li><a href="/city/view/karlsruhe/">Karlsruhe</a></li>
+									<li><a href="/city/view/kleve/">Kleve</a></li>
+									<li><a href="/city/view/koeln/">Köln</a></li>
+									<li><a href="/city/view/krefeld/">Krefeld</a></li>
+									<li><a href="/city/view/lahnstein/">Lahnstein</a></li>
+									<li><a href="/city/view/leinfelden-echterdingen/">Leinfelden-Echterdingen</a></li>
+									<li><a href="/city/view/leipzig/">Leipzig</a></li>
+									<li><a href="/city/view/lemgo/">Lemgo</a></li>
+									<li><a href="/city/view/limburg/">Limburg</a></li>
+									<li><a href="/city/view/lingen/">Lingen</a></li>
+									<li><a href="/city/view/luebbecke/">Lübbecke</a></li>
+									<li><a href="/city/view/ludwigshafen-am-rhein/">Ludwigshafen am Rhein</a></li>
+									<li><a href="/city/view/memmingen/">Memmingen</a></li>
+									<li><a href="/city/view/moenchengladbach/">Mönchengladbach</a></li>
+									<li><a href="/city/view/muehlheim/">Mülheim an der Ruhr</a></li>
+									<li><a href="/city/view/muenchen/">München</a></li>
+									<li><a href="/city/view/muenster/">Münster</a></li>
+									<li><a href="/city/view/neu-ulm/">Neu Ulm</a></li>
+									<li><a href="/city/view/neuss/">Neuss</a></li>
+									<li><a href="/city/view/neuwied-koblenz/">Neuwied (Koblenz)</a></li>
+									<li><a href="/city/view/nienburg/">Nienburg</a></li>
+									<li><a href="/city/view/neurnberg/">Nürnberg</a></li>
+									<li><a href="/city/view/offenbach/">Offenbach</a></li>
+									<li><a href="/city/view/oldenburg/">Oldenburg</a></li>
+									<li><a href="/city/view/osnabrueck/">Osnabrück</a></li>
+									<li><a href="/city/view/paderborn/">Paderborn</a></li>
+									<li><a href="/city/view/pforzheim/">Pforzheim</a></li>
+									<li><a href="/city/view/pocking/">Pocking</a></li>
+									<li><a href="/city/view/praha/">Praha</a></li>
+									<li><a href="/city/view/rastatt/">Rastatt</a></li>
+									<li><a href="/city/view/ratingen/">Ratingen</a></li>
+									<li><a href="/city/view/regensburg/">Regensburg</a></li>
+									<li><a href="/city/view/rheinbach/">Rheinbach (Bonn)</a></li>
+									<li><a href="/city/view/rheine/">Rheine</a></li>
+									<li><a href="/city/view/saarbruecken/">Saarbrücken</a></li>
+									<li><a href="/city/view/siegen/">Siegen</a></li>
+									<li><a href="/city/view/sigmaringen/">Sigmaringen</a></li>
+									<li><a href="/city/view/singen/">Singen</a></li>
+									<li><a href="/city/view/stuttgart/">Stuttgart</a></li>
+									<li><a href="/city/view/trier/">Trier</a></li>
+									<li><a href="/city/view/trossingen/">Trossingen</a></li>
+									<li><a href="/city/view/ulm/">Ulm</a></li>
+									<li><a href="/city/view/vechta/">Vechta</a></li>
+									<li><a href="/city/view/veitshoechheim-wuerzburg/">Veitshöchheim (Würzburg)</a></li>
+									<li><a href="/city/view/villingen-schwenningen/">Villingen-Schwenningen</a></li>
+									<li><a href="/city/view/wattenscheid-bochum/">Wattenscheid (Bochum)</a></li>
+									<li><a href="/city/view/werl/">Werl</a></li>
+									<li><a href="/city/view/wolfsburg/">Wolfsburg</a></li>
+									<li><a href="/city/view/wuerzburg/">Würzburg</a></li>
+									<li><a href="/city/view/zweibruecken/">Zweibrücken</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item d-none d-md-block" data-d-none="true">
+							<a href="#" class="nav-link"><i class="fa fa-map"></i><span>Карта<span class="d-none d-lg-inline"> событий</span></span></a>
+						</li>
+						<li class="nav-item dropdown lang-select">
+							<a href="#" class="lang curr-lang nav-link dropdown-toggle" id="topMenuLangSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="flag de"></span><span class="d-none d-xl-inline">Deutsch</span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="topMenuLangSelect">
+								<li class="dropdown-item active">
+									<a href="#" class="lang" data-lang-val="de">
+										<span class="flag de"></span><span>Deutsch</span>
+									</a>
+								</li>
+								<li class="dropdown-item">
+									<a href="#" class="lang" data-lang-val="ru">
+										<span class="flag ru"></span><span>Русский</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<a class="navbar-close-nav d-none">&times;</a>
+				</nav>
+			</div>
+		</section>
+		<section id="mainMenu">
+			<div class="container">
+				<div class="main-menu">
+					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span class="d-none d-sm-inline">Меню</span></a>
+					<div class="menu-item optional out dropdown reference date">
+						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
+							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
+						</a>
+						<div class="dropdown-menu fixed-width" aria-labelledby="mainMenuDate">
+							<div id="mainMenuCalendar" class="calendar">
+								<div class="title dd-menu-header">
+									<a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
+									<a class="month" href="/2017-september/">Cентябрь 2017</a>
+									<a class="next" onclick="listMonth('2017-10', 'ru');" title="Следующий месяц"></a>
+								</div>
+								<div class="divider"></div>
+								<div class="dates dd-menu-body">
+									<table cellpadding="0" cellspacing="0">
+										<thead>
+											<tr class="week">
+												<th>Пн</th>
+												<th>Вт</th>
+												<th>Ср</th>
+												<th>Чт</th>
+												<th>Пт</th>
+												<th>Сб</th>
+												<th>Вс</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span class="old">28</span></td>
+												<td><span class="old">29</span></td>
+												<td><span class="old">30</span></td>
+												<td><span class="old">31</span></td>
+												<td><span>1</span></td>
+												<td><span>2</span></td>
+												<td><span>3</span></td>
+											</tr>
+											<tr>
+												<td><span>4</span></td>
+												<td><span>5</span></td>
+												<td><span>6</span></td>
+												<td><span>7</span></td>
+												<td><span>8</span></td>
+												<td><span>9</span></td>
+												<td><span>10</span></td>
+											</tr>
+											<tr>
+												<td><span>11</span></td>
+												<td><span>12</span></td>
+												<td><span>13</span></td>
+												<td><span>14</span></td>
+												<td><span>15</span></td>
+												<td><span>16</span></td>
+												<td><span>17</span></td>
+											</tr>
+											<tr>
+												<td><span>18</span></td>
+												<td><span>19</span></td>
+												<td><span>20</span></td>
+												<td><span class="today">21</span></td>
+												<td><a href="/date/viewday/2017-09-22/">22</a></td>
+												<td><span>23</span></td>
+												<td><span>24</span></td>
+											</tr>
+											<tr>
+												<td><span>25</span></td>
+												<td><a href="/date/viewday/2017-09-26/">26</a></td>
+												<td><a href="/date/viewday/2017-09-27/">27</a></td>
+												<td><a href="/date/viewday/2017-09-28/">28</a></td>
+												<td><a href="/date/viewday/2017-09-29/">29</a></td>
+												<td><a href="/date/viewday/2017-09-30/">30</a></td>
+												<td><span class="new">1</span></td>
+											</tr>
+											<tr>
+												<td><span class="new">2</span></td>
+												<td><span class="new">3</span></td>
+												<td><span class="new">4</span></td>
+												<td><span class="new">5</span></td>
+												<td><span class="new">6</span></td>
+												<td><span class="new">7</span></td>
+												<td><span class="new">8</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item optional out dropdown reference city">
+						<a id="mainMenuCity" data-toggle="dropdown" data-flip="false">
+							<i class="icon-map-marker"></i>
+							<span class="d-none d-xl-inline">Город</span>
+						</a>
+						<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="mainMenuCity">
+							<div class="dd-menu-header list-search">
+								<i class="icon-search"></i>
+								<input type="text" data-autocomplete="cities" placeholder="Искать город">
+							</div>
+							<ul class="dd-menu-body autocomplete-results">
+								<li class="active"><a href="/city/view/aachen/">Aachen</a></li>
+								<li><a href="/city/view/altenkirchen/">Altenkirchen</a></li>
+								<li><a href="/city/view/altoetting/">Altötting</a></li>
+								<li><a href="/city/view/alzey-kirchheimbolanden/">Alzey-Kirchheimbolanden</a></li>
+								<li><a href="/city/view/amberg/">Amberg</a></li>
+								<li><a href="/city/view/ansbach/">Ansbach</a></li>
+								<li><a href="/city/view/aschaffenburg/">Aschaffenburg</a></li>
+								<li><a href="/city/view/bad-godesberg/">Bad Godesberg (Bonn)</a></li>
+								<li><a href="/city/view/bamberg/">Bamberg</a></li>
+								<li><a href="/city/view/bayreuth/">Bayreuth</a></li>
+								<li><a href="/city/view/berlin/">Berlin</a></li>
+								<li><a href="/city/view/bielefeld/">Bielefeld</a></li>
+								<li><a href="/city/view/boeblingen/">Böblingen</a></li>
+								<li><a href="/city/view/bonn/">Bonn</a></li>
+								<li><a href="/city/view/bremen/">Bremen</a></li>
+								<li><a href="/city/view/buende/">Bünde</a></li>
+								<li><a href="/city/view/cloppenburg/">Cloppenburg</a></li>
+								<li><a href="/city/view/coburg/">Coburg</a></li>
+								<li><a href="/city/view/coesfeld/">Coesfeld</a></li>
+								<li><a href="/city/view/darmstadt/">Darmstadt</a></li>
+								<li><a href="/city/view/deggendorf/">Deggendorf</a></li>
+								<li><a href="/city/view/delbrueck/">Delbrück</a></li>
+								<li><a href="/city/view/detmold/">Detmold</a></li>
+								<li><a href="/city/view/dillingen-saar/">Dillingen Saar</a></li>
+								<li><a href="/city/view/dortmund/">Dortmund</a></li>
+								<li><a href="/city/view/duisburg/">Duisburg</a></li>
+								<li><a href="/city/view/dueren/">Düren</a></li>
+								<li><a href="/city/view/duesseldorf/">Düsseldorf</a></li>
+								<li><a href="/city/view/erlangen/">Erlangen</a></li>
+								<li><a href="/city/view/essen/">Essen</a></li>
+								<li><a href="/city/view/frankfurt-am-main/">Frankfurt am Main</a></li>
+								<li><a href="/city/view/freiburg/">Freiburg</a></li>
+								<li><a href="/city/view/friedrichshafen/">Friedrichshafen</a></li>
+								<li><a href="/city/view/fulda/">Fulda</a></li>
+								<li><a href="/city/view/fuerth/">Fürth</a></li>
+								<li><a href="/city/view/giessen/">Gießen</a></li>
+								<li><a href="/city/view/goettingen/">Göttingen</a></li>
+								<li><a href="/city/view/gummersbach/">Gummersbach</a></li>
+								<li><a href="/city/view/guetersloh/">Gütersloh</a></li>
+								<li><a href="/city/view/gamburg/">Hamburg</a></li>
+								<li><a href="/city/view/hamm/">Hamm</a></li>
+								<li><a href="/city/view/hanau/">Hanau</a></li>
+								<li><a href="/city/view/hannover/">Hannover</a></li>
+								<li><a href="/city/view/heidenheim/">Heidenheim</a></li>
+								<li><a href="/city/view/heilbronn/">Heilbronn</a></li>
+								<li><a href="/city/view/herford/">Herford</a></li>
+								<li><a href="/city/view/hilden/">Hilden</a></li>
+								<li><a href="/city/view/idar-oberstein/">Idar-Oberstein</a></li>
+								<li><a href="/city/view/ingolstadt/">Ingolstadt</a></li>
+								<li><a href="/city/view/karlsruhe/">Karlsruhe</a></li>
+								<li><a href="/city/view/kleve/">Kleve</a></li>
+								<li><a href="/city/view/koeln/">Köln</a></li>
+								<li><a href="/city/view/krefeld/">Krefeld</a></li>
+								<li><a href="/city/view/lahnstein/">Lahnstein</a></li>
+								<li><a href="/city/view/leinfelden-echterdingen/">Leinfelden-Echterdingen</a></li>
+								<li><a href="/city/view/leipzig/">Leipzig</a></li>
+								<li><a href="/city/view/lemgo/">Lemgo</a></li>
+								<li><a href="/city/view/limburg/">Limburg</a></li>
+								<li><a href="/city/view/lingen/">Lingen</a></li>
+								<li><a href="/city/view/luebbecke/">Lübbecke</a></li>
+								<li><a href="/city/view/ludwigshafen-am-rhein/">Ludwigshafen am Rhein</a></li>
+								<li><a href="/city/view/memmingen/">Memmingen</a></li>
+								<li><a href="/city/view/moenchengladbach/">Mönchengladbach</a></li>
+								<li><a href="/city/view/muehlheim/">Mülheim an der Ruhr</a></li>
+								<li><a href="/city/view/muenchen/">München</a></li>
+								<li><a href="/city/view/muenster/">Münster</a></li>
+								<li><a href="/city/view/neu-ulm/">Neu Ulm</a></li>
+								<li><a href="/city/view/neuss/">Neuss</a></li>
+								<li><a href="/city/view/neuwied-koblenz/">Neuwied (Koblenz)</a></li>
+								<li><a href="/city/view/nienburg/">Nienburg</a></li>
+								<li><a href="/city/view/neurnberg/">Nürnberg</a></li>
+								<li><a href="/city/view/offenbach/">Offenbach</a></li>
+								<li><a href="/city/view/oldenburg/">Oldenburg</a></li>
+								<li><a href="/city/view/osnabrueck/">Osnabrück</a></li>
+								<li><a href="/city/view/paderborn/">Paderborn</a></li>
+								<li><a href="/city/view/pforzheim/">Pforzheim</a></li>
+								<li><a href="/city/view/pocking/">Pocking</a></li>
+								<li><a href="/city/view/praha/">Praha</a></li>
+								<li><a href="/city/view/rastatt/">Rastatt</a></li>
+								<li><a href="/city/view/ratingen/">Ratingen</a></li>
+								<li><a href="/city/view/regensburg/">Regensburg</a></li>
+								<li><a href="/city/view/rheinbach/">Rheinbach (Bonn)</a></li>
+								<li><a href="/city/view/rheine/">Rheine</a></li>
+								<li><a href="/city/view/saarbruecken/">Saarbrücken</a></li>
+								<li><a href="/city/view/siegen/">Siegen</a></li>
+								<li><a href="/city/view/sigmaringen/">Sigmaringen</a></li>
+								<li><a href="/city/view/singen/">Singen</a></li>
+								<li><a href="/city/view/stuttgart/">Stuttgart</a></li>
+								<li><a href="/city/view/trier/">Trier</a></li>
+								<li><a href="/city/view/trossingen/">Trossingen</a></li>
+								<li><a href="/city/view/ulm/">Ulm</a></li>
+								<li><a href="/city/view/vechta/">Vechta</a></li>
+								<li><a href="/city/view/veitshoechheim-wuerzburg/">Veitshöchheim (Würzburg)</a></li>
+								<li><a href="/city/view/villingen-schwenningen/">Villingen-Schwenningen</a></li>
+								<li><a href="/city/view/wattenscheid-bochum/">Wattenscheid (Bochum)</a></li>
+								<li><a href="/city/view/werl/">Werl</a></li>
+								<li><a href="/city/view/wolfsburg/">Wolfsburg</a></li>
+								<li><a href="/city/view/wuerzburg/">Würzburg</a></li>
+								<li><a href="/city/view/zweibruecken/">Zweibrücken</a></li>
+							</ul>
+						</div>
+					</div>
+					<a href="tel:+493078712860" class="phone menu-item">
+						<i class="icon-phone"></i>
+						<div class="d-none d-lg-inline-block">
+							<span class="number"><span class="code text-muted">+49</span> 30 7871 2860</span>
+							<div class="time text-muted">Пн - Пт с 12:00 до 16:00</div>
+						</div>
+					</a>
+					<a href="#" class="menu-item cart">
+						<span class="cart-outer">
+							<i class="icon-basket"></i>
+							<span class="badge badge-accent cart-count">2</span>
+						</span>
+					</a>
+					<a class="menu-item login" data-toggle="modal" data-target="#loginModal">
+						<i class="icon-sign-in"></i>
+						<span class="nav-item-text d-none d-md-inline">Войти</span>
+					</a>
+					<div class="menu-wrapper draggable-lg-up">
+						<div class="drag-fog left d-none d-lg-block"></div>
+						<div class="drag-item menu-body collapse" id="mainMenuCategories">
+							<ul class="categories">
+								<li class="nav-item"><a href="/" class="nav-link active" title="Все события">Все события</a></li>
+								<li class="nav-item"><a href="/concerts/" class="nav-link" title="Концерты">Концерты</a></li>
+								<li class="nav-item dropdown reference" id="mainMenu_theaters">
+									<a href="/" class="nav-link" title="Театры">Театры</a>
+									<a class="arrow"><i class="fa fa-angle-down"></i></a>
+									<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_theaters">
+										<li class="dropdown-item"><a href="#">Балет</a></li>
+										<li class="dropdown-item"><a href="#">Спектакли</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
+								<li class="nav-item dropdown reference" id="mainMenu_children">
+									<a href="javascript:void(0)" class="nav-link" title="Детям">Детям</a>
+									<a class="arrow"><i class="fa fa-angle-down"></i></a>
+									<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_children">
+										<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Юмор">Юмор</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+							</ul>
+						</div>
+						<div class="drag-fog right d-none d-lg-block mr-auto"></div>
+					</div>
+				</div>
+			</div>
+			<div class="loader"></div>
+		</section>
+	</header>
+
+	<main id="test">
+		<div class="page-block">
+			<div class="container">
+				<a href="javascript:ShowAlert()" class="btn btn-outline btn-primary">Показать Alert</a>
+				<a href="javascript:ShowConfirm()" class="btn btn-outline btn-primary">Показать Confirm</a>
+				<a href="javascript:ShowPrompt()" class="btn btn-outline btn-primary">Показать Prompt</a>
+			</div>
+		</div>
+		<div class="page-block">
+			<div class="container">
+				<button class="btn btn-primary refresh"><i class="icon-refresh"></i>refresh</button>
+				<button class="btn btn-primary showMsg">Show message</button>
+				<button class="btn btn-primary hideMsg">Hide message</button>
+			</div>
+		</div>
+		<section>
+			<div class="container">
+				<div id="messager"></div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box box-message collapse" id="smallSuccess">
+					<div class="box-body">
+						<div class="message message-success">
+							<div class="message__title"><i class="message__icon icon-check"></i> Заказ №4700 оформлен. Спасибо!</div>
+							<div class="message__text">
+								<p>Вам на почту выслан счет для оплаты заказа. Также Вы можете скачать его ниже.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show animate" id="bigSuccess">
+					<div class="box-body">
+						<div class="message message-lg message-success">
+							<div class="message__icon"><i class="icon-check"></i></div>
+							<div class="message__title">Заказ №4700 оформлен. Спасибо!</div>
+							<div class="message__text">
+								<p>Вам на почту выслан счет для оплаты заказа. Также Вы можете скачать его ниже.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show" id="smallInfo">
+					<div class="box-body">
+						<div class="message message-info">
+							<div class="message__title"><i class="message__icon fa fa-info-circle"></i> Корзина пуста.</div>
+							<div class="message__text">
+								<p>Ваша корзина была очищена.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show" id="bigWarning">
+					<div class="box-body">
+						<div class="message message-lg message-warning">
+							<i class="message__icon icon-exclamation-circle"></i>
+							<div class="message__title">Внимание!</div>
+							<div class="message__text">
+								<p>Выбранный концерт был отменён. Заказ билетов невозможен.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show" id="bigError">
+					<div class="box-body">
+						<div class="message message-lg message-danger">
+							<i class="message__icon icon-exclamation-circle"></i>
+							<div class="message__title">Внимание!</div>
+							<div class="message__text">
+								<p>Выбранный концерт был отменён. Заказ билетов невозможен.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="page-block">
+			<div class="container">
+				<div class="box">
+					<div class="box-body">
+						<div id="testScroll" class="beauty-scroll" data-max-height="200px">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, ipsam enim dignissimos assumenda repellat voluptatibus placeat eos beatae deserunt minima. Excepturi hic non sunt, libero! Voluptas porro, dolore rem, in error laboriosam perspiciatis ipsum! Voluptates tenetur ducimus earum provident culpa iusto eligendi sed quaerat a illo quidem temporibus rem minus cupiditate modi mollitia voluptatum atque nemo magnam amet suscipit perferendis non accusantium, possimus voluptatem. Recusandae hic blanditiis dolores eum debitis impedit, sint unde est atque, ipsam? Quis dolore expedita praesentium dolor, placeat saepe! Unde fugiat voluptatum repudiandae ex quisquam nostrum voluptate, vitae ipsa, vel culpa assumenda. Praesentium excepturi, atque. Placeat tempore tenetur officiis quae aliquam inventore deleniti ab distinctio autem doloremque! Nihil sapiente, dignissimos facere aperiam a quam facilis, ut omnis quasi ipsa dolorum laborum sunt ullam nisi nam fugit similique adipisci temporibus repellat. Nemo, cum officia quo illum distinctio delectus impedit ea blanditiis eveniet dolores dolorum quam ipsa velit eum soluta dolor dolore? Ducimus rem fugit expedita accusantium voluptate deserunt sunt minima et pariatur reprehenderit, aut architecto voluptas optio, eligendi a, ipsa accusamus omnis ea ut nemo! Sequi, in, sunt! Sapiente repudiandae expedita saepe pariatur aut quisquam, dicta neque, omnis, dignissimos facilis eius eaque sit unde fugit commodi, adipisci!</p>
+							<button class="btn btn-primary btn-center">btn-text</button>
+							<p>Praesentium laborum, sunt quaerat! Vitae commodi, sed enim neque eveniet pariatur est deserunt voluptatum nobis ullam rerum, quia perspiciatis quo iste tempore architecto autem ea, expedita dicta blanditiis. Tempore, deleniti modi quaerat dolore cumque delectus, voluptatibus veniam illo magni rerum atque, ea. Ratione, eaque veritatis repudiandae iusto error architecto aperiam nihil, obcaecati recusandae, perferendis quis odio at dolore id natus commodi distinctio alias dicta? Voluptatibus dolores reiciendis nam fugit voluptate debitis magni cumque quos facere reprehenderit sint, culpa recusandae, doloremque maiores at labore obcaecati quaerat maxime? Aliquid est dolorem laudantium, rerum, iste soluta autem iusto eveniet non tempora vero, voluptatibus excepturi quos, fuga eos obcaecati error molestiae beatae sequi? Itaque facilis laboriosam voluptate corrupti dolore in quidem dolor. Corporis quasi, vero laboriosam in quo! Labore nobis architecto dolorem at ratione ducimus libero cumque quis iusto reprehenderit delectus eligendi, dicta modi perspiciatis, ipsam placeat molestiae? Amet placeat eos repellat architecto nobis, asperiores eveniet suscipit rerum aut atque quas ab saepe modi, delectus dolore. Rerum sunt veritatis eligendi. Libero voluptatem officiis ipsam explicabo. Incidunt, ea ratione impedit dolores quo velit omnis eum, quam cupiditate, fugit saepe. Dignissimos placeat adipisci, dicta, culpa incidunt, earum, voluptatum recusandae consequuntur aperiam cum sunt distinctio hic minima.</p>
+							<button class="btn btn-primary">btn-text</button>
+							<p>Fugit atque quasi ipsum alias natus hic officia quis in, aliquam, ab libero impedit ipsam voluptatem dicta unde obcaecati quae nam numquam, mollitia inventore ut magni saepe expedita nesciunt sequi! Totam sint perspiciatis vero incidunt delectus accusantium perferendis, illum similique. Necessitatibus eveniet fuga ratione, tenetur quis rerum! Necessitatibus debitis, nesciunt sequi assumenda cumque, id officiis et magni quod ex labore recusandae vel molestiae adipisci neque sint doloremque impedit mollitia voluptatum sunt. Est laboriosam fugiat repellendus temporibus ipsum nam dolor, officiis assumenda qui quos earum reprehenderit consectetur saepe numquam ut magni perferendis alias ipsa consequuntur harum nulla laudantium odio eveniet obcaecati sit! Maiores maxime quos blanditiis quibusdam laudantium quis, sunt? Cupiditate, consectetur reprehenderit explicabo nulla cumque voluptates vero hic obcaecati nihil praesentium incidunt, quod officiis deserunt vel, iusto expedita voluptate animi ipsa doloribus corrupti sequi beatae veniam. Atque vero eveniet officia odit libero laborum amet, eos ex possimus, fugit facilis quia eaque, nihil dolorem, sapiente magnam vel fugiat aliquid natus expedita voluptate. Enim dicta inventore autem facere, nostrum nemo saepe minima ipsa et. Distinctio numquam aspernatur modi debitis ad, sed. Ipsum, eaque hic repellendus beatae aliquid, aperiam impedit, totam dolorum suscipit distinctio blanditiis. Delectus provident animi quibusdam saepe, quis dignissimos deserunt!</p>
+							<button class="btn btn-primary">btn-text</button>
+							<p>Ex quidem expedita ea repudiandae laborum consequatur, rem, ipsa mollitia quisquam quaerat odit, debitis optio alias saepe ad nulla! Laudantium eveniet sit quam, doloribus blanditiis sunt cupiditate vero. Quis numquam corrupti quasi exercitationem quod beatae accusamus est architecto, ea sint sapiente nam necessitatibus molestias quidem eius fugit possimus in, eos impedit libero animi! Vitae nisi quibusdam asperiores odio earum libero eveniet debitis dignissimos amet ratione, animi ab voluptas, sint tempore repellat fugit. Sequi omnis, debitis odio! Consequuntur exercitationem necessitatibus atque voluptas inventore nisi, accusantium suscipit tenetur doloribus quibusdam corrupti voluptatum repudiandae amet numquam commodi repellat harum error perspiciatis officiis. Consequatur quos dolorum ipsa eligendi praesentium architecto sit beatae quam placeat porro laborum amet ullam facere repudiandae officiis, numquam eius quod ex reprehenderit nisi nulla, iure accusantium! Voluptatem quidem hic pariatur cupiditate veniam eaque nesciunt natus fuga explicabo itaque id similique atque soluta vitae, repellat obcaecati ad quaerat, ipsam accusamus iure dicta impedit earum! Ex cupiditate necessitatibus consequatur delectus est nam nesciunt eius ea a praesentium error et explicabo facere officia aperiam rem commodi veritatis, aut at provident. Praesentium, corporis! Itaque, eius necessitatibus dignissimos. Qui, odit modi amet velit corporis accusamus nisi incidunt explicabo beatae eum. Amet vero tempore mollitia ex!</p>
+							<button class="btn btn-primary">btn-text</button>
+							<p>Ad corrupti cumque, quia odit veritatis inventore hic quis mollitia modi eveniet? Repudiandae nihil totam et voluptate deserunt nobis eum libero accusamus nesciunt pariatur doloremque recusandae nulla nam adipisci labore qui dolor, amet aspernatur iusto perferendis impedit. Repellendus ut facilis repellat, fugiat qui quo quos! Officiis alias nemo dolore soluta voluptas distinctio fuga amet, laudantium porro, voluptates obcaecati dolorum perspiciatis! Quidem quam ipsa ab quo, quos deleniti debitis, placeat, dolorem voluptates tempora sequi. Minima accusantium et, optio, modi quisquam in praesentium itaque vitae commodi iure illo amet. Vero sint delectus aliquam, ut aut soluta aspernatur! Modi sed autem, doloremque ex sint dolorem amet incidunt consequatur magnam, dolorum quidem, nobis nam iste delectus minus nostrum. Incidunt architecto eaque amet. Enim doloribus tempore eius unde debitis voluptate eveniet in, accusamus nostrum sit nesciunt voluptates repellat accusantium facilis cupiditate ratione odio voluptas maxime, vero. Esse tempora error repudiandae quasi est aliquid ipsum nulla ab, similique, veritatis placeat hic voluptatum repellat accusantium ducimus odit numquam sint consequatur debitis sunt a enim. Et repellendus tempora excepturi ad, itaque cupiditate, aut voluptatem velit, vero impedit repellat nesciunt quos laudantium vel obcaecati ea tempore nisi reiciendis consequatur porro earum dicta perspiciatis saepe libero dolores. Amet, commodi sed.</p>
+							<button class="btn btn-primary">btn-text</button>
+							<p>At quae quo qui est neque et, aperiam rerum vitae odio excepturi voluptatibus facilis facere quibusdam inventore quam, accusantium a illum sed error! Earum rem impedit ipsam soluta accusantium aliquid corrupti. A quia ex odio ipsa ad laborum aspernatur labore atque aut quod. Voluptate provident quis labore nam iure amet eligendi aspernatur beatae hic asperiores facere aliquam ipsa nemo autem corporis saepe quae aut commodi molestias rem repellat, eius, sit. Atque laborum doloremque beatae ducimus nobis dolorem ratione, mollitia, id itaque fuga ipsam necessitatibus. Asperiores cupiditate voluptatum quibusdam quisquam quasi eligendi voluptatibus mollitia ea, necessitatibus ex dolorum delectus labore rem tempora commodi doloribus porro dolore reiciendis, sunt alias cumque laboriosam iure sed qui! Tempora fuga sequi, dicta architecto ex eos dignissimos, velit pariatur vel quis perferendis illo impedit ipsa facilis animi minima aliquid consectetur quae ratione labore tempore delectus voluptatum numquam! Dolorum ut, quod facere harum quos consectetur quaerat omnis quas ipsam officia nemo alias quae fugiat odio rerum necessitatibus ea ad eum, dolorem illo repudiandae. At atque, incidunt dolorem velit, quae totam unde voluptatibus dolorum praesentium dolores eum amet consequatur tempora fugiat. Iure ratione minima velit, quaerat in amet dolor vitae, vero consectetur. Quibusdam dolore quae ab molestias neque.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page-block">
+			<div class="container">
+				<div class="box">
+					<div class="box-body"></div>
+					<div class="box-footer">
+						<div class="box-footer__left">
+							<a href="javascript:history.go(-1)" class="btn-text go-back">Назад</a>
+						</div>
+						<div class="box-footer__right">
+							<button class="btn btn-primary" onclick="addToCart(3490, 'ru');">Добавить в корзину</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section>
+			<div class="container">
+				<h2 class="page-block-title">Cities</h2>
+				<div class="cities">
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/berlin.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Berlin</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/hamburg.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Hamburg</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/munchen.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">München</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/bern.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Bern</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/koln.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Köln</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/stuttgart.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Stuttgart</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/dusseldorf.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Düsseldorf</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="cities__item">
+						<div class="card">
+							<div class="card__img card__img--fix">
+								<img src="/images/cities/dortmund.png" alt="Berlin">
+							</div>
+							<div class="card__body">
+								<a href="#" class="block-title">
+									<span class="block-title__text">Dortmund</span>
+									<small class="block-title__label">2 события</small>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="divider mt-5 mb-5"></div>
+
+				<h2 class="page-block-title">Events Big</h2>
+				<div class="events">
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">21.08.2017</div>
+										<div class="d-none d-sm-inline">21 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/3.png" alt="Полина Гагарина">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Полина Гагарина</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Münich</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Спектакль “Игра на вылет”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">“Чужих мужей не бывает”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 3</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Münich</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Münich</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Петербургский театральный сезон</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Alzey-Kirchheimbolanden</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4">
+								<img src="/images/public/events/10.png" alt="Максим Галкин">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Максим Галкин</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Alzey-Kirchheimbolanden</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 d-none d-xl-block">
+						<div class="event event--full-width">
+							<a href="#">
+								<img src="/images/public/events/long-1.jpg" alt="Баста">
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<h2 class="page-block-title">Events Small</h2>
+				<div class="events-horz-3">
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт.">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">21.08.2017</div>
+										<div class="d-none d-sm-inline">21 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Alte Münze, Molkenmarkt 2, 10179 Berlin</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/3.png" alt="Полина Гагарина">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Полина Гагарина</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Спектакль “Игра на вылет”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">“Чужих мужей не бывает”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">LOVE STORY от “THE NEW ORCHESTRA”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Рок-группа Стаса Намина “Цветы”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/8.png" alt="Петербургский театральный сезон">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Петербургский театральный сезон</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/9.png" alt="Филип Киркоров “Шоу Я”">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Филип Киркоров “Шоу Я”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Alzey-Kirchheimbolanden</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events-horz-3__item">
+						<div class="event-horz">
+							<div class="part-left">
+								<div class="event__img event__img--a4">
+									<img src="/images/public/events/10.png" alt="Максим Галкин">
+								</div>
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Максим Галкин</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-sm-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 d-none d-xl-block">
+						<div class="event event--full-width">
+							<a href="#">
+								<img src="/images/public/events/long-1.jpg" alt="Баста">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer></footer>
+
+<script>
+function ShowAlert(){
+    CMSalert('Это body модалки', 'Это заголовок модалки', {
+		id: 'MyModal',
+		size: 'xs',
+		btnOk: 'Согласен',
+		mode: 'info'
+	});
+}
+function ShowConfirm() {
+	CMSconfirm('... and my dynamical body!', 'This is my dynamical head', whenOkPressed, {
+		id: 'idMyModal',
+		btnCancel: 'Get out of here!',
+		btnOk: 'Let\'s do this!',
+		size: 'sm',
+		mode: 'danger',
+		removeOnDismiss: false
+	});
+}
+function ShowPrompt(){
+    CMSprompt('Плейсхлодер инпута', '', 'Это заголовок модалки prompt', function(value){
+		CMSalert(value);
+	}, {
+		id: 'idMyPrompt',
+		btnCancel: 'Cancel',
+		btnOk: 'Try',
+		size: 'sm',
+		mode: 'accent',
+		removeOnDismiss: false
+	});
+}
+
+function whenOkPressed() {
+	CMSalert('Done', 'Information');
+}
+</script>
+
+<!-- Options -->
+<script>
+	window.paceOptions = {
+		target: '#mainMenu .loader'
+	};
+</script>
+
+<!-- jQuery -->
+<script src="/plugins/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/plugins/js/popper.min.js"></script>
+<script src="/plugins/js/bootstrap.min.js"></script>
+<!-- Pace -->
+<script src="/plugins/js/pace.min.js"></script>
+<!-- Slick -->
+<script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
+<!-- Components -->
+<script src="/components/js/autocomplete.js"></script>
+<!-- Main -->
+<script src="/js/functions.js"></script>
+<script src="/js/main.js"></script>
+
+<script>
+$(function(){
+	$('.refresh').on('click', function(){
+		$.ajax({
+			url: "test.php?action=getdata_for_preloader",
+			action: 'getdata_for_preloader'
+		}).done(function(response) {
+			CMSalert('Server respond: ' + response.responseText, 'Response!', {
+				size: 'xs',
+				mode: 'success'
+			});
+		}).fail(function() {
+			CMSalert('Server does not respond.', 'AJAX-Request failed', {
+				size: 'xs',
+				mode: 'warning'
+			});
+		});
+	});
+
+	var myMsg = BoxMessage('Hello', 'I am automatically generated message. Glad to see you!');
+	$('.showMsg').on('click', function(){
+		$(myMsg).collapse('show');
+	});
+	$('.hideMsg').on('click', function(){
+		$(myMsg).collapse('hide');
+	});
+
+});
+
+function showMessage(selector) {
+	$('.box-message'+selector).collapse('show');
+}
+function hideMessage(selector) {
+	$('.box-message'+selector).collapse('hide');
+}
+</script>
+</body>
+</html>
