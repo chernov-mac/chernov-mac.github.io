@@ -392,7 +392,7 @@
         setHelperSize();
         setHelperPos(curHelperPos);
 
-        $zoomPlaceholder.find('.control-scale__status').html((scale * 100) + '%');
+        $zoomPlaceholder.find('.control-scale__status').html(Math.round(scale * 100) + '%');
     }
 
 })(jQuery, $);
