@@ -106,7 +106,7 @@
             handleDataCopyPan(ev);
         }
         if (ev.type == "pinch") {
-            scale = Math.max(0.999, Math.min(lastScale * (ev.scale), 4));
+            scale *= ev.scale;
             changeScale();
         }
         if (ev.type == "pinchend") {
