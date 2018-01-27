@@ -106,7 +106,7 @@
             handleDataCopyPan(ev);
         }
         if (ev.type == 'pinch') {
-            scale *= ev.scale / 100;
+            scale *= 1 + ev.scale / 100;
             changeScale();
         }
         if (ev.type == 'pinchend') {
