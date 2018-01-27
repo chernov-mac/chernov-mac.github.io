@@ -100,8 +100,11 @@
         threshold: 0
     }));
     dataCopyManager.add(new Hammer.Pinch({
+        enable: true,
         threshold: 0
     })).recognizeWith([dataCopyManager.get('pan')]);
+    dataCopyManager.get('pinch').set({ enable: true });
+
     dataCopyManager.on('pan', handleDataCopyPan);
     dataCopyManager.on('pinch', function(ev){
         var pinched = Math.round(ev.scale * 100) / 100;
