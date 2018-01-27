@@ -102,10 +102,15 @@
         threshold: 0
     })).recognizeWith(dataCopyManager.get('pan'));
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', function(){
+    dataCopyManager.on('pinch', function(ev){
+        $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
+        $('#evScale').append('<div>Ev.scale: ' + ev.scale + '</div>');
+
         scale += ev.scale < 1 ? -ev.scale : ev.scale / 10;
         changeScale();
-        $('#evScale').append('<div>'+ev.scale+'</div>');
+
+        $('#evScale').append('<div>Result: ' + scale + '</div>');
+        $('#evScale').append('<div>_________________________</div>');
 
         if (ev.type == 'pinchend') {
             lastScale = scale;
