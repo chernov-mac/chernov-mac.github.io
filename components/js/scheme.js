@@ -4,7 +4,8 @@
     var $mainData = $('#MainData');
     var helper = document.getElementById('helper'),
         $helper = $(helper);
-    var $zoomPlaceholder = $('#ZoomPlaceholder');
+    var zoomPlaceholder = document.getElementById('ZoomPlaceholder'),
+        $zoomPlaceholder = $(zoomPlaceholder);
     var dataCopy = document.getElementById('DataCopy'),
         $dataCopy = $(dataCopy);
 
@@ -98,16 +99,27 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     }));
-    dataCopyManager.add(new Hammer.Pinch({
-        threshold: 0
-    })).recognizeWith(dataCopyManager.get('pan'));
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', function(ev){
-        $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
-        $('#evScale').append('<div>Ev.scale: ' + ev.scale + '</div>');
 
-        // scale += ev.scale < 1 ? -ev.scale : ev.scale / 10;
-        scale = lastScale * Math.round(ev.scale * 100) / 100;
+    // #ZoomPlaceholder handlers
+
+    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {
+		transform_always_block: true,
+		transform_min_scale: 1,
+		drag_block_horizontal: true,
+		drag_block_vertical: true,
+		drag_min_distance: 0
+	});
+    zoomPlaceholderManager.add(new Hammer.Pinch({
+        threshold: 0
+    }));
+    zoomPlaceholderManager.on('pinch', function(ev){
+        var pinched = Math.round(ev.scale * 100) / 100;
+
+        $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
+        $('#evScale').append('<div>Pinched: ' + pinched + '</div>');
+
+        scale = lastScale * pinched;
         changeScale();
 
         $('#evScale').append('<div>Result: ' + scale + '</div>');
