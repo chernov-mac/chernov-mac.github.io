@@ -105,11 +105,11 @@
         if (ev.type == 'pan') {
             handleDataCopyPan(ev);
         }
-        if (ev.type == "pinch") {
-            scale *= ev.scale;
+        if (ev.type == 'pinch') {
+            scale *= Math.sqrt(ev.scale);
             changeScale();
         }
-        if (ev.type == "pinchend") {
+        if (ev.type == 'pinchend') {
             lastScale = scale;
         }
     });
@@ -381,7 +381,7 @@
         }
     }
 
-    function changeScale(diff) {
+    function changeScale() {
         setDataCopyPos();
         dataCopyPos = getDataCopyPos();
 
