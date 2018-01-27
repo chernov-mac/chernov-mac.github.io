@@ -99,15 +99,11 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     }));
-    dataCopyManager.on('pan', handleDataCopyPan);
-
-    // #ZoomPlaceholder handlers
-
-    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
-    zoomPlaceholderManager.add(new Hammer.Pinch({
+    dataCopyManager.add(new Hammer.Pinch({
         threshold: 0
     })).recognizeWith([dataCopyManager.get('pan')]);
-    zoomPlaceholderManager.on('pinch', function(ev){
+    dataCopyManager.on('pan', handleDataCopyPan);
+    dataCopyManager.on('pinch', function(ev){
         var pinched = Math.round(ev.scale * 100) / 100;
 
         $('#evScale').append('<div>Last scale: ' + lastScale + '</div>');
@@ -117,11 +113,13 @@
         scale = lastScale * pinched;
         changeScale();
     });
-    zoomPlaceholderManager.on('pinchend', function(ev){
+    dataCopyManager.on('pinchend', function(ev){
         lastScale = scale;
         $('#evScale').append('<div>Result: ' + scale + '</div>');
         $('#evScale').append('<div>_________________________</div>');
     });
+
+    // #ZoomPlaceholder handlers
 
     $zoomPlaceholder.find('.control-scale__btn--minus').on('click', function(){
         scale -= 0.25;
