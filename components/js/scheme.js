@@ -106,7 +106,8 @@
         $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
         $('#evScale').append('<div>Ev.scale: ' + ev.scale + '</div>');
 
-        scale += ev.scale < 1 ? -ev.scale : ev.scale / 10;
+        // scale += ev.scale < 1 ? -ev.scale : ev.scale / 10;
+        scale = lastScale * ev.scale;
         changeScale();
 
         $('#evScale').append('<div>Result: ' + scale + '</div>');
