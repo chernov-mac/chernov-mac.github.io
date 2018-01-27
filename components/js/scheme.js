@@ -107,7 +107,7 @@
         $('#evScale').append('<div>Ev.scale: ' + ev.scale + '</div>');
 
         // scale += ev.scale < 1 ? -ev.scale : ev.scale / 10;
-        scale = lastScale * ev.scale;
+        scale = lastScale * Math.round(ev.scale * 100) / 100;
         changeScale();
 
         $('#evScale').append('<div>Result: ' + scale + '</div>');
