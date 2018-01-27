@@ -94,27 +94,24 @@
 		drag_block_vertical: true,
 		drag_min_distance: 0
 	});
-    var pan = new Hammer.Pan({
+    dataCopyManager.add(new Hammer.Pan({
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
-    });
-    var pinch = new Hammer.Pinch({ enable: true });
-    var rotate = new Hammer.Rotate({ enable: true });
-    dataCopyManager.add([pan, pinch]);
-    dataCopyManager.on('pan pinch', function(ev) {
-        if (ev.type == 'pan') {
-            handleDataCopyPan(ev);
-        }
-        if (ev.type == 'pinch') {
-            scale *= 1 + ev.scale / 100;
-            changeScale();
-            $('#evScale').append('<div>'+ev.scale+'</div>');
-        }
+    }));
+    dataCopyManager.add(new Hammer.Pinch({
+        threshold: 0
+    })).recognizeWith(dataCopyManager.get('pan'));
+    dataCopyManager.on('pan', handleDataCopyPan);
+    dataCopyManager.on('pinch', function(){
+        scale += ev.scale < 1 ? -ev.scale : ev.scale / 10;
+        changeScale();
+        $('#evScale').append('<div>'+ev.scale+'</div>');
+
         if (ev.type == 'pinchend') {
             lastScale = scale;
         }
     });
-    // dataCopyManager.on('', handleDataCopyPinch);
+
     $zoomPlaceholder.find('.control-scale__btn--minus').on('click', function(){
         scale -= 0.25;
         changeScale();
