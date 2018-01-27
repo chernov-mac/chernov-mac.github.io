@@ -110,11 +110,12 @@
     zoomPlaceholderManager.on('pinch', function(ev){
         var pinched = Math.round(ev.scale * 100) / 100;
 
-        scale = lastScale * pinched;
-        changeScale();
-
+        $('#evScale').append('<div>Last scale: ' + lastScale + '</div>');
         $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
         $('#evScale').append('<div>Pinched: ' + pinched + '</div>');
+
+        scale = lastScale * pinched;
+        changeScale();
     });
     zoomPlaceholderManager.on('pinchend', function(ev){
         lastScale = scale;
@@ -390,6 +391,7 @@
     }
 
     function changeScale() {
+        $('#evScale').append('<div>changeScale() invoked with scale: ' + scale + '</div>');
         setDataCopyPos();
         dataCopyPos = getDataCopyPos();
 
