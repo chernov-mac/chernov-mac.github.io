@@ -896,6 +896,9 @@ p.sthpltz {
 .control-scale__btn:hover {
   color: #bd25b2;
 }
+.control-scale__btn.disabled {
+  color: #e0e0e0;
+}
 .control-scale__btn + .control-scale__btn {
   margin-left: 1px;
 }

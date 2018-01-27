@@ -20,14 +20,19 @@
 
     var ratio = dataCopy.clientWidth / dataCopy.clientHeight;
     var proportion = dataCopy.clientWidth / mainData.clientWidth;
-    var lastScale = 1,
-        scale = 1;
+
+    var
+        scale = 1,
+        lastScale = 1;
 
     var helperIsDragging = false;
     var dataCopyIsDragging = false;
 
-    var helperTranslate = 'translate3d(' + Math.round(helperLastPos.x) + 'px, ' + Math.round(helperLastPos.y) + 'px, 0)';
-    var dataCopyTranslate = 'translate3d(' + Math.round(dataCopyLastPos.x) + 'px, ' + Math.round(dataCopyLastPos.y) + 'px, 0)';
+    var helperDisableDown = 991; // 991px -- xs, sm, md screens
+    var helperDisable = false;
+
+    var dot = null;
+    var dotCounter = 0;
 
 
     // ----------------------
@@ -46,21 +51,6 @@
     setHelperPos();
     addControls();
     changeScale(scale);
-
-    // TODO: remove this
-    var zoomPlaceholderCenter = document.createElement('div');
-    zoomPlaceholderCenter.id = 'zoomPlaceholderCenter';
-    zoomPlaceholderCenter.style.position = 'absolute';
-    zoomPlaceholderCenter.style.zIndex = 2;
-    zoomPlaceholderCenter.style.top = '50%';
-    zoomPlaceholderCenter.style.left = '50%';
-    zoomPlaceholderCenter.style.display = 'block';
-    zoomPlaceholderCenter.style.width = '10px';
-    zoomPlaceholderCenter.style.height = '10px';
-    zoomPlaceholderCenter.style.transform = 'translate3d(-50%, -50%, 0) rotate(45deg)';
-    zoomPlaceholderCenter.style.background = '#ffc800';
-    zoomPlaceholderCenter.style.boxShadow = '0px 2px 20px 5px rgba(0, 0, 0, 0.4)';
-    zoomPlaceholder.insertBefore(zoomPlaceholderCenter, dataCopy);
 
     // ----------------------
     // Инициалзация Hammer
@@ -89,8 +79,13 @@
     // ----------------------
 
     window.addEventListener('resize', function(){
-        setHelperSize();
-        setHelperPos();
+        if (window.innerWidth <= helperDisableDown) {
+            helperDisable = true;
+        }
+        if (!helperDisable) {
+            setHelperSize();
+            setHelperPos();
+        }
     });
 
     // #helper handlers
@@ -102,7 +97,7 @@
         var pinched = Math.round(ev.scale * 100) / 100;
 
         var curScale = lastScale * pinched;
-        changeScale(curScale);
+        changeScale(curScale, ev.center);
     });
     dataCopyManager.on('pinchend', function(ev){
         lastScale = scale;
@@ -174,10 +169,18 @@
     function getDataCopyPos() {
         var deltaZoomPlaceholder = getDeltaSize(zoomPlaceholder);
         var zoomPlaceholderRect = zoomPlaceholder.getBoundingClientRect();
+        var zoomPlaceholderOffset = {
+            top: zoomPlaceholderRect.top + document.body.scrollTop,
+            left: zoomPlaceholderRect.left + document.body.scrollLeft
+        };
         var dataCopyRect = dataCopy.getBoundingClientRect();
+        var dataCopyOffset = {
+            top: dataCopyRect.top + document.body.scrollTop,
+            left: dataCopyRect.left + document.body.scrollLeft
+        };
         return {
-            x: zoomPlaceholderRect.left - dataCopyRect.left - deltaZoomPlaceholder.x,
-            y: zoomPlaceholderRect.top - dataCopyRect.top - deltaZoomPlaceholder.y
+            x: dataCopyOffset.left - zoomPlaceholderOffset.left - deltaZoomPlaceholder.x / 2,
+            y: dataCopyOffset.top - zoomPlaceholderOffset.top - deltaZoomPlaceholder.y / 2
         };
     }
 
@@ -252,13 +255,7 @@
         if (actualPos.y > dataCopyMaxPos.y.max) actualPos.y = dataCopyMaxPos.y.max;
 
         // Двигаем элемент до нужной позиции
-        // TODO: check whis place
-        dataCopyTranslate = 'translate3d(' + Math.round(actualPos.x) + 'px, ' + Math.round(actualPos.y) + 'px, 0)';
-        applyDataCopyTransform();
-    }
-
-    function applyDataCopyTransform() {
-        dataCopy.style.transform = dataCopyTranslate + ' scale(' + scale + ')';
+        dataCopy.style.transform = 'translate3d(' + Math.round(actualPos.x) + 'px, ' + Math.round(actualPos.y) + 'px, 0) scale(' + scale + ')';
     }
 
     function addControls() {
@@ -331,7 +328,6 @@
         if (!dataCopyIsDragging) {
             dataCopyIsDragging = true;
             dataCopyLastPos = getDataCopyPos();
-            console.log(dataCopyLastPos);
             dataCopy.classList.add('dragging');
         }
 
@@ -341,13 +337,15 @@
             x: ev.deltaX + dataCopyLastPos.x + dataCopySizeOut.x / 2,
             y: ev.deltaY + dataCopyLastPos.y + dataCopySizeOut.y / 2
         };
-        var curHelperPos = {
-            x: - Math.round((ev.deltaX + dataCopyLastPos.x) / proportion / scale),
-            y: - Math.round((ev.deltaY + dataCopyLastPos.y) / proportion / scale)
-        };
-
         setDataCopyPos(curDataCopyPos);
-        setHelperPos(curHelperPos);
+
+        if (!helperDisable) {
+            var curHelperPos = {
+                x: - Math.round((ev.deltaX + dataCopyLastPos.x) / proportion / scale),
+                y: - Math.round((ev.deltaY + dataCopyLastPos.y) / proportion / scale)
+            };
+            setHelperPos(curHelperPos);
+        }
 
         // DRAG ENDED
         if (ev.isFinal) {
@@ -356,18 +354,40 @@
         }
     }
 
-    function changeScale(actualScale) {
-        scale = actualScale > 0.25 ? actualScale : 0.25;
+    function changeScale(actualScale, scaleCenter) {
+        zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.remove('disabled');
+        zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.remove('disabled');
+
+        if (actualScale <= 0.25) {
+            scale = 0.25;
+            zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.add('disabled');
+        } else if (actualScale >= 5) {
+            scale = 5;
+            zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.add('disabled');
+        } else {
+            scale = actualScale;
+        }
+
+        if (!scaleCenter) {
+            var deltaDataCopy = getDeltaSize(dataCopy);
+            dataCopyPos = getDataCopyPos();
+            scaleCenter = {
+                x: deltaDataCopy.x + dataCopyPos.x + zoomPlaceholder.offsetWidth / 2,
+                y: deltaDataCopy.y + dataCopyPos.y + zoomPlaceholder.offsetHeight / 2
+            };
+        }
 
         setDataCopyPos();
         dataCopyPos = getDataCopyPos();
 
-        var curHelperPos = {
-            x: - Math.round(dataCopyPos.x / proportion / scale),
-            y: - Math.round(dataCopyPos.y / proportion / scale)
-        };
-        setHelperSize();
-        setHelperPos(curHelperPos);
+        if (!helperDisable) {
+            var curHelperPos = {
+                x: - Math.round(dataCopyPos.x / proportion / scale),
+                y: - Math.round(dataCopyPos.y / proportion / scale)
+            };
+            setHelperSize();
+            setHelperPos(curHelperPos);
+        }
 
         zoomPlaceholder.querySelector('.control-scale__status').innerHTML = Math.round(scale * 100) + '%';
     }
