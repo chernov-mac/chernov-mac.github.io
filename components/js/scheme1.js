@@ -364,6 +364,7 @@
         if (!dataCopyIsDragging) {
             dataCopyIsDragging = true;
             dataCopyLastPos = getDataCopyPos();
+            console.log(dataCopyLastPos);
             $dataCopy.addClass('dragging');
         }
 
