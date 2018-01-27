@@ -110,11 +110,11 @@
     zoomPlaceholderManager.on('pinch', function(ev){
         var pinched = Math.round(ev.scale * 100) / 100;
 
-        $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
-        $('#evScale').append('<div>Pinched: ' + pinched + '</div>');
-
         scale = lastScale * pinched;
         changeScale();
+
+        $('#evScale').append('<div>Curr scale: ' + scale + '</div>');
+        $('#evScale').append('<div>Pinched: ' + pinched + '</div>');
     });
     zoomPlaceholderManager.on('pinchend', function(ev){
         lastScale = scale;
