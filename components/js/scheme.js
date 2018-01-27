@@ -106,7 +106,7 @@
     var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
     zoomPlaceholderManager.add(new Hammer.Pinch({
         threshold: 0
-    }));
+    })).recognizeWith([dataCopyManager.get('pan')]);
     zoomPlaceholderManager.on('pinch', function(ev){
         var pinched = Math.round(ev.scale * 100) / 100;
 
