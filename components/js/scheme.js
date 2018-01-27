@@ -103,13 +103,7 @@
 
     // #ZoomPlaceholder handlers
 
-    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {
-		transform_always_block: true,
-		transform_min_scale: 1,
-		drag_block_horizontal: true,
-		drag_block_vertical: true,
-		drag_min_distance: 0
-	});
+    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
     zoomPlaceholderManager.add(new Hammer.Pinch({
         threshold: 0
     }));
@@ -121,13 +115,11 @@
 
         scale = lastScale * pinched;
         changeScale();
-
+    });
+    zoomPlaceholderManager.on('pinchend', function(ev){
+        lastScale = scale;
         $('#evScale').append('<div>Result: ' + scale + '</div>');
         $('#evScale').append('<div>_________________________</div>');
-
-        if (ev.type == 'pinchend') {
-            lastScale = scale;
-        }
     });
 
     $zoomPlaceholder.find('.control-scale__btn--minus').on('click', function(){
