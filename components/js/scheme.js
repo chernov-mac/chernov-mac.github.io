@@ -108,6 +108,7 @@
         if (ev.type == 'pinch') {
             scale *= 1 + ev.scale / 100;
             changeScale();
+            $('#evScale').append('<div>'+ev.scale+'</div>');
         }
         if (ev.type == 'pinchend') {
             lastScale = scale;
