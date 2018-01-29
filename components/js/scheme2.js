@@ -1,6 +1,6 @@
 (function() {
 
-    var version = '0.1.5';
+    var version = '0.1.6';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -82,24 +82,22 @@
     // Инициализация Hammer
     // ----------------------
 
-    var helperManager = new Hammer.Manager(helper, {});
-    helperManager.add(new Hammer.Pan({
+    var helperManager = new Hammer(helper);
+    helperManager.get('pan').set({
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
-    }));
+    });
 
-    var dataCopyManager = new Hammer.Manager(dataCopy, {});
-    dataCopyManager.add(new Hammer.Pan({
+    var dataCopyManager = new Hammer(dataCopy);
+    dataCopyManager.get('pan').set({
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
-    }));
+    });
 
-    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
-    zoomPlaceholderManager.add(new Hammer.Pinch({
-        enable: true,
-        threshold: 0
-    })); //.recognizeWith([dataCopyManager.get('pan')]);
-    zoomPlaceholderManager.get('pinch').set({ enable: true });
+    var zoomPlaceholderManager = new Hammer(zoomPlaceholder);
+    zoomPlaceholderManager.get('pinch').set({
+        enable: true
+    });
 
 
     // ----------------------
