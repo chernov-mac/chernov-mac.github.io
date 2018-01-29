@@ -448,7 +448,7 @@
 
     function onZoomPinch(ev) {
         var newScale = getScaleWithDelta(ev.scale);
-        handleScale(curScale, ev.center);
+        handleScale(newScale, ev.center);
 
         if (ev.type == 'pinchend') {
             lastScale = scale;
