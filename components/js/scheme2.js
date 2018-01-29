@@ -453,7 +453,7 @@
             x: ev.clientX - zoomPlaceholderOffset.left,
             y: ev.clientY - zoomPlaceholderOffset.top
         };
-        var newScale = getScaleWithDelta(ev.deltaY);
+        var newScale = getScaleWithDelta(-ev.deltaY);
         handleScale(newScale, zoomPoint);
     }
 
