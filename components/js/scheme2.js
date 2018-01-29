@@ -1,6 +1,6 @@
 (function() {
 
-    var version = '0.1.7';
+    var version = '0.1.8';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -117,7 +117,9 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', onZoomPinch);
+    dataCopyManager.on('pinch', function(ev){
+        onZoomPinch(ev);
+    });
 
     // #ZoomPlaceholder handlers
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
