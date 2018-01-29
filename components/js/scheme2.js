@@ -1,6 +1,6 @@
 (function() {
 
-    var version = '0.1.6';
+    var version = '0.1.7';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -93,9 +93,7 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     });
-
-    var zoomPlaceholderManager = new Hammer(zoomPlaceholder);
-    zoomPlaceholderManager.get('pinch').set({
+    dataCopyManager.get('pinch').set({
         enable: true
     });
 
@@ -119,9 +117,9 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
+    dataCopyManager.on('pinch', onZoomPinch);
 
     // #ZoomPlaceholder handlers
-    zoomPlaceholderManager.on('pinch', onZoomPinch);
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
     if (enableScaleControls) {
         zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
