@@ -119,7 +119,7 @@
 
     // #ZoomPlaceholder handlers
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
-    zoomPlaceholder.addEventListener('pinch', onZoomPinch);
+    zoomPlaceholderManager.on('pinch', onZoomPinch);
     if (enableScaleControls) {
         zoomPlaceholder.querySelector('.control-scale__btn--minus').addEventListener('click', function(){
             handleScale(scale - zoomStep);
