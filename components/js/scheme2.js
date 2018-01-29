@@ -92,7 +92,15 @@
     })); //.recognizeWith([dataCopyManager.get('pan')]);
     dataCopyManager.get('pinch').set({ enable: true });
 
-    console.log('Initialized. Ver.: 0.1');
+    var logBox = document.getElementById('logBox');
+    var logText = document.createElement('p');
+    var divider = document.createElement('div');
+    divider.classList.add('divider');
+
+    var log = 'Initialized. Ver.: 0.1.1';
+    logText.innerHTML = log;
+    logBox.appendChild(logText);
+    console.log(log);
 
 
     // ----------------------
@@ -417,16 +425,13 @@
             lastScale = scale;
         }
 
-        var logBox = document.getElementById('logBox');
         var evScaleMsg = document.createElement('p');
         evScaleMsg.innerHTML = 'ev.scale: ' + ev.scale;
         var newScaleMsg = document.createElement('p');
         evScnewScalealeMsg.innerHTML = 'newScale: ' + newScale;
-        var divider = document.createElement('div');
-        divider.classList.add('divider');
         logBox.appendChild(evScaleMsg);
         logBox.appendChild(newScaleMsg);
-        logBox.appendChild(divider);
+        logBox.appendChild(divider.cloneNode());
     }
 
     function handleScale(actualScale, zoomCenterPoint) {
