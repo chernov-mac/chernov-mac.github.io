@@ -1,6 +1,6 @@
 (function() {
 
-    var version = '0.1.8';
+    var version = '0.1.9';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -118,7 +118,18 @@
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
     dataCopyManager.on('pinch', function(ev){
-        onZoomPinch(ev);
+        var newScale = getScaleWithDelta(ev.scale);
+        handleScale(curScale, ev.center);
+
+        if (ev.type == 'pinchend') {
+            lastScale = scale;
+        }
+
+        if (pinchLogged) {
+            log('ev.scale: ' + ev.scale);
+            log('newScale: ' + newScale);
+            log('__________________');
+        }
     });
 
     // #ZoomPlaceholder handlers
@@ -446,20 +457,20 @@
         handleScale(newScale, zoomPoint);
     }
 
-    function onZoomPinch(ev) {
-        var newScale = getScaleWithDelta(ev.scale);
-        handleScale(curScale, ev.center);
-
-        if (ev.type == 'pinchend') {
-            lastScale = scale;
-        }
-
-        if (pinchLogged) {
-            log('ev.scale: ' + ev.scale);
-            log('newScale: ' + newScale);
-            log('__________________');
-        }
-    }
+    // function onZoomPinch(ev) {
+    //     var newScale = getScaleWithDelta(ev.scale);
+    //     handleScale(curScale, ev.center);
+    //
+    //     if (ev.type == 'pinchend') {
+    //         lastScale = scale;
+    //     }
+    //
+    //     if (pinchLogged) {
+    //         log('ev.scale: ' + ev.scale);
+    //         log('newScale: ' + newScale);
+    //         log('__________________');
+    //     }
+    // }
 
     function handleScale(actualScale, zoomCenterPoint) {
         if (!zoomCenterPoint) {
