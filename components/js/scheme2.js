@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.12';
+    var version = '0.1.13';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -93,7 +93,9 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     });
-    dataCopyManager.get('pinch').set({
+
+    var zoomPlaceholderManager = new Hammer(zoomPlaceholder);
+    zoomPlaceholderManager.get('pinch').set({
         enable: true
     });
 
@@ -117,9 +119,9 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', onZoomPinch);
 
     // #ZoomPlaceholder handlers
+    zoomPlaceholderManager.on('pinch', onZoomPinch);
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
     if (enableScaleControls) {
         zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
@@ -445,7 +447,12 @@
     }
 
     function onZoomPinch(ev) {
-        var newScale = getScaleWithDelta(ev.scale);
+        var delta = ev.scale;
+        if (ev.type == 'pinchout') {
+            delta = -delta;
+        }
+
+        var newScale = getScaleWithDelta(delta);
         handleScale(newScale, ev.center);
 
         if (ev.type == 'pinchend') {
