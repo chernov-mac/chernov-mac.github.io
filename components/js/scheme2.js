@@ -1,5 +1,7 @@
 (function() {
 
+    var enableScaleControls = false;
+
     var
         mainData        = document.getElementById('MainData'),
         helper          = document.getElementById('helper'),
@@ -23,7 +25,8 @@
 
     var
         scale = 1,
-        lastScale = 1;
+        lastScale = 1,
+        zoomStep = 0.1;
 
     var helperIsDragging = false;
     var dataCopyIsDragging = false;
@@ -49,8 +52,24 @@
     setMainDataSize();
     setHelperSize();
     setHelperPos();
-    addControls();
-    changeScale(scale);
+    if (enableScaleControls) addControls();
+    handleScale(scale);
+
+    var zoomCenterElem = document.createElement('div');
+    zoomCenterElem.style.position = 'absolute';
+    zoomCenterElem.style.top = '50%';
+    zoomCenterElem.style.left = '50%';
+    zoomCenterElem.style.transform = 'translate3d(-50%, -50%, 0) rotate(45deg)';
+    zoomCenterElem.style.display = 'block';
+    zoomCenterElem.style.width = '40px';
+    zoomCenterElem.style.height = '40px';
+    zoomCenterElem.style.lineHeight = '40px';
+    zoomCenterElem.style.fontSize = '16px';
+    zoomCenterElem.style.textAlign = 'center';
+    zoomCenterElem.style.color = '#ffc800';
+    zoomCenterElem.innerHTML = '<i class="icon-times"></i>';
+    zoomCenterElem.style.textShadow = '0 3px 18px rgba(0,0,0,0.74)';
+    zoomPlaceholder.appendChild(zoomCenterElem);
 
     // ----------------------
     // Инициалзация Hammer
@@ -67,11 +86,15 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     }));
-    dataCopyManager.add(new Hammer.Pinch({
+
+
+    var zoomPlaceholderManager = new Hammer.Manager(dataCopy, {});
+    zoomPlaceholderManager.add(new Hammer.Pinch({
         enable: true,
         threshold: 0
     })).recognizeWith([dataCopyManager.get('pan')]);
-    dataCopyManager.get('pinch').set({ enable: true });
+    zoomPlaceholderManager.get('pinch').set({ enable: true });
+
 
 
     // ----------------------
@@ -80,7 +103,7 @@
 
     window.addEventListener('resize', function(){
         if (window.innerWidth <= helperDisableDown) {
-            helperDisable = true;
+            helperDisable = false;
         }
         if (!helperDisable) {
             setHelperSize();
@@ -93,23 +116,18 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', function(ev){
-        var pinched = Math.round(ev.scale * 100) / 100;
-
-        var curScale = lastScale * pinched;
-        changeScale(curScale, ev.center);
-    });
-    dataCopyManager.on('pinchend', function(ev){
-        lastScale = scale;
-    });
 
     // #ZoomPlaceholder handlers
-    zoomPlaceholder.querySelector('.control-scale__btn--minus').addEventListener('click', function(){
-        changeScale(scale - 0.25);
-    });
-    zoomPlaceholder.querySelector('.control-scale__btn--plus').addEventListener('click', function(){
-        changeScale(scale + 0.25);
-    });
+    zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
+    zoomPlaceholder.addEventListener('pinch', onZoomPinch);
+    if (enableScaleControls) {
+        zoomPlaceholder.on('.control-scale__btn--minus').addEventListener('click', function(){
+            handleScale(scale - zoomStep);
+        });
+        zoomPlaceholder.on('.control-scale__btn--plus').addEventListener('click', function(){
+            handleScale(scale + zoomStep);
+        });
+    }
 
 
     // ----------------------
@@ -199,6 +217,13 @@
         };
     }
 
+    function getScaleWithDelta(delta) {
+        var coeff = 0.1;
+        var diff = Math.sqrt(Math.abs(Math.round(delta * 100) / 100)) * coeff * zoomStep;
+        var result = delta > 0 ? scale + diff : scale - diff;
+        return result;
+    }
+
     function setMainDataSize() {
         var deltaSizeMainData = getDeltaSize(mainData);
         mainData.style.height = Math.round(mainData.clientWidth / ratio) + deltaSizeMainData.y + 'px';
@@ -222,8 +247,8 @@
             dataCopyPos = getDataCopyPos();
 
             actualPos = {
-                x: dataCopyPos.x * vision.x,
-                y: dataCopyPos.y * vision.y
+                x: - Math.round(dataCopyPos.x / proportion / scale),
+                y: - Math.round(dataCopyPos.y / proportion / scale)
             };
         }
 
@@ -256,6 +281,23 @@
 
         // Двигаем элемент до нужной позиции
         dataCopy.style.transform = 'translate3d(' + Math.round(actualPos.x) + 'px, ' + Math.round(actualPos.y) + 'px, 0) scale(' + scale + ')';
+    }
+
+    function setScale(actualScale) {
+        if (enableScaleControls) {
+            zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.remove('disabled');
+            zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.remove('disabled');
+        }
+
+        if (actualScale <= 0.25) {
+            scale = 0.25;
+            if (enableScaleControls) zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.add('disabled');
+        } else if (actualScale >= 5) {
+            scale = 5;
+            if (enableScaleControls) zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.add('disabled');
+        } else {
+            scale = actualScale;
+        }
     }
 
     function addControls() {
@@ -354,42 +396,80 @@
         }
     }
 
-    function changeScale(actualScale, scaleCenter) {
-        zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.remove('disabled');
-        zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.remove('disabled');
+    function onZoomWheel(ev) {
+        ev.preventDefault();
+        var zoomPlaceholderRect = zoomPlaceholder.getBoundingClientRect();
+        var zoomPlaceholderOffset = {
+            top: zoomPlaceholderRect.top + document.body.scrollTop,
+            left: zoomPlaceholderRect.left + document.body.scrollLeft
+        };
+        var zoomPoint = {
+            x: ev.clientX - zoomPlaceholderOffset.left,
+            y: ev.clientY - zoomPlaceholderOffset.top
+        };
+        var newScale = getScaleWithDelta(ev.deltaY);
+        handleScale(newScale, zoomPoint);
+    }
 
-        if (actualScale <= 0.25) {
-            scale = 0.25;
-            zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.add('disabled');
-        } else if (actualScale >= 5) {
-            scale = 5;
-            zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.add('disabled');
-        } else {
-            scale = actualScale;
+    function onZoomPinch(ev) {
+        var newScale = getScaleWithDelta(ev.scale);
+        handleScale(curScale, ev.center);
+
+        if (ev.type == 'pinchend') {
+            lastScale = scale;
         }
+    }
 
-        if (!scaleCenter) {
-            var deltaDataCopy = getDeltaSize(dataCopy);
-            dataCopyPos = getDataCopyPos();
-            scaleCenter = {
-                x: deltaDataCopy.x + dataCopyPos.x + zoomPlaceholder.offsetWidth / 2,
-                y: deltaDataCopy.y + dataCopyPos.y + zoomPlaceholder.offsetHeight / 2
-            };
-        }
+    function handleScale(actualScale, zoomCenterPoint) {
 
-        setDataCopyPos();
         dataCopyPos = getDataCopyPos();
 
-        if (!helperDisable) {
-            var curHelperPos = {
-                x: - Math.round(dataCopyPos.x / proportion / scale),
-                y: - Math.round(dataCopyPos.y / proportion / scale)
+        var deltaZoomPlaceholder = getDeltaSize(zoomPlaceholder);
+        if (!zoomCenterPoint) {
+            zoomCenterPoint = {
+                x: zoomPlaceholder.offsetWidth / 2 - deltaZoomPlaceholder.x / 2,
+                y: zoomPlaceholder.offsetHeight / 2 - deltaZoomPlaceholder.y / 2
             };
-            setHelperSize();
-            setHelperPos(curHelperPos);
         }
 
-        zoomPlaceholder.querySelector('.control-scale__status').innerHTML = Math.round(scale * 100) + '%';
+        var schemeZoomCenterPoint = {
+            x: (zoomCenterPoint.x - dataCopyPos.x) / scale,
+            y: (zoomCenterPoint.y - dataCopyPos.y) / scale
+        };
+
+        // var scalePrev = document.createElement('div');
+        // scalePrev.style.position = 'absolute';
+        // scalePrev.style.top = schemeZoomCenterPoint.y + 'px';
+        // scalePrev.style.left = schemeZoomCenterPoint.x + 'px';
+        // scalePrev.style.transform = 'translate3d(-50%, -50%, 0)';
+        // scalePrev.style.display = 'block';
+        // scalePrev.style.width = '40px';
+        // scalePrev.style.height = '40px';
+        // scalePrev.style.lineHeight = '40px';
+        // scalePrev.style.fontSize = '24px';
+        // scalePrev.style.textAlign = 'center';
+        // scalePrev.style.color = '#bd25b2';
+        // scalePrev.innerHTML = '<i class="icon-times"></i>';
+        // scalePrev.style.textShadow = '0 3px 2px rgba(0,0,0,0.74)';
+        // dataCopy.appendChild(scalePrev);
+
+        setScale(actualScale);
+
+        var sizeOut = getSizeOut(dataCopy);
+
+        var correctPos = {
+            x: zoomCenterPoint.x - schemeZoomCenterPoint.x * scale + sizeOut.x / 2,
+            y: zoomCenterPoint.y - schemeZoomCenterPoint.y * scale + sizeOut.y / 2
+        };
+
+        setDataCopyPos(correctPos);
+
+        if (!helperDisable) {
+            setHelperSize();
+            setHelperPos();
+        }
+
+        if (enableScaleControls) zoomPlaceholder.querySelector('.control-scale__status').innerHTML = Math.round(scale * 100) + '%';
     }
 
 })(jQuery, $);
