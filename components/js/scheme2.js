@@ -1,6 +1,6 @@
 (function() {
 
-    var enableScaleControls = false;
+    var enableScaleControls = true;
 
     var
         mainData        = document.getElementById('MainData'),
@@ -418,6 +418,17 @@
         if (ev.type == 'pinchend') {
             lastScale = scale;
         }
+
+        var logBox = document.getElementById('logBox');
+        var evScaleMsg = document.createElement('p');
+        evScaleMsg.innerHTML = 'ev.scale: ' + ev.scale;
+        var newScaleMsg = document.createElement('p');
+        evScnewScalealeMsg.innerHTML = 'newScale: ' + newScale;
+        var divider = document.createElement('div');
+        divider.classList.add('divider');
+        logBox.appendChild(evScaleMsg);
+        logBox.appendChild(newScaleMsg);
+        logBox.appendChild(divider);
     }
 
     function handleScale(actualScale, zoomCenterPoint) {
