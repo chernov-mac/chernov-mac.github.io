@@ -97,7 +97,9 @@
         enable: true,
         threshold: 0
     })); //.recognizeWith([dataCopyManager.get('pan')]);
-    dataCopyManager.get('pinch').set({ enable: true });
+
+    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
+    zoomPlaceholderManager.get('pinch').set({ enable: true });
 
 
     // ----------------------
@@ -121,8 +123,8 @@
     dataCopyManager.on('pan', handleDataCopyPan);
 
     // #ZoomPlaceholder handlers
+    zoomPlaceholderManager.on('pinch', onZoomPinch);
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
-    zoomPlaceholder.addEventListener('pinch', onZoomPinch);
     if (enableScaleControls) {
         zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
             handleScale(scale - zoomStep);
