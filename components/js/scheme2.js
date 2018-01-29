@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.17.1';
+    var version = '0.1.18';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -121,8 +121,9 @@
     dataCopyManager.on('pan', handleDataCopyPan);
 
     // #ZoomPlaceholder handlers
-    zoomPlaceholderManager.on('pinchin', onPinchIn);
-    zoomPlaceholderManager.on('pinchout', onPinchOut);
+    zoomPlaceholderManager.on('pinch', onPinch);
+    // zoomPlaceholderManager.on('pinchin', onPinchIn);
+    // zoomPlaceholderManager.on('pinchout', onPinchOut);
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
     if (enableScaleControls) {
         zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
@@ -447,14 +448,10 @@
         handleScale(newScale, zoomPoint);
     }
 
-    function onPinchIn(ev) {
-        var diff = ev.scale;
-        // if (diff > 4) diff = 4;
-        // if (diff < 0.1) diff = 0.1;
-        var delta = calcDelta(diff, 0.5);
-        var newScale = scale * delta;
+    function onPinch(ev) {
+        var coeff = 0.1;
+        var newScale = scale * Math.abs(Math.round(ev.scale * 100) / 100) * coeff * zoomStep;
 
-        // var newScale = getScaleWithDelta(delta);
         handleScale(newScale, ev.center);
 
         if (ev.type == 'pinchend') {
@@ -463,35 +460,55 @@
 
         if (pinchLogged) {
             log('ev.scale: ' + ev.scale);
-            log('diff: ' + diff);
-            log('delta: ' + delta);
             log('newScale: ' + newScale);
             log('__________________');
         }
     }
-    function onPinchOut(ev) {
-        var diff = ev.scale;
-        // if (diff > 4) diff = 4;
-        // if (diff < 0.1) diff = 0.1;
-        var delta = calcDelta(diff, 1);
-        var newScale = scale - delta;
-
-        // var newScale = getScaleWithDelta(delta);
-        handleScale(newScale, ev.center);
-
-        if (ev.type == 'pinchend') {
-            lastScale = scale;
-        }
-
-        if (pinchLogged) {
-            log('pinch out');
-            log('ev.scale: ' + ev.scale);
-            log('diff: ' + diff);
-            log('delta: ' + delta);
-            log('newScale: ' + newScale);
-            log('__________________');
-        }
-    }
+    // function onPinchIn(ev) {
+    //     var diff = ev.scale;
+    //     // if (diff > 4) diff = 4;
+    //     // if (diff < 0.1) diff = 0.1;
+    //     var delta = calcDelta(diff, 0.5);
+    //     var newScale = scale * delta;
+    //
+    //     // var newScale = getScaleWithDelta(delta);
+    //     handleScale(newScale, ev.center);
+    //
+    //     if (ev.type == 'pinchend') {
+    //         lastScale = scale;
+    //     }
+    //
+    //     if (pinchLogged) {
+    //         log('ev.scale: ' + ev.scale);
+    //         log('diff: ' + diff);
+    //         log('delta: ' + delta);
+    //         log('newScale: ' + newScale);
+    //         log('__________________');
+    //     }
+    // }
+    // function onPinchOut(ev) {
+    //     var diff = ev.scale;
+    //     // if (diff > 4) diff = 4;
+    //     // if (diff < 0.1) diff = 0.1;
+    //     var delta = calcDelta(diff, 1);
+    //     var newScale = scale - delta;
+    //
+    //     // var newScale = getScaleWithDelta(delta);
+    //     handleScale(newScale, ev.center);
+    //
+    //     if (ev.type == 'pinchend') {
+    //         lastScale = scale;
+    //     }
+    //
+    //     if (pinchLogged) {
+    //         log('pinch out');
+    //         log('ev.scale: ' + ev.scale);
+    //         log('diff: ' + diff);
+    //         log('delta: ' + delta);
+    //         log('newScale: ' + newScale);
+    //         log('__________________');
+    //     }
+    // }
 
     function handleScale(actualScale, zoomCenterPoint) {
         if (!zoomCenterPoint) {
