@@ -86,14 +86,11 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     }));
-
-
-    var zoomPlaceholderManager = new Hammer.Manager(dataCopy, {});
-    zoomPlaceholderManager.add(new Hammer.Pinch({
+    dataCopyManager.add(new Hammer.Pinch({
         enable: true,
         threshold: 0
     })).recognizeWith([dataCopyManager.get('pan')]);
-    zoomPlaceholderManager.get('pinch').set({ enable: true });
+    dataCopyManager.get('pinch').set({ enable: true });
 
 
 
@@ -116,10 +113,10 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
+    dataCopyManager.on('pinch', onZoomPinch);
 
     // #ZoomPlaceholder handlers
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
-    zoomPlaceholderManager.on('pinch', onZoomPinch);
     if (enableScaleControls) {
         zoomPlaceholder.querySelector('.control-scale__btn--minus').addEventListener('click', function(){
             handleScale(scale - zoomStep);
