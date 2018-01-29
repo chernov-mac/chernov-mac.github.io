@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.13';
+    var version = '0.1.14';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -449,6 +449,7 @@
     function onZoomPinch(ev) {
         var delta = ev.scale;
         if (ev.type == 'pinchout') {
+            log('pinch out');
             delta = -delta;
         }
 
