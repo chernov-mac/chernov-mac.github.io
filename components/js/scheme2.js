@@ -1,6 +1,6 @@
 (function() {
 
-    var version = '0.1.4';
+    var version = '0.1.5';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -93,12 +93,12 @@
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
     }));
-    dataCopyManager.add(new Hammer.Pinch({
+
+    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
+    zoomPlaceholderManager.add(new Hammer.Pinch({
         enable: true,
         threshold: 0
     })); //.recognizeWith([dataCopyManager.get('pan')]);
-
-    var zoomPlaceholderManager = new Hammer.Manager(zoomPlaceholder, {});
     zoomPlaceholderManager.get('pinch').set({ enable: true });
 
 
@@ -450,7 +450,7 @@
 
     function onZoomPinch(ev) {
         var newScale = getScaleWithDelta(ev.scale);
-        handleScale(newScale, ev.center);
+        handleScale(curScale, ev.center);
 
         if (ev.type == 'pinchend') {
             lastScale = scale;
