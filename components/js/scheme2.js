@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.15.1';
+    var version = '0.1.16';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -252,11 +252,10 @@
         };
     }
 
-    function getScaleWithDelta(delta) {
+    function calcDelta(diff) {
         var coeff = 0.1;
-        var diff = Math.sqrt(Math.abs(Math.round(delta * 100) / 100)) * coeff * zoomStep;
-        var result = delta > 0 ? scale + diff : scale - diff;
-        return result;
+        var delta = Math.sqrt(Math.abs(Math.round(diff * 100) / 100)) * coeff * zoomStep;
+        return delta;
     }
 
     function setMainDataSize() {
@@ -442,8 +441,8 @@
             x: ev.clientX - zoomPlaceholderOffset.left,
             y: ev.clientY - zoomPlaceholderOffset.top
         };
-        console.log(ev.deltaY);
-        var newScale = getScaleWithDelta(-ev.deltaY);
+        var delta = calcDelta(-ev.deltaY);
+        var newScale = delta > 0 ? scale + diff : scale - diff;
         handleScale(newScale, zoomPoint);
     }
 
@@ -454,7 +453,10 @@
         //     delta = -delta;
         // }
 
-        var delta = Math.sqrt(Math.abs(Math.round(ev.scale * 100) / 100));
+        var diff = ev.scale;
+        if (diff > 4) diff = 4;
+        if (diff < 0.1) diff = 0.1;
+        var delta = calcDelta(diff);
         var newScale = scale * delta;
 
         // var newScale = getScaleWithDelta(delta);
@@ -466,6 +468,8 @@
 
         if (pinchLogged) {
             log('ev.scale: ' + ev.scale);
+            log('diff: ' + diff);
+            log('delta: ' + delta);
             log('newScale: ' + newScale);
             log('__________________');
         }
