@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.19.1';
+    var version = '0.1.19.2';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -489,7 +489,7 @@
         }
     }
     function onPinchOut(ev) {
-        var coeff = 0.01;
+        var coeff = 0.1;
         var diff = scale * Math.abs(Math.round(ev.scale * 100) / 100) * coeff;
         var newScale = scale + diff;
 
