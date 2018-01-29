@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.16';
+    var version = '0.1.16.1';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -457,7 +457,7 @@
         if (diff > 4) diff = 4;
         if (diff < 0.1) diff = 0.1;
         var delta = calcDelta(diff);
-        var newScale = scale * delta;
+        var newScale = ev.type == 'pinchout' ? scale - delta : scale + delta;
 
         // var newScale = getScaleWithDelta(delta);
         handleScale(newScale, ev.center);
