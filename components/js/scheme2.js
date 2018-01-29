@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.16.1';
+    var version = '0.1.17';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -121,7 +121,8 @@
     dataCopyManager.on('pan', handleDataCopyPan);
 
     // #ZoomPlaceholder handlers
-    zoomPlaceholderManager.on('pinch', onZoomPinch);
+    zoomPlaceholderManager.on('pinchin', onPinchIn);
+    zoomPlaceholderManager.on('pinchout', onPinchOut);
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
     if (enableScaleControls) {
         zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
@@ -252,8 +253,8 @@
         };
     }
 
-    function calcDelta(diff) {
-        var coeff = 0.1;
+    function calcDelta(diff, coeff) {
+        if (!coeff) coeff = 0.1;
         var delta = Math.sqrt(Math.abs(Math.round(diff * 100) / 100)) * coeff * zoomStep;
         return delta;
     }
@@ -446,18 +447,12 @@
         handleScale(newScale, zoomPoint);
     }
 
-    function onZoomPinch(ev) {
-        // var delta = ev.scale;
-        // if (ev.type == 'pinchout') {
-        //     log('pinch out');
-        //     delta = -delta;
-        // }
-
+    function onPinchIn(ev) {
         var diff = ev.scale;
-        if (diff > 4) diff = 4;
-        if (diff < 0.1) diff = 0.1;
-        var delta = calcDelta(diff);
-        var newScale = ev.type == 'pinchout' ? scale - delta : scale + delta;
+        // if (diff > 4) diff = 4;
+        // if (diff < 0.1) diff = 0.1;
+        var delta = calcDelta(diff, 0.5);
+        var newScale = scale * delta;
 
         // var newScale = getScaleWithDelta(delta);
         handleScale(newScale, ev.center);
@@ -467,6 +462,29 @@
         }
 
         if (pinchLogged) {
+            log('ev.scale: ' + ev.scale);
+            log('diff: ' + diff);
+            log('delta: ' + delta);
+            log('newScale: ' + newScale);
+            log('__________________');
+        }
+    }
+    function onPinchOut(ev) {
+        var diff = ev.scale;
+        // if (diff > 4) diff = 4;
+        // if (diff < 0.1) diff = 0.1;
+        var delta = calcDelta(diff, 0.5);
+        var newScale = scale * delta;
+
+        // var newScale = getScaleWithDelta(delta);
+        handleScale(newScale, ev.center);
+
+        if (ev.type == 'pinchend') {
+            lastScale = scale;
+        }
+
+        if (pinchLogged) {
+            log('pinch out');
             log('ev.scale: ' + ev.scale);
             log('diff: ' + diff);
             log('delta: ' + delta);
