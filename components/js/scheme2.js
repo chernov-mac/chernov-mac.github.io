@@ -121,10 +121,10 @@
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
     zoomPlaceholder.addEventListener('pinch', onZoomPinch);
     if (enableScaleControls) {
-        zoomPlaceholder.on('.control-scale__btn--minus').addEventListener('click', function(){
+        zoomPlaceholder.querySelector('.control-scale__btn--minus').addEventListener('click', function(){
             handleScale(scale - zoomStep);
         });
-        zoomPlaceholder.on('.control-scale__btn--plus').addEventListener('click', function(){
+        zoomPlaceholder.querySelector('.control-scale__btn--plus').addEventListener('click', function(){
             handleScale(scale + zoomStep);
         });
     }
