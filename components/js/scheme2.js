@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.14';
+    var version = '0.1.15';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -454,7 +454,7 @@
         //     delta = -delta;
         // }
 
-        var delta = Math.abs(Math.round(delta * 100) / 100);
+        var delta = Math.abs(Math.round(ev.scale * 100) / 100);
         var newScale = scale * delta;
 
         // var newScale = getScaleWithDelta(delta);
