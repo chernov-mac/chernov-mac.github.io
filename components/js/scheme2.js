@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.2.2.1';
+    var version = '0.2.2.2';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -475,7 +475,7 @@
         // var diff = scale * Math.round(ev.scale * 100) / 100 * coeff;
         // var newScale = scale - diff;
         var diff = Math.round(ev.scale * 100) / 100;
-        var newScale = scale * diff * pinchSpeed;
+        var newScale = scale * diff * (1 / pinchSpeed);
 
         handleScale(newScale, ev.center);
 
