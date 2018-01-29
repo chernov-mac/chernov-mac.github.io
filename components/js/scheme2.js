@@ -89,9 +89,10 @@
     dataCopyManager.add(new Hammer.Pinch({
         enable: true,
         threshold: 0
-    })).recognizeWith([dataCopyManager.get('pan')]);
+    })); //.recognizeWith([dataCopyManager.get('pan')]);
     dataCopyManager.get('pinch').set({ enable: true });
 
+    console.log('Initialized. Ver.: 0.1');
 
 
     // ----------------------
