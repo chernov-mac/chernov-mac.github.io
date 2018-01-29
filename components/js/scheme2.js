@@ -1,6 +1,6 @@
 (function() {
 
-    var version = '0.1.10';
+    var version = '0.1.11';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
