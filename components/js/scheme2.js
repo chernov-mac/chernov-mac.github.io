@@ -1,12 +1,17 @@
 (function() {
 
-    var enableScaleControls = true;
+    var version = '0.1.2';
+    var enableScaleControls = false;
+    var logging = true;
+    var pinchLogged = true;
+    var showZoomPoints = false;
 
     var
         mainData        = document.getElementById('MainData'),
         helper          = document.getElementById('helper'),
         zoomPlaceholder = document.getElementById('ZoomPlaceholder'),
-        dataCopy        = document.getElementById('DataCopy');
+        dataCopy        = document.getElementById('DataCopy'),
+        logbox          = null;
 
     var
         helperSize      = {}, // {x, y}
@@ -55,24 +60,26 @@
     if (enableScaleControls) addControls();
     handleScale(scale);
 
-    var zoomCenterElem = document.createElement('div');
-    zoomCenterElem.style.position = 'absolute';
-    zoomCenterElem.style.top = '50%';
-    zoomCenterElem.style.left = '50%';
-    zoomCenterElem.style.transform = 'translate3d(-50%, -50%, 0) rotate(45deg)';
-    zoomCenterElem.style.display = 'block';
-    zoomCenterElem.style.width = '40px';
-    zoomCenterElem.style.height = '40px';
-    zoomCenterElem.style.lineHeight = '40px';
-    zoomCenterElem.style.fontSize = '16px';
-    zoomCenterElem.style.textAlign = 'center';
-    zoomCenterElem.style.color = '#ffc800';
-    zoomCenterElem.innerHTML = '<i class="icon-times"></i>';
-    zoomCenterElem.style.textShadow = '0 3px 18px rgba(0,0,0,0.74)';
-    zoomPlaceholder.appendChild(zoomCenterElem);
+    if (showZoomPoints) {
+        var zoomCenterElem = document.createElement('div');
+        zoomCenterElem.style.position = 'absolute';
+        zoomCenterElem.style.top = '50%';
+        zoomCenterElem.style.left = '50%';
+        zoomCenterElem.style.transform = 'translate3d(-50%, -50%, 0) rotate(45deg)';
+        zoomCenterElem.style.display = 'block';
+        zoomCenterElem.style.width = '40px';
+        zoomCenterElem.style.height = '40px';
+        zoomCenterElem.style.lineHeight = '40px';
+        zoomCenterElem.style.fontSize = '16px';
+        zoomCenterElem.style.textAlign = 'center';
+        zoomCenterElem.style.color = '#ffc800';
+        zoomCenterElem.innerHTML = '<i class="icon-times"></i>';
+        zoomCenterElem.style.textShadow = '0 3px 18px rgba(0,0,0,0.74)';
+        zoomPlaceholder.appendChild(zoomCenterElem);
+    }
 
     // ----------------------
-    // Инициалзация Hammer
+    // Инициализация Hammer
     // ----------------------
 
     var helperManager = new Hammer.Manager(helper, {});
@@ -91,16 +98,6 @@
         threshold: 0
     })); //.recognizeWith([dataCopyManager.get('pan')]);
     dataCopyManager.get('pinch').set({ enable: true });
-
-    var logBox = document.getElementById('logBox');
-    var logText = document.createElement('p');
-    var divider = document.createElement('div');
-    divider.classList.add('divider');
-
-    var log = 'Initialized. Ver.: 0.1.1';
-    logText.innerHTML = log;
-    logBox.appendChild(logText);
-    console.log(log);
 
 
     // ----------------------
@@ -122,23 +119,55 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', onZoomPinch);
 
     // #ZoomPlaceholder handlers
     zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
+    zoomPlaceholder.addEventListener('pinch', onZoomPinch);
     if (enableScaleControls) {
-        zoomPlaceholder.querySelector('.control-scale__btn--minus').addEventListener('click', function(){
+        zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
             handleScale(scale - zoomStep);
         });
-        zoomPlaceholder.querySelector('.control-scale__btn--plus').addEventListener('click', function(){
+        zoomPlaceholder.find('.control-scale__btn--plus').addEventListener('click', function(){
             handleScale(scale + zoomStep);
         });
+    }
+
+    if (logging) {
+        var pageBlock = document.createElement('section');
+        pageBlock.classList.add('page-block');
+        var container = document.createElement('div');
+        container.classList.add('container');
+        var box = document.createElement('div');
+        box.classList.add('box');
+        var boxBody = document.createElement('div');
+        boxBody.classList.add('box-body');
+
+        logbox = document.createElement('div');
+        logbox.id = 'logbox';
+        logbox.classList.add('plain-text');
+
+        boxBody.appendChild(logbox);
+        box.appendChild(boxBody);
+        container.appendChild(box);
+        pageBlock.appendChild(container);
+        document.querySelector('main').appendChild(pageBlock);
+
+        log('Initialized. Ver.: ' + version);
     }
 
 
     // ----------------------
     // Функции
     // ----------------------
+
+    function log(text) {
+        console.log(text);
+        if (logbox) {
+            var textElem = document.createElement('p');
+            textElem.innerHTML = text;
+            logbox.appendChild(textElem);
+        }
+    }
 
     function getVision() {
         return {
@@ -425,47 +454,45 @@
             lastScale = scale;
         }
 
-        var evScaleMsg = document.createElement('p');
-        evScaleMsg.innerHTML = 'ev.scale: ' + ev.scale;
-        var newScaleMsg = document.createElement('p');
-        evScnewScalealeMsg.innerHTML = 'newScale: ' + newScale;
-        logBox.appendChild(evScaleMsg);
-        logBox.appendChild(newScaleMsg);
-        logBox.appendChild(divider.cloneNode());
+        if (pinchLogged) {
+            log('ev.scale: ' + ev.scale);
+            log('newScale: ' + newScale);
+            log('__________________');
+        }
     }
 
     function handleScale(actualScale, zoomCenterPoint) {
-
-        dataCopyPos = getDataCopyPos();
-
-        var deltaZoomPlaceholder = getDeltaSize(zoomPlaceholder);
         if (!zoomCenterPoint) {
+            var deltaZoomPlaceholder = getDeltaSize(zoomPlaceholder);
             zoomCenterPoint = {
                 x: zoomPlaceholder.offsetWidth / 2 - deltaZoomPlaceholder.x / 2,
                 y: zoomPlaceholder.offsetHeight / 2 - deltaZoomPlaceholder.y / 2
             };
         }
 
+        dataCopyPos = getDataCopyPos();
         var schemeZoomCenterPoint = {
             x: (zoomCenterPoint.x - dataCopyPos.x) / scale,
             y: (zoomCenterPoint.y - dataCopyPos.y) / scale
         };
 
-        // var scalePrev = document.createElement('div');
-        // scalePrev.style.position = 'absolute';
-        // scalePrev.style.top = schemeZoomCenterPoint.y + 'px';
-        // scalePrev.style.left = schemeZoomCenterPoint.x + 'px';
-        // scalePrev.style.transform = 'translate3d(-50%, -50%, 0)';
-        // scalePrev.style.display = 'block';
-        // scalePrev.style.width = '40px';
-        // scalePrev.style.height = '40px';
-        // scalePrev.style.lineHeight = '40px';
-        // scalePrev.style.fontSize = '24px';
-        // scalePrev.style.textAlign = 'center';
-        // scalePrev.style.color = '#bd25b2';
-        // scalePrev.innerHTML = '<i class="icon-times"></i>';
-        // scalePrev.style.textShadow = '0 3px 2px rgba(0,0,0,0.74)';
-        // dataCopy.appendChild(scalePrev);
+        if (showZoomPoints) {
+            var scalePrev = document.createElement('div');
+            scalePrev.style.position = 'absolute';
+            scalePrev.style.top = schemeZoomCenterPoint.y + 'px';
+            scalePrev.style.left = schemeZoomCenterPoint.x + 'px';
+            scalePrev.style.transform = 'translate3d(-50%, -50%, 0)';
+            scalePrev.style.display = 'block';
+            scalePrev.style.width = '40px';
+            scalePrev.style.height = '40px';
+            scalePrev.style.lineHeight = '40px';
+            scalePrev.style.fontSize = '24px';
+            scalePrev.style.textAlign = 'center';
+            scalePrev.style.color = '#bd25b2';
+            scalePrev.innerHTML = '<i class="icon-times"></i>';
+            scalePrev.style.textShadow = '0 3px 2px rgba(0,0,0,0.74)';
+            dataCopy.appendChild(scalePrev);
+        }
 
         setScale(actualScale);
 
