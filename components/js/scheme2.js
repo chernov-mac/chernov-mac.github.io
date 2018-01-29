@@ -442,18 +442,22 @@
             x: ev.clientX - zoomPlaceholderOffset.left,
             y: ev.clientY - zoomPlaceholderOffset.top
         };
+        console.log(ev.deltaY);
         var newScale = getScaleWithDelta(-ev.deltaY);
         handleScale(newScale, zoomPoint);
     }
 
     function onZoomPinch(ev) {
-        var delta = ev.scale;
-        if (ev.type == 'pinchout') {
-            log('pinch out');
-            delta = -delta;
-        }
+        // var delta = ev.scale;
+        // if (ev.type == 'pinchout') {
+        //     log('pinch out');
+        //     delta = -delta;
+        // }
 
-        var newScale = getScaleWithDelta(delta);
+        var delta = Math.abs(Math.round(delta * 100) / 100);
+        var newScale = scale * delta;
+
+        // var newScale = getScaleWithDelta(delta);
         handleScale(newScale, ev.center);
 
         if (ev.type == 'pinchend') {
