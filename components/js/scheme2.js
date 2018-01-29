@@ -1,6 +1,6 @@
 (function($) {
 
-    var version = '0.1.19.3';
+    var version = '0.2';
     var enableScaleControls = false;
     var logging = true;
     var pinchLogged = true;
@@ -444,7 +444,7 @@
             y: ev.clientY - zoomPlaceholderOffset.top
         };
         var delta = calcDelta(-ev.deltaY);
-        var newScale = delta > 0 ? scale + diff : scale - diff;
+        var newScale = delta > 0 ? scale + delta : scale - delta;
         handleScale(newScale, zoomPoint);
     }
 
