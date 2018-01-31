@@ -1,4 +1,4 @@
-(function($) {
+(function() {
 
     // Options
 
@@ -53,7 +53,7 @@
     setGlobals();
 
     $scheme.addClass('panzoom').panzoom({
-        startTransform: getInitialScheme,
+        startTransform: 'translate3d(-' + (originalSizeOut.x / 2) + 'px, -' + (originalSizeOut.y / 2) + 'px, 0) scale(' + (scaleRange.min - 0.1) + ')',
         increment: 0.1,
         minScale: scaleRange.min,
         maxScale: scaleRange.max
@@ -78,7 +78,7 @@
         width: '100%',
         height: '100%'
     }).addClass('panzoom').panzoom({
-        startTransform: getInitialHelper,
+        startTransform: 'translate3d(' + (getSizeOut().x / 2 / getScale() / proportion) + 'px, 0, 0)',
         disableZoom: true
     });
 
@@ -115,6 +115,7 @@
     });
 
     $scheme.on('panzoomzoom', function(e, panzoom, scale, opts){
+        console.log(panzoom);
         // Correct scale
         var isOutOfRange = isOutOfScaleRange(scale, scaleRange);
 
@@ -198,6 +199,8 @@
         // Check X
         if (curPos.x < curPosRange.x.min) { isOut.x = curPosRange.x.min; }
         if (curPos.x > curPosRange.x.max) { isOut.x = curPosRange.x.max; }
+        // console.log(curPosRange.x);
+        // console.log(curPos.x);
 
         // Check Y
         if (curPos.y < curPosRange.y.min) { isOut.y = curPosRange.y.min; }
@@ -227,9 +230,6 @@
     }
 
     // Scheme
-    function getInitialScheme() {
-        return 'translate3d(-' + (originalSizeOut.x / 2) + 'px, -' + (originalSizeOut.y / 2) + 'px, 0) scale(' + (scaleRange.min - 0.1) + ')';
-    }
     function getSizeOut(scale) {
         return {
             x: schemeSize.width * scale - placeholderSize.width,
@@ -310,9 +310,6 @@
     }
 
     // Helper
-    function getInitialHelper() {
-        return 'translate3d(' + (getSizeOut().x / 2 / getScale() / proportion) + 'px, 0, 0)';
-    }
     function getHelperPosRange() {
         return {
             x: {
@@ -384,4 +381,4 @@
     }
 
 
-})(jQuery);
+})($, jQuery);
