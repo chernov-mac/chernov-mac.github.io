@@ -87,20 +87,6 @@
 
     $window.on('resize', function(){
         setGlobals();
-
-        $scheme.panzoom('reset', true);
-
-        setHelperParentSize();
-        setTimeout(function(){
-            setHelperSize(scaleRange.min);
-            // Move helper
-            var curPos = getPos($scheme);
-            var curScale = getScale();
-            var schemeDistance = getSchemeDistance(curPos, curScale);
-            setHelperDistance(schemeDistance, getScale());
-        }, 100);
-
-        $helper.panzoom('reset', true);
     });
 
     $placeholder.on('mousewheel.focal', function(e) {
@@ -115,7 +101,6 @@
     });
 
     $scheme.on('panzoomzoom', function(e, panzoom, scale, opts){
-        console.log(panzoom);
         // Correct scale
         var isOutOfRange = isOutOfScaleRange(scale, scaleRange);
 
