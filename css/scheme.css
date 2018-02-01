@@ -33,7 +33,6 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  border: 2px solid #e0e0e0;
   height: 425px;
 }
 @media (min-width: 540px) {
@@ -63,10 +62,7 @@
 #MainData {
   position: relative;
   margin-bottom: 20px;
-  margin-right: -2px;
-  margin-left: -2px;
-  width: 254px !important;
-  border: 2px solid #e0e0e0;
+  width: 100%;
   background-size: contain !important;
 }
 
@@ -268,7 +264,7 @@
   width: 100%;
   margin: 20px 0;
   padding: 0 18px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #ededed;
   font-size: 18px;
   color: #000;
 }
@@ -280,7 +276,7 @@
   position: relative;
 }
 #ticketbox_inner .ticket_point + .ticket_point {
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #ededed;
 }
 #ticketbox_form {
   position: relative;
@@ -760,7 +756,7 @@
   font-family: Verdana, "Geneva CY", "DejaVu Sans", sans-serif;
   font-size: 14px;
   padding: 0 12px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #ededed;
 }
 .pgroups-title {
   margin-bottom: 10px;
@@ -783,7 +779,7 @@
   background-color: #ffc800;
 }
 .pgroups p + p {
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #ededed;
 }
 
 .stehplatz-btn {
@@ -856,59 +852,124 @@ p.sthpltz {
   line-height: 25px;
 }
 
-.scheme-contols {
-  position: absolute;
+.scheme-wrapper,
+.helper-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 2px solid #ededed;
 }
 
-.control-scale {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  flex-flow: row wrap;
-  width: 97px;
-  background: #fff;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  cursor: default;
+.helper-wrapper {
+  margin-bottom: 20px;
 }
-.control-scale__status {
-  flex-basis: 100%;
-  display: block;
-  padding: 6px 6px 0;
-  font-size: 14px;
-  color: #666666;
+.helper-wrapper #MainData {
+  margin-bottom: 0;
+}
+
+.scheme-control {
+  padding: 6px 18px;
+  line-height: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  border-width: 0;
+  border-style: solid;
+  border-color: #ededed;
+}
+.scheme-wrapper .scheme-control {
+  border-bottom-width: 2px;
+}
+.helper-wrapper .scheme-control {
+  border-top-width: 2px;
+}
+.scheme-control__label {
+  flex: 0 0 auto;
+  margin-right: auto;
+}
+
+.scale-control__status {
+  flex: 0 0 auto;
+  width: 60px;
   text-align: center;
 }
-.control-scale__btn {
-  position: relative;
-  display: block;
-  flex: 0 0 auto;
-  width: 48px;
-  line-height: 20px;
-  color: #00398c;
-  font-size: 32px;
-  line-height: 1;
-  padding: 8px 16px;
+.scale-control__btn {
+  line-height: 0.8em;
+  color: #ffc800;
+  font-size: 1.8em;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
 }
-.control-scale__btn:hover {
-  color: #bd25b2;
+.scale-control__btn:hover {
+  color: #00398c;
 }
-.control-scale__btn.disabled {
-  color: #e0e0e0;
+.scale-control__btn.disabled {
+  color: #ededed;
 }
-.control-scale__btn + .control-scale__btn {
-  margin-left: 1px;
+
+.scroll-shadow {
+  position: relative;
 }
-.control-scale__btn + .control-scale__btn:before {
+.scroll-shadow:before, .scroll-shadow:after {
   content: '';
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: -1px;
   display: block;
-  width: 1px;
-  background: #e0e0e0;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  left: 0;
+  height: 10px;
+  transition: background-size .2s ease;
+}
+.scroll-shadow:before {
+  top: 0;
+  background: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+.scroll-shadow:after {
+  bottom: 0;
+  border-top-width: 1px;
+  background: radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0)) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+.scroll-shadow__outer {
+  position: relative;
+  overflow: hidden;
+}
+.scroll-shadow__scroller {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.scroll-shadow__scroller ::-webkit-scrollbar {
+  display: none;
+}
+.scroll-shadow__target {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+.scroll-shadow__scrollbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 2px;
+}
+.scroll-shadow__scrollbar .bar {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 2px;
+  background: theme-color(primary);
+}
+.scroll-shadow.not-start:before {
+  background-size: 100% 8px;
+}
+.scroll-shadow.not-end:after {
+  background-size: 100% 8px;
 }

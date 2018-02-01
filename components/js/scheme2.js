@@ -3,8 +3,8 @@
     var version = '0.2.3';
     var enableScaleControls = false;
     var logging = true;
-    var pinchLogged = true;
     var showZoomPoints = false;
+    var pinchSpeed = 1;
 
     var
         mainData        = document.getElementById('MainData'),
@@ -443,37 +443,16 @@
             x: ev.clientX - zoomPlaceholderOffset.left,
             y: ev.clientY - zoomPlaceholderOffset.top
         };
-        var delta = calcDelta(-ev.deltaY);
+        var delta = calcDelta(ev.deltaY);
         var newScale = ev.deltaY > 0 ? scale + delta : scale - delta;
         handleScale(newScale, zoomPoint);
+
+        log('zoomwheel');
     }
 
-    // function onPinch(ev) {
-    //     var coeff = 0.1;
-    //     var diff = scale * Math.abs(Math.round(ev.scale * 100) / 100) * coeff;
-    //     if (ev.type == 'pinchout') {
-    //         log('out');
-    //         diff = -diff;
-    //     }
-    //     var newScale = scale + diff;
-    //
-    //     handleScale(newScale, ev.center);
-    //
-    //     if (ev.type == 'pinchend') {
-    //         lastScale = scale;
-    //     }
-    //
-    //     if (pinchLogged) {
-    //         log('ev.scale: ' + ev.scale);
-    //         log('newScale: ' + newScale);
-    //         log('__________________');
-    //     }
-    // }
     function onPinchIn(ev) {
-        var pinchSpeed = 0.1;
-        // var diff = scale * Math.round(ev.scale * 100) / 100 * coeff;
-        // var newScale = scale - diff;
-        var diff = Math.round(ev.scale * 100) / 100;
+        var coeff = 0.1;
+        var diff = Math.round(ev.scale * 100) / 100 * coeff;
         var newScale = scale * Math.pow(diff, pinchSpeed);
 
         handleScale(newScale, ev.center);
@@ -481,18 +460,11 @@
         if (ev.type == 'pinchend') {
             lastScale = scale;
         }
-
-        if (pinchLogged) {
-            log('in');
-            log('ev.scale: ' + ev.scale);
-            log('diff: ' + diff);
-            log('newScale: ' + newScale);
-            log('__________________');
-        }
+        log('pinch out');
     }
+
     function onPinchOut(ev) {
-        var pinchSpeed = 0.1;
-        var coeff = 0.1;
+        var coeff = 0.01;
         var diff = scale * Math.abs(Math.round(ev.scale * 100) / 100) * coeff;
         var newScale = scale + diff * pinchSpeed;
 
@@ -501,14 +473,7 @@
         if (ev.type == 'pinchend') {
             lastScale = scale;
         }
-
-        if (pinchLogged) {
-            log('out');
-            log('ev.scale: ' + ev.scale);
-            log('diff: ' + diff);
-            log('newScale: ' + newScale);
-            log('__________________');
-        }
+        log('pinch out');
     }
 
     function handleScale(actualScale, zoomCenterPoint) {

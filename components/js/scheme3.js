@@ -1,17 +1,27 @@
-(function() {
+(function($) {
 
     // Options
 
-    var devmode = true;
-
+    var options = {
+        devmode: false,
+        controls: {
+            scale: {
+                enable: true,
+                label: 'Масштаб'
+            }
+        }
+    };
 
     // Elements
 
     var
         $window = $(window),
-        $scheme = $('#DataCopy'),
+        scheme = document.getElementById('DataCopy'),
+        $scheme = $(scheme),
         $placeholder = $('#ZoomPlaceholder'),
-        $helper = $('#helper');
+        $helper = $('#helper'),
+        $schemeWrap, $helperWrap,
+        $scaleControl, $scaleStatus, $scaleMinus, $scalePlus;
 
 
     // Global variables
@@ -23,12 +33,15 @@
         proportion,
         originalSizeOut,
         vision,
-        scaleRange;
+        scaleRange,
+        helperIsDesabled;
+
+    var lastTransition;
 
 
     // Dev
 
-    if (devmode) {
+    if (options.devmode) {
         var $zoomCenterElem = $('<div class="zoomCenterElem"><i class="icon-times"></i></div>');
         $zoomCenterElem.css({
             position: 'absolute',
@@ -50,14 +63,28 @@
 
     // Init
 
+    $schemeWrap = $placeholder.wrap('<div class="scheme-wrapper"></div>').closest('.scheme-wrapper');
+    $helperWrap = $helper.parent().wrap('<div class="helper-wrapper"></div>').closest('.helper-wrapper');
+
     setGlobals();
 
-    $scheme.addClass('panzoom').panzoom({
-        startTransform: 'translate3d(-' + (originalSizeOut.x / 2) + 'px, -' + (originalSizeOut.y / 2) + 'px, 0) scale(' + (scaleRange.min - 0.1) + ')',
-        increment: 0.1,
-        minScale: scaleRange.min,
-        maxScale: scaleRange.max
-    }).panzoom('zoom');
+    var schemeManager = new Hammer(scheme);
+    schemeManager.get('pan').set({
+        direction: Hammer.DIRECTION_ALL,
+        threshold: 0
+    });
+
+    var lastTransform = 'translate3d(-' + (originalSizeOut.x / 2) + 'px, -' + (originalSizeOut.y / 2) + 'px, 0) scale(1)';
+    setSchemePanzoom();
+    var schemeIsDragging = false;
+    var schemeLastPos = getPos($scheme);
+    var lastScale = getScale();
+    var lastPosRange = getSchemePosRange(lastScale);
+
+    if ($scaleStatus) {
+        placeScaleControl();
+        updateScaleStatus();
+    }
 
     setHelperParentSize();
     setTimeout(function(){
@@ -82,11 +109,16 @@
         disableZoom: true
     });
 
+    if (options.controls.scale.enable) {
+        addScaleControls();
+    }
+
 
     // Events
 
     $window.on('resize', function(){
         setGlobals();
+        placeScaleControl();
     });
 
     $placeholder.on('mousewheel.focal', function(e) {
@@ -98,6 +130,8 @@
             animate: false,
             focal: e
         });
+
+        $(".popover").popover('update');
     });
 
     $scheme.on('panzoomzoom', function(e, panzoom, scale, opts){
@@ -111,6 +145,11 @@
             return;
         }
 
+        lastScale = scale;
+        lastPosRange = getSchemePosRange(scale);
+
+        if ($scaleStatus) { updateScaleStatus(); }
+
         // Correct position
         var curPos = getPos($scheme);
         var curPosRange = getSchemePosRange(scale);
@@ -121,15 +160,27 @@
         var schemeDistance = getSchemeDistance(curPos, scale);
         setHelperDistance(schemeDistance, scale);
     });
-    $scheme.on('panzoompan', function(e, panzoom, x, y) {
-        // Correct position
-        var curPosRange = getSchemePosRange(panzoom.scale);
-        correctSchemePos({x: x, y: y}, curPosRange);
+    // $scheme.on('panzoompan', function(e, panzoom, x, y) {
+    //     // Correct position
+    //     var curPosRange = getSchemePosRange(panzoom.scale);
+    //     correctSchemePos({x: x, y: y}, curPosRange);
+    //
+    //     // Move helper
+    //     var curPos = getPos($scheme);
+    //     var schemeDistance = getSchemeDistance(curPos, panzoom.scale);
+    //     setHelperDistance(schemeDistance, panzoom.scale);
+    //
+    //     $(".popover").popover('update');
+    // });
+    schemeManager.on('pan', handleSchemePan);
 
-        // Move helper
-        var curPos = getPos($scheme);
-        var schemeDistance = getSchemeDistance(curPos, panzoom.scale);
-        setHelperDistance(schemeDistance, panzoom.scale);
+    $scheme.find('div').on('mousedown touchstart', function(e) {
+        e.stopImmediatePropagation();
+        if ($(this).hasClass('place') && !$(this).hasClass('empty_label')) { $(this).popover('show'); }
+    });
+    $scheme.on('mousedown touchstart', function(e) {
+        e.stopImmediatePropagation();
+        if (!e.target.closest(".place")) { $(".place").popover('hide'); }
     });
 
     $helper.on('panzoompan', function(e, panzoom, x, y){
@@ -142,6 +193,11 @@
         var helperDistance = getHelperDistance(curPos);
         setSchemeDistance(helperDistance);
     });
+
+    if ($scaleStatus) {
+        $scaleMinus.on('click', function(e){ changeScale(-0.1); });
+        $scalePlus.on('click', function(e){ changeScale(0.1); });
+    }
 
 
     // Functions
@@ -167,10 +223,11 @@
             min: placeholderSize.width / schemeSize.width,
             max: 5
         };
+        helperIsDesabled = $(window).width() < 992 ? true : false;
+
         if (ratio < 1) {
             scaleRange.min = placeholderSize.height / schemeSize.height;
         }
-
     }
     function isNumeric(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
@@ -209,12 +266,60 @@
     function getPos(elem) {
         var matrix = elem.panzoom('getMatrix');
         return {
-            x: matrix[4],
-            y: matrix[5]
+            x: parseFloat(matrix[4]),
+            y: parseFloat(matrix[5])
         };
+    }
+    function addScaleControls() {
+        var $controlLabel = $('<div class="scheme-control__label">' + options.controls.scale.label + ': </div>');
+        $scaleControl = $('<div class="scheme-control scale-control"></div>');
+        $scaleStatus = $('<div class="scale-control__status"></div>');
+        $scaleMinus = $('<div class="scale-control__btn scale-control__btn--minus">-</div>');
+        $scalePlus = $('<div class="scale-control__btn scale-control__btn--plus">+</div>');
+
+        $scaleControl
+            .append($controlLabel)
+            .append($scaleMinus)
+            .append($scaleStatus)
+            .append($scalePlus);
+
+        placeScaleControl();
+        updateScaleStatus();
+    }
+    function updateScaleStatus() {
+        lastScale = getScale();
+        $scaleStatus.html(Math.round(lastScale * 100) + '%');
+    }
+    function placeScaleControl() {
+        if ($(window).width() < 992) {
+            $schemeWrap.prepend($scaleControl.detach());
+        } else {
+            $helperWrap.append($scaleControl.detach());
+        }
+    }
+    function changeScale(diff) {
+        diff = parseFloat(diff);
+        lastScale = parseFloat(lastScale);
+
+        if (lastScale >= 2) {
+            diff *= 5;
+        }
+
+        var panzoom = $scheme.panzoom('instance');
+        panzoom.zoom(lastScale + diff);
+        updateScaleStatus();
     }
 
     // Scheme
+    function setSchemePanzoom() {
+        $scheme.addClass('panzoom').panzoom({
+            startTransform: lastTransform,
+            increment: 0.1,
+            minScale: scaleRange.min,
+            maxScale: scaleRange.max,
+            // disablePan: true
+        });
+    }
     function getSizeOut(scale) {
         return {
             x: schemeSize.width * scale - placeholderSize.width,
@@ -272,26 +377,80 @@
         }
     }
     function setSchemePos(pos) {
-        var scale = $scheme.panzoom('getMatrix')[0];
-        $scheme.panzoom('setMatrix', [scale, 0, 0, scale, pos.x, pos.y]);
+        // $scheme.panzoom('setMatrix', [scale, 0, 0, scale, pos.x, pos.y]);
+        // $scheme.panzoom('setTransform', 'translate3d(' + pos.x + 'px, ' + pos.y + 'px, 0) scale(' + scale + ')');
+        var panzoom = $scheme.panzoom('instance');
+        if (panzoom) {
+            panzoom.setMatrix([panzoom.scale, 0, 0, panzoom.scale, pos.x, pos.y], {
+                silent: true
+            });
+        }
+        $scheme.css({
+            transform: 'translate3d(' + pos.x + 'px, ' + pos.y + 'px, 0) scale(' + lastScale + ')'
+        });
     }
     function setSchemeDistance(helperDistance) {
-        var curScale = getScale();
+        // var curScale = getScale();
+        var curScale = lastScale;
         var range = getSchemePosRange(curScale);
         var pos = {
             x: range.x.min + Math.round((range.x.max - range.x.min) * (1 - helperDistance.x) * 100) / 100,
             y: range.y.min + Math.round((range.y.max - range.y.min) * (1 - helperDistance.y) * 100) / 100
         };
 
-        if (ratio < 1 && getScale() < (placeholderSize.width / schemeSize.width)) {
-            pos.x = getPos($scheme).x;
+        if (ratio < 1 && curScale < (placeholderSize.width / schemeSize.width)) {
+            // pos.x = getPos($scheme).x;
+            pos.x = schemeLastPos.x;
         }
-        if (ratio > 1 && getScale() < (placeholderSize.height / schemeSize.height)) {
-            pos.y = getPos($scheme).y;
+        if (ratio > 1 && curScale < (placeholderSize.height / schemeSize.height)) {
+            // pos.y = getPos($scheme).y;
+            pos.y = schemeLastPos.y;
         }
 
         setSchemePos(pos);
         correctSchemePos(pos, range);
+    }
+
+    function handleSchemePan(ev) {
+        var elem = ev.target;
+
+        // DRAG STARTED
+        if (!schemeIsDragging) {
+            schemeIsDragging = true;
+            schemeLastPos = getPos($scheme);
+            lastScale = getScale();
+            lastTransform = $scheme.panzoom('getTransform');
+
+            $scheme.panzoom('destroy');
+
+            $scheme.addClass('dragging');
+        }
+
+        var curPos = {
+            x: schemeLastPos.x + ev.deltaX,
+            y: schemeLastPos.y + ev.deltaY
+        };
+        setSchemePos(curPos);
+        correctSchemePos(curPos, lastPosRange);
+
+        // Move helper
+        if (!helperIsDesabled) {
+            var schemeDistance = getSchemeDistance(curPos, lastScale);
+            setHelperDistance(schemeDistance, lastScale);
+        }
+
+        $(".popover").popover('update');
+
+        // DRAG ENDED
+        if (ev.isFinal) {
+            lastTransform = 'translate3d(' + curPos.x + 'px, ' + curPos.y + 'px, 0) scale(' + lastScale + ')';
+            setSchemePanzoom();
+            schemeIsDragging = false;
+            schemeLastPos = getPos($scheme);
+            lastScale = getScale();
+
+            $scheme.removeClass('dragging');
+        }
     }
 
     // Helper
@@ -320,6 +479,9 @@
     function setHelperParentSize() {
         var deltaSizeY = ($helper.parent().outerHeight() - $helper.parent().height());
         $helper.parent().css({
+            position: 'relative',
+            display: 'block',
+            width: '100%',
             height: Math.round($helper.parent().width() / ratio) + deltaSizeY + 'px'
         });
     }
@@ -366,4 +528,4 @@
     }
 
 
-})($, jQuery);
+})(jQuery);
