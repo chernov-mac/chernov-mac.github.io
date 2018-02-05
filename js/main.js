@@ -130,7 +130,7 @@ $(function() {
 		    }, 300);
 		});
 	});
-	$.each($('#DataCopy .place'), function(i, place) {
+	$.each($('.scheme-base .place'), function(i, place) {
 		$(place).popover({
 			html: true,
 			animation: false,
@@ -163,6 +163,10 @@ $(function() {
 		$(place).on('hide.bs.popover', function() {
 			var popoverId = $(place).attr('aria-describedby');
 			$('#' + popoverId).removeClass('pgroups-activated');
+		});
+
+		$('.scheme-base').on('schemePgroupsActivated', function(event){
+			$(event.detail.target).popover('update');
 		});
 	});
 
