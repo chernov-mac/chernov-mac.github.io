@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Kontramarka</title>
-	<link rel="stylesheet" href="/css/kontramarka-theme.min.css">
+	<link rel="stylesheet" href="/css/kontramarka-theme.css">
 </head>
 <body>
 
@@ -652,31 +652,45 @@
 								</div>
 							</div>
 						</div>
-						<div class="divider mt-4 mb-4"></div>
+						<div class="divider mt-4 mb-3"></div>
 						<div class="row">
-							<div class="col order-lg-2">
-								<h3>Способ доставки</h3>
-								<p class="d-flex justify-content-between">
-									<span class="plain-text">Стандартное письмо (незастрахованный вид доставки)</span>
-									<strong class="value">+2,00&euro;</strong>
-								</p>
-								<div class="divider mb-4"></div>
-								<h3>Способ оплаты</h3>
-								<p class="d-flex justify-content-between">
-									<span class="plain-text">Vorkasse (предоплата)</span>
-									<strong class="value">+0,00&euro;</strong>
-								</p>
-							</div>
 							<div class="col-12 col-lg-4 col-xl-3 order-lg-1">
-								<div class="divider mb-4 d-lg-none"></div>
-								<h3>Адрес доставки</h3>
-								<p class="plain-text">Ganz Rubinheigen</p>
-								<p class="plain-text">Green Street 1</p>
-								<p class="plain-text">6789aa Odessa</p>
-								<p class="plain-text">Switzerland</p>
+								<h4>Данные заказчика</h4>
+								<div class="d-block">
+									<div>Ganz Rubinheigen</div>
+									<div>Green Street, 1</div>
+									<div>6789aa Odessa</div>
+									<div>Switzerland</div>
+								</div>
+								<!-- <div class="plain-text d-lg-none my-2"><i class="fa fa-info-circle text-secondary"></i> Адрес доставки соответствует адресу заказчика</div> -->
+							</div>
+							<div class="col-12 col-lg-4 col-xl-3 order-lg-2">
+								<div class="divider my-2 d-lg-none"></div>
+								<h4>Адрес доставки</h4>
+								<div>
+									<div>Ganz Rubinheigen</div>
+									<div>Green Street, 1</div>
+									<div>6789aa Odessa</div>
+									<div>Switzerland</div>
+								</div>
+							</div>
+							<div class="col order-lg-3">
+								<div class="divider my-2 d-lg-none"></div>
+								<h4>Способ доставки</h4>
+								<div class="d-flex justify-content-between">
+									<span>Стандартное письмо (незастрахованный вид доставки)</span>
+									<strong class="value">+2,00&euro;</strong>
+								</div>
+								<div class="divider my-2"></div>
+								<h4>Способ оплаты</h4>
+								<div class="d-flex justify-content-between">
+									<span>Vorkasse (предоплата)</span>
+									<strong class="value">+0,00&euro;</strong>
+								</div>
 							</div>
 						</div>
-						<div class="divider mt-4 mb-4"></div>
+						<!-- <div class="plain-text d-none d-lg-block my-4"><i class="fa fa-info-circle text-secondary mr-1"></i> Адрес доставки соответствует адресу заказчика</div> -->
+						<div class="divider mt-3 mb-4"></div>
 						<div class="cart-total d-flex justify-content-between">
 							<span>Общая сумма заказа: </span>
 							<strong class="value">250,00&euro;</strong>
@@ -703,25 +717,29 @@
 				</div>
 				<div class="box">
 					<div class="box-body">
+						<div>
+							<p class="plain-text">Принимая условия работы и нажимая на кнопку 'Подтверждаю', Вы подтверждаете свое желание купить добавленные в корзину товары. Вы понимаете и согласны с тем, что отменить покупку в последствии будет невозможно. Вам известно, что право отказа (Rücktrittsrechts), так же как и право отмены (Widerrufsrecht) согласно §312 b Absatz 3 Nr. 6 BGB в случае заказа входных билетов на те или иные события не имеет силу.</p>
+							<p class="plain-text">Во избежание каких-либо споров мы сохраняем ваш IP: 188.130.177.221</p>
+						</div>
 						<div class="d-flex flex-wrap align-items-center">
 							<a href="/cart-2.html" class="btn-text go-back d-none d-lg-inline-block">Назад</a>
-							<label class="form-check-label mb-4 mb-md-0 ml-lg-auto mr-md-auto mr-lg-5">
+							<label class="form-check-label mb-4 mb-lg-0 ml-lg-auto mr-md-auto mr-lg-5">
 								<input class="form-check-input" type="checkbox" name="agb" value="1">
 								<span class="form-check-text">Я согласен с условиями работы (<a href="/agb/" target="_blank" class="link">AGB</a>)</span>
 							</label>
-							<a href="/cart-4.html" class="btn make-order btn-primary btn-block d-sm-none disabled" disabled>Подтверждаю</a>
-							<a href="/cart-4.html" class="btn make-order btn-primary btn-lg d-none d-sm-inline-block disabled" disabled>Подтверждаю</a>
+							<a href="/cart-4.html" class="btn make-order btn-primary btn-block d-sm-none disabled btn-allow-wrap" disabled>Окончательно оформить заказ</a>
+							<a href="/cart-4.html" class="btn make-order btn-primary btn-lg d-none d-sm-inline-block disabled btn-allow-wrap" disabled>Окончательно оформить заказ</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class="page-block">
+		<!-- <section class="page-block">
 			<div class="container">
 				<p class="plain-text">Принимая условия работы и нажимая на кнопку 'Подтверждаю', Вы подтверждаете свое желание купить добавленные в корзину товары. Вы понимаете и согласны с тем, что отменить покупку в последствии будет невозможно. Вам известно, что право отказа (Rücktrittsrechts), так же как и право отмены (Widerrufsrecht) согласно §312 b Absatz 3 Nr. 6 BGB в случае заказа входных билетов на те или иные события не имеет силу.</p>
 				<p class="plain-text">Во избежание каких-либо споров мы сохраняем ваш IP: 188.130.177.221</p>
 			</div>
-		</section>
+		</section> -->
     </main>
 
 	<footer>

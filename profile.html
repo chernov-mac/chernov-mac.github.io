@@ -255,19 +255,7 @@
         <section id="mainMenu">
 			<div class="container">
 				<div class="main-menu">
-					<!-- first toggler -->
 					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span class="d-none d-sm-inline">Меню</span></a>
-
-					<!-- than other elements in menu heading (that are on the right) -->
-					<!-- first of this will have margin left 40px -->
-					<!-- <div class="menu-item dropdown reference skins">
-						<a href="#" id="skinConfig" data-toggle="dropdown"><i class="fa fa-cogs"></i><span class="d-none d-md-inline">Skins</span></a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="skinConfig">
-							<li class="dropdown-item active"><a href="#" class="dropdown-item active">Default</a></li>
-							<li class="dropdown-item"><a href="#" class="dropdown-item">Kontramarka</a></li>
-						</div>
-					</div> -->
-
 					<div class="menu-item optional out dropdown reference date">
 						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
 							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
@@ -477,16 +465,13 @@
 					<a href="#" class="menu-item cart">
 						<span class="cart-outer">
 							<i class="icon-basket"></i>
-							<!-- <span class="d-none d-md-inline">Корзина</span> -->
 							<span class="badge badge-accent cart-count">2</span>
 						</span>
 					</a>
-					<a class="menu-item login" data-toggle="modal" data-target="#loginModal">
-						<i class="icon-sign-in"></i>
-						<span class="nav-item-text d-none d-md-inline">Войти</span>
+					<a class="menu-item login" data-toggle="modal" data-target="#profileModal">
+						<i class="icon-user"></i>
+						<span class="nav-item-text d-none d-md-inline">Профиль</span>
 					</a>
-
-					<!-- categories list -->
 					<div class="menu-wrapper draggable-lg-up">
 						<div class="drag-fog left d-none d-lg-block"></div>
 						<div class="drag-item menu-body collapse" id="mainMenuCategories">
@@ -524,6 +509,11 @@
     </header>
 
     <main>
+		<section class="page-block first-after-nav">
+			<div class="container">
+				<div id="messager"></div>
+			</div>
+		</section>
 		<section class="breadcrumbs">
 			<div class="container">
 				<div id="speedbar">
@@ -532,473 +522,339 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						<a href="/teatri/">Театры</a>
-						<i class="fa fa-angle-right"></i>
-						Балет
+						Личный кабинет
 					</div>
 			    </div>
 			</div>
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<h1 class="page-title tour__title">
-					Семинар Виктории Чердаковой - Актуальные проблемы вашей жизни
-					<!-- <div class="undertitle">с 03 ноября 2017 по 13 ноября 2017</div> -->
-				</h1>
-				<div class="box tour collapsed">
-					<div class="box-body tour__body">
-						<div class="tour__wrapper">
-							<div class="tour__pic">
-								<div class="a4 preloading">
-									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
-								</div>
-								<a class="fav-plus favorites" id="fav-id-422" href="javascript:void(0)" data-toggle="tooltip" title="Добавить в закладки профиля на сайте"><i class="fa fa-star-o"></i><span>В избранное</span></a>
-							</div>
-							<div class="tour__desc">
-								<div class="plain-text">
-									<p>Ани Лорак продолжает покорять европейский музыкальный рынок. Яркая, обворожительная и безгранично талантливая украинская певица презентует новую программу в Германии в ноябре 2017 года. Купить билеты и узнать стоимость бронирования мест вы можете на сайте Kontramarka.de.</p>
-									<h2>Концертный тур Ани Лорак в Германии &ndash; шоу, которое зажигает сердца</h2>
-									<p>Ани Лорак в Германии ждут тысячи поклонников, для которых певица исполнит новые и уже ставшие хитами песни. Настолько ярких танцевальных постановок, красочных декораций и звуковых эффектов еще не было ни на одном другом концерте &laquo;Каролины&raquo;. Предстоящее шоу будет по-настоящему незабываемым. Не откажите себе в удовольствии вновь услышать чарующий голос певицы, купите билеты на сайте Kontramarka.de и приходите на концерт Ани Лорак в Германии вместе с друзьями, родными и близкими.</p>
-									<p>Продажа билетов ведется онлайн и по телефону, просто определите дату посещения выступления Ани Лорак в Германии в 2017 году, выберите место в зале и оформите заказ, потратив не более 5-ти минут. Напоминаем, что Kontramarka.de &ndash; это театральная онлайн-касса, где билеты можно купить дешевле, чем в городских кассах. Продажа осуществляется по номинальной цене. Дополнительно оплачивается лишь стоимость доставки.</p>
-									<h3>Певица, покорившая мир</h3>
-									<p>Ани Лорак - самая титулованная украинская певица. &nbsp;&laquo;Каролина&raquo;:</p>
-									<ul>
-										<li>обладательница 5 &laquo;золотых&raquo; и 2 &laquo;платиновых&raquo; альбомов;</li>
-										<li>народная артистка Украины;</li>
-										<li>участница и песенного конкурса &laquo;Евровидение 2008&raquo;, где заняла 2-е место;</li>
-										<li>обладательница 5 &laquo;Золотых граммофонов&raquo;.</li>
-									</ul>
-									<p>Это лишь малая часть музыкальных достижений Ани Лорак, она продолжает их приумножать, покоряя своим талантом страны на всех континентах земного шара.</p>
-									<h4>&laquo;Каролина на бис&raquo; &ndash; долгожданное музыкальное шоу 2017 года в Германии</h4>
-									<p>Шоу &laquo;Каролина на бис&raquo;, которое пройдет в Германии в ноябре следующего года, порадует зрителей приятными сюрпризами. Каждое выступление &laquo;Каролины&raquo; отличается от предыдущего, артистка охотно общается с публикой, заряжает энергией своих песен и дарит незабываемые впечатления. Уверяем, новое шоу Ани Лорак в Германии приведет в восторг каждого, кто пожелает его посмотреть.</p>
-									<p>Купить билет на концерт Ани Лорак в Германии вы можете прямо сейчас, оформив заказ у нас на сайте. Цены соответствуют указанным на сайте и не будут повышаться до начала концертного тура. Воспользуйтесь шансом выгодно купить билеты на концерт Ани Лорак в Германии в онлайн-кассе Kontramarka.de и приходите, чтобы насладиться по-настоящему прекрасной музыкой и красивой хореографией.</p>
-								</div>
-							</div>
-						</div>
+				<div class="box">
+					<div class="nav nav-tabs mobile regular indicated d-md-none">
+						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link"><i class="icon-id-card"></i></a></div>
+						<div class="nav-item"><a href="#user-orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i></a></div>
+						<div class="nav-item"><a href="#user-favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i></a></div>
+						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link active"><i class="fa fa-comments"></i></a></div>
 					</div>
-					<div class="box-body tour__tools">
-						<a href="javascript:void(0)" class="toggle-body">
-							<span class="collapsed-only">Развернуть</span>
-							<span class="uncollapsed-only">Свернуть</span>
-						</a>
-					</div>
-					<div class="box-body tour__gallery">
-						<div class="gallery">
-							<div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/events/ex.png" alt="Дима Билан.">
-								</div>
-							</div>
-							<div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-								</div>
-							</div>
-							<div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-								</div>
-							</div>
-							<!-- <div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-								</div>
-							</div> -->
-							<!-- <div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-								</div>
-							</div>
-							<div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
-								</div>
-							</div>
-							<div class="gallery__item">
-								<div class="preloading">
-									<img src="/images/public/events/ex.png" alt="Дима Билан.">
-								</div>
-							</div> -->
-						</div>
+					<div class="nav nav-tabs regular indicated d-none d-md-flex">
+						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link"><i class="icon-id-card"></i> Мои данные</a></div>
+						<div class="nav-item"><a href="#user-orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i> Мои заказы</a></div>
+						<div class="nav-item"><a href="#user-favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i> Избранное</a></div>
+						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link active"><i class="fa fa-comments"></i> Комментарии</a></div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<h2 class="page-block-title">Места проведения</h2>
-				<div class="schedule">
-					<div class="schedule__row schedule__row--header">
-						<div class="schedule__col schedule__col--date"><i class="icon-calendar"></i> Когда</div>
-						<div class="schedule__col schedule__col--place"><i class="icon-map-marker"></i> Где</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00</div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
-							<a href="scheme.html" class="btn btn-primary">Купить билет</a>
-						</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
-							<div class="btn">Продажа на сайте закончена</div>
-						</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<div class="btn">Билеты распроданы</div>
-						</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
-							<div class="btn">Скоро в продаже</div>
-						</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
-							<div class="btn text-danger"><i class="icon-exclamation-circle"></i> Отменено</div>
-						</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<div class="btn">Перенесено</div>
-						</div>
-					</div>
-					<h5 class="title">Прошедшие мероприятия</h5>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
-							<div class="btn">Билеты распроданы</div>
-						</div>
-					</div>
-					<div class="schedule__row">
-						<div class="schedule__col schedule__col--date">
-							<div class="date">05.10.2017</div>
-							<div class="day">воскресенье</div>
-							<div class="time">18:00<span class="time-finish">20:30</span></div>
-						</div>
-						<div class="schedule__col schedule__col--place">
-							<div class="city">Ludwigshafen am Rhein</div>
-							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
-						</div>
-						<div class="schedule__col schedule__col--action">
-							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
-							<div class="btn">Билеты распроданы</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="page-block">
-			<div class="container">
-				<h2 class="page-block-title">Комментарии</h2>
-				<div class="box e2e-off-xs-down accent">
-					<div class="box-header" data-toggle="collapse" data-target="#commentForm" aria-expanded="false" aria-controls="commentForm">
-						Оставить комментарий
-					</div>
-					<div class="collapse" id="commentForm">
-						<div class="box-body">
-							<form action="" method="POST" id="addotzivform">
-								<div class="form-group form-group-inline-md-up">
-									<div class="form-control">
-										<input type="text" name="com_name" id="addotzivform_name" class="edit bk">
-										<label for="addotzivform_name" class="placeholder">Ваше имя</label>
-									</div>
-									<div class="form-control">
-										<input type="text" name="com_email" id="addotzivform_email" maxlength="100">
-										<label for="addotzivform_email" class="placeholder">Ваш email</label>
-									</div>
-									<div class="form-control">
-										<input type="text" name="com_phone" id="addotzivform_phone" maxlength="100">
-										<label for="addotzivform_phone" class="placeholder">Ваш телефон</label>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="form-control">
-										<textarea type="text" rows="2" name="com_text" id="addotzivform_text" class="edit bk" style="resize: vertical"></textarea>
-										<label for="addotzivform_text" class="placeholder">Ваш отзыв</label>
-									</div>
-								</div>
-								<div class="row no-gutters">
-									<div class="col-12 col-md-6 col-lg-5 col-xl-4">
-										<div class="form-group form-group-inline" id="captcha">
-											<div class="form-control image-control captcha-img">
-												<img src="/images/public/captcha.png" alt="Включите эту картинку для отображения кода безопасности">
+				<div class="tab-content">
+					<div class="tab-pane" id="user-info" role="tabpanel">
+						<div class="box">
+							<form>
+								<div class="box-body">
+									<div class="row">
+										<div class="col-lg-5 col-xl-4 order-lg-2 mb-4">
+											<div class="note mb-3">
+												<i class="icon-exclamation-circle text-secondary"></i> Максимальный размер картинки &mdash; 5 Мбайт
 											</div>
-											<div class="form-control always-open captcha-input">
-												<input type="text" name="sec_code" id="addotzivform_captcha" maxlength="10">
-												<label for="addotzivform_captcha" class="placeholder pull-left">Код</label>
-												<label for="addotzivform_captcha" class="placeholder pull-right">
-													<a onclick="captcha_reload(); return false;" href="javascript:void(0)" data-toggle="tooltip" title="Обновить, если не виден код"><i class="icon-refresh d-none d-sm-inline"></i> Обновить</a>
+											<div class="form-group fileinput fileinput-new" data-provides="fileinput">
+												<div class="avatar">
+													<div class="fileinput-new thumbnail" style="width: 60px; height: 60px;">
+														<img src="/images/60x60.jpg" alt="60x60">
+													</div>
+													<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 60px; max-height: 60px;"></div>
+												</div>
+												<label class="btn btn-primary btn-auto d-flex align-items-center mb-0">
+													<span class="fileinput-new">Выбрать</span>
+													<span class="fileinput-exists">Изменить</span>
+													<input type="file" name="avatar" class="d-none">
 												</label>
+												<a href="#" class="btn btn-text btn-auto d-flex align-items-center fileinput-exists" data-dismiss="fileinput"><span>Отмена</span></a>
+											</div>
+											<div class="form-group">
+												<a href="#changePassword" class="btn btn-lg btn-text btn-auto pl-0" data-toggle="modal">Изменить пароль</a>
+											</div>
+										</div>
+										<div class="col-lg-7 col-xl-8 order-lg-1">
+											<div class="note mb-3">
+												<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
+											</div>
+											<div class="form-group form-group-inline-sm-up">
+												<div class="form-control always-open">
+													<input type="text" name="name" id="user-info_name" value="Ganz" required>
+													<label for="user-info_name" class="placeholder compact">Имя</label>
+												</div>
+												<div class="form-control always-open">
+													<input type="text" name="surname" id="user-info_surname" value="Rubinheigen" required>
+													<label for="user-info_surname" class="placeholder compact">Фамилия</label>
+												</div>
+											</div>
+											<div class="form-group form-group-inline-sm-up">
+												<div class="form-control always-open">
+													<input type="email" name="mail" id="user-info_mail" value="email@mail.com" required>
+													<label for="user-info_mail" class="placeholder compact">E-mail</label>
+												</div>
+												<div class="form-control always-open">
+													<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
+													<input type="text" name="phone" id="user-info_phone" data-placeholder="" value="123423543" required>
+													<label for="user-info_phone" class="placeholder compact">Телефон</label>
+												</div>
+												<!-- <div class="form-control always-open">
+													<input type="password" name="password" id="user-info_password" value="password" required>
+													<label for="user-info_password" class="placeholder compact">Пароль</label>
+													<a href="javascript:void(0)" class="placeholder pull-right compact text-secondary" data-toggle="modal" data-target="#changePassword">Изменить</a>
+												</div> -->
+											</div>
+											<!-- <div class="form-group">
+												<div class="row no-gutters">
+													<div class="col-sm-6">
+														<div class="form-control always-open">
+															<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
+															<input type="text" name="phone" id="user-info_phone" data-placeholder="" value="123423543" required>
+															<label for="user-info_phone" class="placeholder compact">Телефон</label>
+														</div>
+													</div>
+												</div>
+											</div> -->
+											<div class="form-group form-group-inline-sm-up">
+												<div class="form-control always-open">
+													<div class="form-select">
+														<select name="country" id="user-info_country">
+															<option value="0" selected>Deutschland</option>
+															<option value="1">Austria</option>
+															<option value="2">Belgium</option>
+															<option value="3">Czech Rep.</option>
+															<option value="4">Denmark</option>
+															<option value="5">Estonia</option>
+															<option value="6">Finland</option>
+															<option value="7">France</option>
+															<option value="8">Holland</option>
+															<option value="9">Hungary</option>
+															<option value="10">Ireland</option>
+															<option value="11">Italy</option>
+															<option value="12">Latvia</option>
+															<option value="13">Lithuania</option>
+															<option value="14">Luxemburg</option>
+															<option value="15">Norwegen</option>
+															<option value="16">Poland</option>
+															<option value="17">Russia</option>
+															<option value="18">Spain</option>
+															<option value="19">Sweden</option>
+															<option value="20">Switzerland</option>
+															<option value="21">Ukraine</option>
+															<option value="22">United Kingdom</option>
+														</select>
+													</div>
+													<label for="user-info_country" class="placeholder compact">Страна</label>
+												</div>
+												<div class="form-control always-open">
+													<input type="text" name="city" id="user-info_city" value="Frankfurt am Main" required>
+													<label for="user-info_city" class="placeholder compact">Город</label>
+												</div>
+											</div>
+											<div class="form-group form-group-inline">
+												<div class="form-control basis-half full-width-xs-down always-open">
+													<input type="text" name="street" id="user-info_street" required value="Alt Schwanheim">
+													<label for="user-info_street" class="placeholder compact">Улица</label>
+												</div>
+												<div class="form-control basis-fourth always-open">
+													<input type="text" name="house" id="user-info_house" value="21" required>
+													<label for="user-info_house" class="placeholder compact">№ дома</label>
+												</div>
+												<div class="form-control basis-fourth always-open">
+													<input type="text" name="index" id="user-info_index" value="60529" required>
+													<label for="user-info_index" class="placeholder compact">Индекс</label>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col">
-										<a href="javascript:void(0)" class="btn btn-lg btn-block btn-primary d-sm-none" onclick="addOtziv(448,'ru');">Отправить</a>
-										<a href="javascript:void(0)" class="btn btn-lg btn-primary pull-right d-none d-sm-inline-block" onclick="addOtziv(448,'ru');">Отправить</a>
+								</div>
+								<div class="box-footer">
+									<div class="d-flex flex-wrap align-items-center justify-content-between d-sm-none">
+										<a href="javascript:void(0)" class="btn btn-text btn-cancel">Отмена</a>
+										<button type="submit" class="btn btn-primary">Сохранить</button>
+									</div>
+									<div class="d-none d-sm-flex flex-wrap align-items-center justify-content-end">
+										<a href="javascript:void(0)" class="btn btn-lg btn-text btn-cancel">Отмена</a>
+										<button type="submit" class="btn btn-lg btn-primary">Сохранить</button>
 									</div>
 								</div>
 							</form>
 						</div>
 					</div>
-				</div>
-				<div class="comments">
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username">Антон</div>
-							<span class="comment__date">21 октября 2017</span>
-							<span class="comment__time">23:55</span>
-						</div>
-						<div class="comment__content">Очень хотелось бы увидеть Басту в живую на ЮГЕ Германии !</div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username">АндреяЛ</div>
-							<span class="comment__date">8 сентября 2017</span>
-							<span class="comment__time">20:31</span>
-						</div>
-						<div class="comment__content">Почему редко в Штуттгарте, на юг почему неприезжают.....</div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username text-accent">Kontramarka.de Team</div>
-							<span class="comment__date">3 августа 2017</span>
-							<span class="comment__time">12:14</span>
-						</div>
-						<div class="comment__content">Уля, к сожалению, мы не можем точно ответить на Ваш вопрос. Организаторы предоставили только стоячие контингенты.</div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username">Уля</div>
-							<span class="comment__date">3 августа 2017</span>
-							<span class="comment__time">11:59</span>
-						</div>
-						<div class="comment__content">Здравствуйте,<br><br>у меня вопрос насчёт мест в westfalenhalle в Дортмунде. Там только стоять можно будет или все сидячие места уже раскупили?</div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username text-accent">Kontramarka.de Team</div>
-							<span class="comment__date">1 августа 2017</span>
-							<span class="comment__time">13:54</span>
-						</div>
-						<div class="comment__content">Демид, мы понимаем, что Вам хотелось бы узнать больше о концерте. Однако, зачастую концерты объявляются именно так, как Вы видите на нашем сайте. Мы надеемся, что организаторы в будущем будут рассказывать больше о том или ином событии. Тем не менее Баста от этого не станет другим. Баста - все тот же. Приходите!</div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username">Demid</div>
-							<span class="comment__date">1 августа 2017</span>
-							<span class="comment__time">13:23</span>
-						</div>
-						<div class="comment__content"><p>Вообще, ничего нового ни о Басте, ни конкрено о самом "концерте в Германии" озвучено не было (как ни странно). <br /> Складывается ощущение, что и самим организаторам этого не известно.<br /><br />А очень жаль!</p></div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username">Дима</div>
-							<span class="comment__date">4 февраля 2017</span>
-							<span class="comment__time">22:48</span>
-						</div>
-						<div class="comment__content"><p>Ну блин ну почему очень редко на юг германии приезжают, ну очень трудно ездить так далеко среди недели, совмещать работу с этим...</p></div>
-					</div>
-					<div class="comment">
-						<div class="comment__info">
-							<div class="comment__username">Денис</div>
-							<span class="comment__date">23 января 2017</span>
-							<span class="comment__time">20:21</span>
-						</div>
-						<div class="comment__content">Очень жду!!!</div>
-					</div>
-				</div>
-			</div>
-		</section><!-- /section#tour_comments -->
-		<section class="page-block">
-			<div class="container">
-				<h2 class="page-block-title">Наши рекомендации</h2>
-				<div class="events">
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
+					<div class="tab-pane" id="user-orders" role="tabpanel">
+						<div class="box">
+							<div class="box-header d-flex">
+								<div class="pagination">
+									<span><i class="icon-chevron-left"></i></span>
+									<span>1</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">2</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">3</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">4</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">5</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">6</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">7</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">8</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">9</a>
+									<span>...</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">189</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2"><i class="icon-chevron-right"></i></a>
+								</div>
+								<div class="per-page ml-auto">
+									<span class="mr-2">На странице:</span>
+									<span class="form-select d-inline-block">
+										<select id="per_page_comm">
+											<option value="10">10</option>
+							                <option value="20">20</option>
+							                <option value="30">30</option>
+							                <option value="50">50</option>
+							                <option value="100">100</option>
+										</select>
+									</span>
+								</div>
 							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+						</div>
+						<div class="box orders-list">
+							<div class="orders-list__item">
+								<a class="orders-list__item-header" data-toggle="collapse" href="#order_K-12345-12345" aria-expanded="false">
+									<div class="orders-list__item-name mr-auto">Заказ K-12345-12345</div>
+									<div class="orders-list__item-date">22.01.2015</div>
+									<div class="orders-list__item-status">Новый</div>
 								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+								<div class="orders-list__item-body collapse" id="order_K-12345-12345" role="tabpanel">
+									<div class="box-body">
+										<div class="orders-list__item-bill"><i class="fa fa-file-pdf-o mr-1"></i> <span>Счёт:</span> <a href="javascript:void(0)" class="link external ml-1">Rechnung K-12345-12345.pdf</a></div>
+										<div class="action-block order-events-list">
+											<div class="action-block-item order-events-list__item">
+												<div class="order-events-list__item-header">
+													<a class="order-events-list__item-name" data-toggle="collapse" href="#order_K-12345-12345_event_1" aria-expanded="false">Хор турецкого в Германии: Offenbach, 23.03.2018</a>
+													<div class="order-events-list__item-amount">Билетов: <strong class="value">3</strong></div>
+													<div class="order-events-list__item-total">На сумму: <strong class="value">217 &euro;</strong></div>
+												</div>
+												<div class="order-events-list__item-body collapse" id="order_K-12345-12345_event_1" role="tabpanel">
+													<div class="order-events-list__item-amount">Билетов: <strong class="value">3</strong></div>
+													<div class="order-events-list__item-total">На сумму: <strong class="value">217 &euro;</strong></div>
+
+													<div class="order-event-summary">
+														<div class="order-event-summary__pic">
+															<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+																<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+															</a>
+														</div>
+														<div class="order-event-summary__tickets">
+															<div>Block A: Reihe 1, Platz 6, 7 [2шт. x 69 &euro; = 138 &euro;]</div>
+															<div>Block A: Reihe 1, Platz 8 [1шт. x 79 &euro; = 79 &euro;]</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="action-block-item order-events-list__item">
+												<div class="order-events-list__item-header">
+													<a class="order-events-list__item-name" data-toggle="collapse" href="#order_K-12345-12345_event_2" aria-expanded="false">Хор турецкого в Германии: Offenbach, 23.03.2018</a>
+													<div class="order-events-list__item-amount">Билетов: <strong class="value">3</strong></div>
+													<div class="order-events-list__item-total">На сумму: <strong class="value">217 &euro;</strong></div>
+												</div>
+												<div class="order-events-list__item-body collapse" id="order_K-12345-12345_event_2" role="tabpanel">
+													<div class="order-event-summary">
+														<div class="order-event-summary__pic">
+															<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+																<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+															</a>
+														</div>
+														<div class="order-event-summary__tickets">
+															<div>Block A: Reihe 1, Platz 6, 7 [2шт. x 69 &euro; = 138 &euro;]</div>
+															<div>Block A: Reihe 1, Platz 8 [1шт. x 79 &euro; = 79 &euro;]</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">21.08.2017</div>
-										<div class="d-none d-lg-inline">21 августа 2017</div>
-									</div>
-									<ul class="event__cities">
-										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
-									</ul>
+					<div class="tab-pane" id="user-favourites" role="tabpanel"></div>
+					<div class="tab-pane active" id="user-comments" role="tabpanel">
+						<div class="d-flex">
+							<div class="box pag-nav">
+								<div class="per-page">
+									<span class="mr-2">На странице:</span>
+									<span class="form-select d-inline-block">
+										<select>
+											<option value="10">10</option>
+											<option value="20">20</option>
+											<option value="30">30</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
+										</select>
+									</span>
+								</div>
+								<div class="pagination">
+									<span><!-- <i class="icon-chevron-left"></i> -->Назад</span>
+									<span class="current">1</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">2</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">3</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">4</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">5</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">6</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">7</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">8</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">9</a>
+									<span class="nav_ext">...</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">189</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2"><!-- <i class="icon-chevron-right"></i> -->Далее</a>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Полина Гагарина</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="event-info__pic">
+									<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+										<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+									</a>
+								</div>
+								<div class="comment__content">
+									<div class="comment__info">
+										<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="link">Хор турецкого в германии</a></h1>
+										<span class="comment__date">21 октября 2017</span>
+										<span class="comment__time">23:55</span>
 									</div>
-									<ul class="event__cities">
-										<li>Münich</li>
-									</ul>
+									<div class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni laboriosam animi, vero doloremque provident, laborum cumque deleniti cum nihil dolorem maxime pariatur dolorum! Eaque, voluptatum odio harum aliquam quasi illo! Earum sint totam deleniti nisi perferendis, quod reiciendis debitis natus modi ipsum laborum nesciunt beatae ad voluptatem placeat dolor aliquid!</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">Спектакль “Игра на вылет”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="event-info__pic">
+									<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+										<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+									</a>
+								</div>
+								<div class="comment__content">
+									<div class="comment__info">
+										<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="link">Хор турецкого в германии</a></h1>
+										<span class="comment__date">21 октября 2017</span>
+										<span class="comment__time">23:55</span>
 									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 7</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-										<li>Düsseldorf</li>
-										<li><a href="/tour.html">Все города</a></li>
-									</ul>
+									<div class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni laboriosam animi, vero doloremque provident, laborum cumque deleniti cum nihil dolorem maxime pariatur dolorum! Eaque, voluptatum odio harum aliquam quasi illo! Earum sint totam deleniti nisi perferendis, quod reiciendis debitis natus modi ipsum laborum nesciunt beatae ad voluptatem placeat dolor aliquid!</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="events__item">
-						<div class="event">
-							<div class="event__img event__img--a4 preloading">
-								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
-							</div>
-							<div class="event__body">
-								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
-								<a href="/tour.html" class="block-title">
-									<span class="block-title__text">“Чужих мужей не бывает”</span>
-								</a>
-								<div class="event__info">
-									<div class="event__date">
-										<div class="d-lg-none">с 17.08.2017</div>
-										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="event-info__pic">
+									<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+										<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+									</a>
+								</div>
+								<div class="comment__content">
+									<div class="comment__info">
+										<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="link">Хор турецкого в германии</a></h1>
+										<span class="comment__date">21 октября 2017</span>
+										<span class="comment__time">23:55</span>
 									</div>
-									<ul class="event__cities">
-										<li class="multiple-places">Городов: 3</li>
-										<li>Berlin</li>
-										<li>Münich</li>
-										<li>Hamburg</li>
-									</ul>
+									<div class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni laboriosam animi, vero doloremque provident, laborum cumque deleniti cum nihil dolorem maxime pariatur dolorum! Eaque, voluptatum odio harum aliquam quasi illo! Earum sint totam deleniti nisi perferendis, quod reiciendis debitis natus modi ipsum laborum nesciunt beatae ad voluptatem placeat dolor aliquid!</div>
 								</div>
 							</div>
 						</div>
@@ -1228,31 +1084,64 @@
 	</div>
 </div>
 <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-xs" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Modal title</h5>
+				<h5 class="modal-title">Профиль</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
+					<i class="icon-times"></i>
 				</button>
 			</div>
 			<div class="modal-body">
-				<ul class="sub-menu">
-			        <li class="avatar cover-box">
-						<img class="fade" src="/images/public/events/mikhailov.png" alt="Логин">
-					</li>
-			        <li class="username">Viktor Chernov</li>
-			        <li><a href="/admin/">Админпанель</a></li>
-			        <li><a href="/profile/">Личный кабинет</a></li>
-			        <li><a href="/profile/user-orders/">Заказы</a></li>
-			        <li><a href="/profile/user-favorites/">Избранное</a></li>
-			        <li><a href="/profile/user-comments/">Комментарии</a></li>
-			        <li><a href="/logout/">Выход</a></li>
-			    </ul>
+				<div class="user-info mb-4">
+					<div class="avatar cover-box">
+						<img src="/images/public/events/mikhailov.png" alt="Логин">
+					</div>
+					<div class="username">Viktor Chernov</div>
+				</div>
+
+				<div class="action-block mt-4 mb-4">
+			        <a class="action-block-item" href="/admin/">Админпанель</a>
+			        <a class="action-block-item" href="/profile/">Личный кабинет</a>
+			        <a class="action-block-item" href="/profile/user-orders/">Заказы</a>
+			        <a class="action-block-item" href="/profile/user-favorites/">Избранное</a>
+			        <a class="action-block-item" href="/profile/user-comments/">Комментарии</a>
+			    </div>
+
+				<div class="d-flex justify-content-between mt-4">
+					<a href="/logout/" class="btn btn-secondary">Выход</a>
+					<button data-dismiss="modal" class="btn">Закрыть</button>
+				</div>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xs" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Изменение пароля</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="icon-times" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<div class="form-control">
+						<input type="password" name="password" id="oldpass">
+						<label for="oldpass" class="placeholder compact">Старый пароль</label>
+					</div>
+					<div class="form-control">
+						<input type="password" name="password" id="newpass">
+						<label for="newpass" class="placeholder compact">Новый пароль</label>
+					</div>
+					<div class="form-control">
+						<input type="password" name="password" id="newpass2">
+						<label for="newpass2" class="placeholder compact">Новый пароль ещё раз</label>
+					</div>
+				</div>
+				<button class="btn btn-block btn-primary">Сохранить</button>
+				<button class="btn btn-block btn-text" data-dismiss="modal">Отмена</button>
 			</div>
 		</div>
 	</div>
@@ -1267,6 +1156,7 @@
 
 <!-- jQuery -->
 <script src="/plugins/js/jquery.min.js"></script>
+<script src="/plugins/js/jquery.countdown.min.js"></script>
 <!-- Bootstrap -->
 <script src="/plugins/js/popper.min.js"></script>
 <script src="/plugins/js/bootstrap.min.js"></script>
@@ -1274,10 +1164,25 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
+<!-- Fileinput -->
+<script src="/plugins/js/fileinput.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
+<!-- <script>
+	var msg = BoxMessage('Error', 'Вы уже зарегистрированы. Авторизуйтесь.', {
+		size: 'lg',
+		mode: 'danger',
+		animate: true,
+		showOnInit: false,
+		closing: true
+	});
+	$(msg).collapse('show');
+</script> -->
+
 </body>
 </html>

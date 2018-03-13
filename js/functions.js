@@ -461,7 +461,6 @@ function checkScrollShadowPos(target) {
 
 function showGroupsField(id, elem) {
 	var popoverId = $(elem).attr('aria-describedby');
-	console.log(popoverId);
 	$('#' + popoverId)
 		.addClass('pgroups-activated')
 		.find('.popover-body')
@@ -755,6 +754,36 @@ function CMSprompt(promptText, value, headContent, okCallback, options) {
 			$(modal).remove();
 		});
 	}
+}
+
+
+
+function onExtensibleItemFocus(toggler) {
+	var $menu = $(toggler).closest('.extensible'),
+		$itemsWrapper = $menu.find('.extensible__items-list'),
+		$visibleItems = [];
+
+	$menu.find('.extensible__item').removeClass('active');
+
+	if ($(window).width() < 768) {
+		var currItem = $(toggler).closest('.extensible__item')[0];
+		var currNum = 0;
+		$.each($menu.find('.extensible__item'), function(i, item){
+			if ($(item).is(':visible')) {
+				$visibleItems.push(item);
+			}
+			if (item == currItem) {
+				currNum = $visibleItems.length - 1;
+			}
+		});
+
+		$itemsWrapper.css({
+			marginLeft: -($itemsWrapper.width() / $visibleItems.length * currNum) + 'px'
+		});
+	}
+
+	$menu.addClass('expanded');
+	$(toggler).closest('.extensible__item').addClass('active');
 }
 
 // function initScheme() {

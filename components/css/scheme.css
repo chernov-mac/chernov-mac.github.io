@@ -1,0 +1,2443 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+#plan_t {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+#plan_t tbody {
+  width: 100%;
+}
+
+#plan_t tbody tr {
+  display: flex;
+  width: 100%;
+}
+
+#plan_t tbody tr td {
+  vertical-align: top;
+}
+
+#plan_t:not(.scheme-ready) td:first-child {
+  width: 100%;
+  overflow: hidden;
+}
+
+#scheme_row td:first-child {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scheme-holder,
+.scheme-holder .scheme-base,
+.scheme-holder .scheme-base svg {
+  width: 100%;
+  height: 100%;
+}
+
+#ZoomPlaceholder,
+.scheme-holder {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  transition: opacity .5s ease-in;
+  height: 425px;
+}
+
+@media (min-width: 540px) {
+  #ZoomPlaceholder,
+  .scheme-holder {
+    height: 650px;
+  }
+}
+
+#ZoomPlaceholder.loading,
+.scheme-holder.loading {
+  opacity: 0;
+}
+
+#DataCopy,
+.scheme-base {
+  position: relative;
+  height: 100%;
+  cursor: -webkit-grab;
+}
+
+#DataCopy.dragging,
+.scheme-base.dragging {
+  cursor: -webkit-grabbing;
+}
+
+#maindata_wrapper {
+  width: 270px;
+  min-width: 270px;
+  padding-left: 20px;
+}
+
+@media (max-width: 991px) {
+  #maindata_wrapper {
+    display: none;
+  }
+}
+
+#MainData {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  background-size: contain !important;
+}
+
+#helper,
+.helper {
+  display: block;
+  position: absolute;
+  border: 2px solid #00398c;
+  background: url("/upload/schemes/move-circle.svg") no-repeat center center;
+  background-size: 38px 38px;
+  cursor: -webkit-grab;
+}
+
+#helper.dragging,
+.helper.dragging {
+  cursor: -webkit-grabbing;
+}
+
+.tickets_group {
+  display: flex;
+  height: 18px;
+  line-height: 18px;
+}
+
+.tickets_group:before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: url("/upload/schemes/labels.svg") 0 0/18px 342px no-repeat;
+}
+
+.tickets_group.empty_label:before {
+  background: url("/upload/schemes/labels.svg") 0 0px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 0px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat;
+}
+
+.tickets_group.sold_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -36px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -36px / 18px 342px no-repeat;
+}
+
+.tickets_group.reserve_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -54px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -54px / 18px 342px no-repeat;
+}
+
+.tickets_group.blue_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -72px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -72px / 18px 342px no-repeat;
+}
+
+.tickets_group.brown_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -90px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -90px / 18px 342px no-repeat;
+}
+
+.tickets_group.crimson_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -108px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -108px / 18px 342px no-repeat;
+}
+
+.tickets_group.cyan_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -126px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -126px / 18px 342px no-repeat;
+}
+
+.tickets_group.darkblue_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -144px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -144px / 18px 342px no-repeat;
+}
+
+.tickets_group.green_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -162px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -162px / 18px 342px no-repeat;
+}
+
+.tickets_group.magenta_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -180px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -180px / 18px 342px no-repeat;
+}
+
+.tickets_group.orange_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -198px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -198px / 18px 342px no-repeat;
+}
+
+.tickets_group.purple_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -216px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -216px / 18px 342px no-repeat;
+}
+
+.tickets_group.yellow_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -234px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -234px / 18px 342px no-repeat;
+}
+
+.tickets_group.lightgreen_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -252px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -252px / 18px 342px no-repeat;
+}
+
+.tickets_group.cherry_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -270px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -270px / 18px 342px no-repeat;
+}
+
+.tickets_group.highlight_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -288px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -288px / 18px 342px no-repeat;
+}
+
+.tickets_group.salmon_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -306px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -306px / 18px 342px no-repeat;
+}
+
+.tickets_group.khaki_label:before {
+  background: url("/upload/schemes/labels.svg") 0 -324px / 18px 342px no-repeat;
+}
+
+.tickets_group.marker:before {
+  background: url("/upload/schemes/labels.svg") 0 -18px / 18px 342px no-repeat, url("/upload/schemes/labels.svg") 0 -324px / 18px 342px no-repeat;
+}
+
+#groupbox {
+  width: 100%;
+  margin: 20px 0;
+  color: #000;
+}
+
+#groupbox [id*="_ticket_group"] {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+#groupbox_inner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#groupbox_inner .tickets_group {
+  margin: 10px 0;
+}
+
+.ticket_point {
+  position: relative;
+  padding: 12px 20px 12px 0;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.ticket_point p {
+  margin: 0;
+  line-height: 24px;
+  font-size: 18px;
+}
+
+.ticket_point .delplace_btn {
+  position: absolute;
+  overflow: hidden;
+  top: 12px;
+  right: -4px;
+  padding: 4px;
+  color: #ffc800;
+  font-size: 0em;
+  line-height: 0;
+  text-indent: 0;
+  cursor: pointer;
+}
+
+.ticket_point .delplace_btn:before {
+  content: '×';
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 16px;
+  text-indent: initial;
+}
+
+.ticket_point .delplace_btn:hover {
+  color: #00398c;
+}
+
+#ticketbox {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0 18px;
+  border: 2px solid #ededed;
+  font-size: 18px;
+  color: #000;
+}
+
+#ticketbox_title {
+  padding: 6px 0;
+  text-align: center;
+}
+
+#ticketbox_inner {
+  position: relative;
+}
+
+#ticketbox_inner .ticket_point + .ticket_point {
+  border-top: 1px solid #ededed;
+}
+
+#ticketbox_form {
+  position: relative;
+  margin: 12px 0;
+  text-align: center;
+}
+
+#ticketbox_form b, #ticketbox_form strong {
+  display: inline-block;
+}
+
+#ticketbox_form_btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  background-color: #ffc800;
+  border: 0 solid transparent;
+  border-radius: 0;
+  outline: none;
+  user-select: none;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #111;
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+#ticketbox_form_btn:hover, #ticketbox_form_btn:active {
+  color: #111;
+  background-color: #d9aa00;
+  border-color: #cca000;
+}
+
+#ticketbox_form_btn:focus {
+  box-shadow: 0 0 0 3px rgba(255, 200, 0, 0.5);
+}
+
+.scroll-shadow {
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-shadow:before, .scroll-shadow:after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  left: 0;
+  height: 10px;
+  transition: background-size .2s ease;
+}
+
+.scroll-shadow:before {
+  top: 0;
+  background: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, 0.18), transparent) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+
+.scroll-shadow:after {
+  bottom: 0;
+  border-top-width: 1px;
+  background: radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.18), transparent) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+
+.scroll-shadow__scroll {
+  position: relative;
+  z-index: 1;
+  overflow-y: scroll;
+  margin-right: -20px;
+  padding-right: 20px;
+}
+
+.scroll-shadow.not-start:before {
+  background-size: 100% 8px;
+}
+
+.scroll-shadow.not-end:after {
+  background-size: 100% 8px;
+}
+
+#DataCopy > .place, #DataCopy > .place-double {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  font-family: "Trebuchet MS", "Helvetica CY", sans-serif;
+  font-size: 8px;
+  text-align: center;
+  line-height: 16px;
+  overflow: hidden;
+  transition: box-shadow .1s ease;
+  background: url("/upload/schemes/labels.svg") 0 0/16px 304px no-repeat;
+  color: #111;
+}
+
+#DataCopy > .place.marker, #DataCopy > .marker.place-double, #DataCopy > .place.empty_label, #DataCopy > .empty_label.place-double, #DataCopy > .place.marker_label, #DataCopy > .marker_label.place-double, #DataCopy > .place.sold_label, #DataCopy > .sold_label.place-double, #DataCopy > .place.reserve_label, #DataCopy > .reserve_label.place-double {
+  font-size: 0em;
+  line-height: 0;
+  text-indent: 0;
+}
+
+#DataCopy > .place:not(.empty_label), #DataCopy > .place-double:not(.empty_label) {
+  cursor: pointer;
+}
+
+#DataCopy > .place.empty_label, #DataCopy > .empty_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 0px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.empty_label.marker, #DataCopy > .empty_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 0px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.empty_label.active, #DataCopy > .empty_label.active.place-double, #DataCopy > .place.empty_label:hover, #DataCopy > .empty_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(247, 247, 247, 0.24);
+}
+
+#DataCopy > .place.marker_label, #DataCopy > .marker_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.marker_label.marker, #DataCopy > .marker_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.marker_label.active, #DataCopy > .marker_label.active.place-double, #DataCopy > .place.marker_label:hover, #DataCopy > .marker_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.24);
+}
+
+#DataCopy > .place.sold_label, #DataCopy > .sold_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -32px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.sold_label.marker, #DataCopy > .sold_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -32px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.sold_label.active, #DataCopy > .sold_label.active.place-double, #DataCopy > .place.sold_label:hover, #DataCopy > .sold_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(239, 0, 0, 0.24);
+}
+
+#DataCopy > .place.reserve_label, #DataCopy > .reserve_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -48px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.reserve_label.marker, #DataCopy > .reserve_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -48px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.reserve_label.active, #DataCopy > .reserve_label.active.place-double, #DataCopy > .place.reserve_label:hover, #DataCopy > .reserve_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(239, 0, 0, 0.24);
+}
+
+#DataCopy > .place.blue_label, #DataCopy > .blue_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -64px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.blue_label.marker, #DataCopy > .blue_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -64px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.blue_label.active, #DataCopy > .blue_label.active.place-double, #DataCopy > .place.blue_label:hover, #DataCopy > .blue_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(33, 170, 210, 0.24);
+}
+
+#DataCopy > .place.brown_label, #DataCopy > .brown_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -80px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.brown_label.marker, #DataCopy > .brown_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -80px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.brown_label.active, #DataCopy > .brown_label.active.place-double, #DataCopy > .place.brown_label:hover, #DataCopy > .brown_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(101, 46, 12, 0.24);
+}
+
+#DataCopy > .place.crimson_label, #DataCopy > .crimson_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -96px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.crimson_label.marker, #DataCopy > .crimson_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -96px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.crimson_label.active, #DataCopy > .crimson_label.active.place-double, #DataCopy > .place.crimson_label:hover, #DataCopy > .crimson_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(142, 18, 34, 0.24);
+}
+
+#DataCopy > .place.cyan_label, #DataCopy > .cyan_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -112px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.cyan_label.marker, #DataCopy > .cyan_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -112px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.cyan_label.active, #DataCopy > .cyan_label.active.place-double, #DataCopy > .place.cyan_label:hover, #DataCopy > .cyan_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(18, 182, 197, 0.24);
+}
+
+#DataCopy > .place.darkblue_label, #DataCopy > .darkblue_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -128px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.darkblue_label.marker, #DataCopy > .darkblue_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -128px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.darkblue_label.active, #DataCopy > .darkblue_label.active.place-double, #DataCopy > .place.darkblue_label:hover, #DataCopy > .darkblue_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(38, 122, 237, 0.24);
+}
+
+#DataCopy > .place.green_label, #DataCopy > .green_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -144px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.green_label.marker, #DataCopy > .green_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -144px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.green_label.active, #DataCopy > .green_label.active.place-double, #DataCopy > .place.green_label:hover, #DataCopy > .green_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(70, 197, 18, 0.24);
+}
+
+#DataCopy > .place.magenta_label, #DataCopy > .magenta_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -160px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.magenta_label.marker, #DataCopy > .magenta_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -160px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.magenta_label.active, #DataCopy > .magenta_label.active.place-double, #DataCopy > .place.magenta_label:hover, #DataCopy > .magenta_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(41, 16, 101, 0.24);
+}
+
+#DataCopy > .place.orange_label, #DataCopy > .orange_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -176px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.orange_label.marker, #DataCopy > .orange_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -176px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.orange_label.active, #DataCopy > .orange_label.active.place-double, #DataCopy > .place.orange_label:hover, #DataCopy > .orange_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(234, 114, 8, 0.24);
+}
+
+#DataCopy > .place.purple_label, #DataCopy > .purple_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -192px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.purple_label.marker, #DataCopy > .purple_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -192px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.purple_label.active, #DataCopy > .purple_label.active.place-double, #DataCopy > .place.purple_label:hover, #DataCopy > .purple_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(232, 21, 175, 0.24);
+}
+
+#DataCopy > .place.yellow_label, #DataCopy > .yellow_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -208px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.yellow_label.marker, #DataCopy > .yellow_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -208px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.yellow_label.active, #DataCopy > .yellow_label.active.place-double, #DataCopy > .place.yellow_label:hover, #DataCopy > .yellow_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(242, 182, 3, 0.24);
+}
+
+#DataCopy > .place.lightgreen_label, #DataCopy > .lightgreen_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -224px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.lightgreen_label.marker, #DataCopy > .lightgreen_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -224px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.lightgreen_label.active, #DataCopy > .lightgreen_label.active.place-double, #DataCopy > .place.lightgreen_label:hover, #DataCopy > .lightgreen_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(103, 229, 50, 0.24);
+}
+
+#DataCopy > .place.cherry_label, #DataCopy > .cherry_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -240px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.cherry_label.marker, #DataCopy > .cherry_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -240px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.cherry_label.active, #DataCopy > .cherry_label.active.place-double, #DataCopy > .place.cherry_label:hover, #DataCopy > .cherry_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(162, 20, 71, 0.24);
+}
+
+#DataCopy > .place.highlight_label, #DataCopy > .highlight_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -256px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.highlight_label.marker, #DataCopy > .highlight_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -256px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.highlight_label.active, #DataCopy > .highlight_label.active.place-double, #DataCopy > .place.highlight_label:hover, #DataCopy > .highlight_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(239, 0, 0, 0.24);
+}
+
+#DataCopy > .place.salmon_label, #DataCopy > .salmon_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -272px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.salmon_label.marker, #DataCopy > .salmon_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -272px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.salmon_label.active, #DataCopy > .salmon_label.active.place-double, #DataCopy > .place.salmon_label:hover, #DataCopy > .salmon_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(250, 128, 114, 0.24);
+}
+
+#DataCopy > .place.khaki_label, #DataCopy > .khaki_label.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -288px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.khaki_label.marker, #DataCopy > .khaki_label.marker.place-double {
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -288px / 16px 304px no-repeat;
+}
+
+#DataCopy > .place.khaki_label.active, #DataCopy > .khaki_label.active.place-double, #DataCopy > .place.khaki_label:hover, #DataCopy > .khaki_label.place-double:hover {
+  box-shadow: 0 0 0 2px rgba(139, 134, 78, 0.24);
+}
+
+#DataCopy > .place.bileter, #DataCopy > .bileter.place-double {
+  color: #221b40;
+}
+
+#DataCopy > .place.blue_label, #DataCopy > .blue_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.brown_label, #DataCopy > .brown_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.crimson_label, #DataCopy > .crimson_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.cyan_label, #DataCopy > .cyan_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.darkblue_label, #DataCopy > .darkblue_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.green_label, #DataCopy > .green_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.magenta_label, #DataCopy > .magenta_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.orange_label, #DataCopy > .orange_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.purple_label, #DataCopy > .purple_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.cherry_label, #DataCopy > .cherry_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.highlight_label, #DataCopy > .highlight_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.salmon_label, #DataCopy > .salmon_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place.khaki_label, #DataCopy > .khaki_label.place-double {
+  color: #fff;
+}
+
+#DataCopy > .place-double {
+  background: url("/upload/schemes/labels-double.svg") no-repeat;
+  cursor: pointer;
+}
+
+#DataCopy > .place-double.left {
+  width: 28px !important;
+  height: 29px !important;
+  background: url("/upload/schemes/labels-double-left.svg") no-repeat !important;
+}
+
+#DataCopy > .place-double.right {
+  width: 28px !important;
+  height: 29px !important;
+  background: url("/upload/schemes/labels-double-right.svg") no-repeat !important;
+}
+
+#DataCopy > .place-double.left.sold_label, #DataCopy > .place-double.right.sold_label {
+  background-position: 0 -68px !important;
+}
+
+#DataCopy > .place-double.left.reserve_label, #DataCopy > .place-double.right.reserve_label {
+  background-position: 0 -102px !important;
+}
+
+#DataCopy > .place-double.left.blue_label, #DataCopy > .place-double.right.blue_label {
+  background-position: 0 -136px !important;
+}
+
+#DataCopy > .place-double.left.brown_label, #DataCopy > .place-double.right.brown_label {
+  background-position: 0 -170px !important;
+}
+
+#DataCopy > .place-double.left.crimson_label, #DataCopy > .place-double.right.crimson_label {
+  background-position: 0 -204px !important;
+}
+
+#DataCopy > .place-double.left.cyan_label, #DataCopy > .place-double.right.cyan_label {
+  background-position: 0 -238px !important;
+}
+
+#DataCopy > .place-double.left.darkblue_label, #DataCopy > .place-double.right.darkblue_label {
+  background-position: 0 -272px !important;
+}
+
+#DataCopy > .place-double.left.green_label, #DataCopy > .place-double.right.green_label {
+  background-position: 0 -306px !important;
+}
+
+#DataCopy > .place-double.left.magenta_label, #DataCopy > .place-double.right.magenta_label {
+  background-position: 0 -340px !important;
+}
+
+#DataCopy > .place-double.left.orange_label, #DataCopy > .place-double.right.orange_label {
+  background-position: 0 -374px !important;
+}
+
+#DataCopy > .place-double.left.purple_label, #DataCopy > .place-double.right.purple_label {
+  background-position: 0 -408px !important;
+}
+
+#DataCopy > .place-double.left.yellow_label, #DataCopy > .place-double.right.yellow_label {
+  background-position: 0 -442px !important;
+}
+
+#DataCopy > .place-double.left.lightgreen_label, #DataCopy > .place-double.right.lightgreen_label {
+  background-position: 0 -476px !important;
+}
+
+#DataCopy > .place-double.left.cherry_label, #DataCopy > .place-double.right.cherry_label {
+  background-position: 0 -510px !important;
+}
+
+#DataCopy > .place-double.blue_label:hover, #DataCopy > .place-double.brown_label:hover, #DataCopy > .place-double.crimson_label:hover, #DataCopy > .place-double.cyan_label:hover, #DataCopy > .place-double.darkblue_label:hover, #DataCopy > .place-double.green_label:hover, #DataCopy > .place-double.magenta_label:hover, #DataCopy > .place-double.orange_label:hover, #DataCopy > .place-double.purple_label:hover, #DataCopy > .place-double.yellow_label:hover, #DataCopy > .place-double.lightgreen_label:hover, #DataCopy > .place-double.cherry_label:hover {
+  background-position: 0 -544px !important;
+}
+
+#DataCopy > .place-double.bileter {
+  height: 34px !important;
+}
+
+svg {
+  display: block;
+  cursor: move;
+}
+
+svg image {
+  user-select: none;
+}
+
+svg .place, svg #DataCopy > .place-double,
+svg .place_new,
+svg .place-double {
+  cursor: pointer;
+}
+
+svg .place circle, svg #DataCopy > .place-double circle,
+svg .place path.place-union,
+svg #DataCopy > .place-double path.place-union,
+svg .place_new circle,
+svg .place_new path.place-union,
+svg .place-double circle,
+svg .place-double path.place-union {
+  transition: fill-opacity 100ms ease-in-out, stroke-width 100ms ease-in-out;
+}
+
+svg .place text, svg #DataCopy > .place-double text,
+svg .place_new text,
+svg .place-double text {
+  font-family: "Trebuchet MS", "Helvetica CY", sans-serif;
+  font-size: 8px;
+  line-height: 16px;
+  fill: #fff;
+  text-align: center;
+  dominant-baseline: central;
+  alignment-baseline: central;
+  text-anchor: middle;
+}
+
+svg .place.sold_label .brick, svg #DataCopy > .sold_label.place-double .brick,
+svg .place_new.sold_label .brick,
+svg .place-double.sold_label .brick {
+  fill: #ef0000;
+}
+
+svg .place.sold_label text, svg #DataCopy > .sold_label.place-double text,
+svg .place_new.sold_label text,
+svg .place-double.sold_label text {
+  fill-opacity: 0;
+}
+
+svg .place.reserve_label .letter-r, svg #DataCopy > .reserve_label.place-double .letter-r,
+svg .place_new.reserve_label .letter-r,
+svg .place-double.reserve_label .letter-r {
+  fill: #ef0000;
+}
+
+svg .place.reserve_label text, svg #DataCopy > .reserve_label.place-double text,
+svg .place_new.reserve_label text,
+svg .place-double.reserve_label text {
+  fill-opacity: 0;
+}
+
+svg .place.empty_label, svg #DataCopy > .empty_label.place-double,
+svg .place_new.empty_label,
+svg .place-double.empty_label {
+  cursor: default;
+}
+
+svg .place.empty_label text, svg #DataCopy > .empty_label.place-double text,
+svg .place_new.empty_label text,
+svg .place-double.empty_label text {
+  fill: #bbb;
+}
+
+svg .place:not(.empty_label), svg #DataCopy > .place-double:not(.empty_label),
+svg .place_new:not(.empty_label),
+svg .place-double:not(.empty_label) {
+  cursor: pointer;
+}
+
+svg .place.empty_label circle.place_label, svg #DataCopy > .empty_label.place-double circle.place_label,
+svg .place.empty_label path.place-union,
+svg #DataCopy > .empty_label.place-double path.place-union,
+svg .place_new.empty_label circle.place_label,
+svg .place_new.empty_label path.place-union,
+svg .place-double.empty_label circle.place_label,
+svg .place-double.empty_label path.place-union {
+  fill: #f7f7f7;
+  stroke: #f7f7f7;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.empty_label path.place-union,
+svg #DataCopy > .empty_label.place-double path.place-union,
+svg .place_new.empty_label path.place-union,
+svg .place-double.empty_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.empty_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .empty_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.empty_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.empty_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.empty_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .empty_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.empty_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.empty_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.empty_label circle.addition, svg #DataCopy > .empty_label.place-double circle.addition,
+svg .place_new.empty_label circle.addition,
+svg .place-double.empty_label circle.addition {
+  fill: #f7f7f7;
+  stroke: #e9e9e9;
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.empty_label.marker circle, svg #DataCopy > .empty_label.marker.place-double circle,
+svg .place_new.empty_label.marker circle,
+svg .place-double.empty_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.empty_label.marker text, svg #DataCopy > .empty_label.marker.place-double text,
+svg .place_new.empty_label.marker text,
+svg .place-double.empty_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.empty_label.marker path.check, svg #DataCopy > .empty_label.marker.place-double path.check,
+svg .place_new.empty_label.marker path.check,
+svg .place-double.empty_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.marker_label circle.place_label, svg #DataCopy > .marker_label.place-double circle.place_label,
+svg .place.marker_label path.place-union,
+svg #DataCopy > .marker_label.place-double path.place-union,
+svg .place_new.marker_label circle.place_label,
+svg .place_new.marker_label path.place-union,
+svg .place-double.marker_label circle.place_label,
+svg .place-double.marker_label path.place-union {
+  fill: #000000;
+  stroke: #000000;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.marker_label path.place-union,
+svg #DataCopy > .marker_label.place-double path.place-union,
+svg .place_new.marker_label path.place-union,
+svg .place-double.marker_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.marker_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .marker_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.marker_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.marker_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.marker_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .marker_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.marker_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.marker_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.marker_label circle.addition, svg #DataCopy > .marker_label.place-double circle.addition,
+svg .place_new.marker_label circle.addition,
+svg .place-double.marker_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.marker_label.marker circle, svg #DataCopy > .marker_label.marker.place-double circle,
+svg .place_new.marker_label.marker circle,
+svg .place-double.marker_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.marker_label.marker text, svg #DataCopy > .marker_label.marker.place-double text,
+svg .place_new.marker_label.marker text,
+svg .place-double.marker_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.marker_label.marker path.check, svg #DataCopy > .marker_label.marker.place-double path.check,
+svg .place_new.marker_label.marker path.check,
+svg .place-double.marker_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.sold_label circle.place_label, svg #DataCopy > .sold_label.place-double circle.place_label,
+svg .place.sold_label path.place-union,
+svg #DataCopy > .sold_label.place-double path.place-union,
+svg .place_new.sold_label circle.place_label,
+svg .place_new.sold_label path.place-union,
+svg .place-double.sold_label circle.place_label,
+svg .place-double.sold_label path.place-union {
+  fill: #ef0000;
+  stroke: #ef0000;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.sold_label path.place-union,
+svg #DataCopy > .sold_label.place-double path.place-union,
+svg .place_new.sold_label path.place-union,
+svg .place-double.sold_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.sold_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .sold_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.sold_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.sold_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.sold_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .sold_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.sold_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.sold_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.sold_label circle.addition, svg #DataCopy > .sold_label.place-double circle.addition,
+svg .place_new.sold_label circle.addition,
+svg .place-double.sold_label circle.addition {
+  fill: #fff;
+  stroke: #ef0000;
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.sold_label.marker circle, svg #DataCopy > .sold_label.marker.place-double circle,
+svg .place_new.sold_label.marker circle,
+svg .place-double.sold_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.sold_label.marker text, svg #DataCopy > .sold_label.marker.place-double text,
+svg .place_new.sold_label.marker text,
+svg .place-double.sold_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.sold_label.marker path.check, svg #DataCopy > .sold_label.marker.place-double path.check,
+svg .place_new.sold_label.marker path.check,
+svg .place-double.sold_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.reserve_label circle.place_label, svg #DataCopy > .reserve_label.place-double circle.place_label,
+svg .place.reserve_label path.place-union,
+svg #DataCopy > .reserve_label.place-double path.place-union,
+svg .place_new.reserve_label circle.place_label,
+svg .place_new.reserve_label path.place-union,
+svg .place-double.reserve_label circle.place_label,
+svg .place-double.reserve_label path.place-union {
+  fill: #ef0000;
+  stroke: #ef0000;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.reserve_label path.place-union,
+svg #DataCopy > .reserve_label.place-double path.place-union,
+svg .place_new.reserve_label path.place-union,
+svg .place-double.reserve_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.reserve_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .reserve_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.reserve_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.reserve_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.reserve_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .reserve_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.reserve_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.reserve_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.reserve_label circle.addition, svg #DataCopy > .reserve_label.place-double circle.addition,
+svg .place_new.reserve_label circle.addition,
+svg .place-double.reserve_label circle.addition {
+  fill: #fff;
+  stroke: #ef0000;
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.reserve_label.marker circle, svg #DataCopy > .reserve_label.marker.place-double circle,
+svg .place_new.reserve_label.marker circle,
+svg .place-double.reserve_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.reserve_label.marker text, svg #DataCopy > .reserve_label.marker.place-double text,
+svg .place_new.reserve_label.marker text,
+svg .place-double.reserve_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.reserve_label.marker path.check, svg #DataCopy > .reserve_label.marker.place-double path.check,
+svg .place_new.reserve_label.marker path.check,
+svg .place-double.reserve_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.blue_label circle.place_label, svg #DataCopy > .blue_label.place-double circle.place_label,
+svg .place.blue_label path.place-union,
+svg #DataCopy > .blue_label.place-double path.place-union,
+svg .place_new.blue_label circle.place_label,
+svg .place_new.blue_label path.place-union,
+svg .place-double.blue_label circle.place_label,
+svg .place-double.blue_label path.place-union {
+  fill: #21aad2;
+  stroke: #21aad2;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.blue_label path.place-union,
+svg #DataCopy > .blue_label.place-double path.place-union,
+svg .place_new.blue_label path.place-union,
+svg .place-double.blue_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.blue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .blue_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.blue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.blue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.blue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .blue_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.blue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.blue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.blue_label circle.addition, svg #DataCopy > .blue_label.place-double circle.addition,
+svg .place_new.blue_label circle.addition,
+svg .place-double.blue_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.blue_label.marker circle, svg #DataCopy > .blue_label.marker.place-double circle,
+svg .place_new.blue_label.marker circle,
+svg .place-double.blue_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.blue_label.marker text, svg #DataCopy > .blue_label.marker.place-double text,
+svg .place_new.blue_label.marker text,
+svg .place-double.blue_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.blue_label.marker path.check, svg #DataCopy > .blue_label.marker.place-double path.check,
+svg .place_new.blue_label.marker path.check,
+svg .place-double.blue_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.brown_label circle.place_label, svg #DataCopy > .brown_label.place-double circle.place_label,
+svg .place.brown_label path.place-union,
+svg #DataCopy > .brown_label.place-double path.place-union,
+svg .place_new.brown_label circle.place_label,
+svg .place_new.brown_label path.place-union,
+svg .place-double.brown_label circle.place_label,
+svg .place-double.brown_label path.place-union {
+  fill: #652e0c;
+  stroke: #652e0c;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.brown_label path.place-union,
+svg #DataCopy > .brown_label.place-double path.place-union,
+svg .place_new.brown_label path.place-union,
+svg .place-double.brown_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.brown_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .brown_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.brown_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.brown_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.brown_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .brown_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.brown_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.brown_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.brown_label circle.addition, svg #DataCopy > .brown_label.place-double circle.addition,
+svg .place_new.brown_label circle.addition,
+svg .place-double.brown_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.brown_label.marker circle, svg #DataCopy > .brown_label.marker.place-double circle,
+svg .place_new.brown_label.marker circle,
+svg .place-double.brown_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.brown_label.marker text, svg #DataCopy > .brown_label.marker.place-double text,
+svg .place_new.brown_label.marker text,
+svg .place-double.brown_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.brown_label.marker path.check, svg #DataCopy > .brown_label.marker.place-double path.check,
+svg .place_new.brown_label.marker path.check,
+svg .place-double.brown_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.crimson_label circle.place_label, svg #DataCopy > .crimson_label.place-double circle.place_label,
+svg .place.crimson_label path.place-union,
+svg #DataCopy > .crimson_label.place-double path.place-union,
+svg .place_new.crimson_label circle.place_label,
+svg .place_new.crimson_label path.place-union,
+svg .place-double.crimson_label circle.place_label,
+svg .place-double.crimson_label path.place-union {
+  fill: #8e1222;
+  stroke: #8e1222;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.crimson_label path.place-union,
+svg #DataCopy > .crimson_label.place-double path.place-union,
+svg .place_new.crimson_label path.place-union,
+svg .place-double.crimson_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.crimson_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .crimson_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.crimson_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.crimson_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.crimson_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .crimson_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.crimson_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.crimson_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.crimson_label circle.addition, svg #DataCopy > .crimson_label.place-double circle.addition,
+svg .place_new.crimson_label circle.addition,
+svg .place-double.crimson_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.crimson_label.marker circle, svg #DataCopy > .crimson_label.marker.place-double circle,
+svg .place_new.crimson_label.marker circle,
+svg .place-double.crimson_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.crimson_label.marker text, svg #DataCopy > .crimson_label.marker.place-double text,
+svg .place_new.crimson_label.marker text,
+svg .place-double.crimson_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.crimson_label.marker path.check, svg #DataCopy > .crimson_label.marker.place-double path.check,
+svg .place_new.crimson_label.marker path.check,
+svg .place-double.crimson_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.cyan_label circle.place_label, svg #DataCopy > .cyan_label.place-double circle.place_label,
+svg .place.cyan_label path.place-union,
+svg #DataCopy > .cyan_label.place-double path.place-union,
+svg .place_new.cyan_label circle.place_label,
+svg .place_new.cyan_label path.place-union,
+svg .place-double.cyan_label circle.place_label,
+svg .place-double.cyan_label path.place-union {
+  fill: #12b6c5;
+  stroke: #12b6c5;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.cyan_label path.place-union,
+svg #DataCopy > .cyan_label.place-double path.place-union,
+svg .place_new.cyan_label path.place-union,
+svg .place-double.cyan_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.cyan_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .cyan_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.cyan_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.cyan_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.cyan_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .cyan_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.cyan_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.cyan_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.cyan_label circle.addition, svg #DataCopy > .cyan_label.place-double circle.addition,
+svg .place_new.cyan_label circle.addition,
+svg .place-double.cyan_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.cyan_label.marker circle, svg #DataCopy > .cyan_label.marker.place-double circle,
+svg .place_new.cyan_label.marker circle,
+svg .place-double.cyan_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.cyan_label.marker text, svg #DataCopy > .cyan_label.marker.place-double text,
+svg .place_new.cyan_label.marker text,
+svg .place-double.cyan_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.cyan_label.marker path.check, svg #DataCopy > .cyan_label.marker.place-double path.check,
+svg .place_new.cyan_label.marker path.check,
+svg .place-double.cyan_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.darkblue_label circle.place_label, svg #DataCopy > .darkblue_label.place-double circle.place_label,
+svg .place.darkblue_label path.place-union,
+svg #DataCopy > .darkblue_label.place-double path.place-union,
+svg .place_new.darkblue_label circle.place_label,
+svg .place_new.darkblue_label path.place-union,
+svg .place-double.darkblue_label circle.place_label,
+svg .place-double.darkblue_label path.place-union {
+  fill: #267aed;
+  stroke: #267aed;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.darkblue_label path.place-union,
+svg #DataCopy > .darkblue_label.place-double path.place-union,
+svg .place_new.darkblue_label path.place-union,
+svg .place-double.darkblue_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.darkblue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .darkblue_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.darkblue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.darkblue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.darkblue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .darkblue_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.darkblue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.darkblue_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.darkblue_label circle.addition, svg #DataCopy > .darkblue_label.place-double circle.addition,
+svg .place_new.darkblue_label circle.addition,
+svg .place-double.darkblue_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.darkblue_label.marker circle, svg #DataCopy > .darkblue_label.marker.place-double circle,
+svg .place_new.darkblue_label.marker circle,
+svg .place-double.darkblue_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.darkblue_label.marker text, svg #DataCopy > .darkblue_label.marker.place-double text,
+svg .place_new.darkblue_label.marker text,
+svg .place-double.darkblue_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.darkblue_label.marker path.check, svg #DataCopy > .darkblue_label.marker.place-double path.check,
+svg .place_new.darkblue_label.marker path.check,
+svg .place-double.darkblue_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.green_label circle.place_label, svg #DataCopy > .green_label.place-double circle.place_label,
+svg .place.green_label path.place-union,
+svg #DataCopy > .green_label.place-double path.place-union,
+svg .place_new.green_label circle.place_label,
+svg .place_new.green_label path.place-union,
+svg .place-double.green_label circle.place_label,
+svg .place-double.green_label path.place-union {
+  fill: #46c512;
+  stroke: #46c512;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.green_label path.place-union,
+svg #DataCopy > .green_label.place-double path.place-union,
+svg .place_new.green_label path.place-union,
+svg .place-double.green_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.green_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .green_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.green_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.green_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.green_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .green_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.green_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.green_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.green_label circle.addition, svg #DataCopy > .green_label.place-double circle.addition,
+svg .place_new.green_label circle.addition,
+svg .place-double.green_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.green_label.marker circle, svg #DataCopy > .green_label.marker.place-double circle,
+svg .place_new.green_label.marker circle,
+svg .place-double.green_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.green_label.marker text, svg #DataCopy > .green_label.marker.place-double text,
+svg .place_new.green_label.marker text,
+svg .place-double.green_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.green_label.marker path.check, svg #DataCopy > .green_label.marker.place-double path.check,
+svg .place_new.green_label.marker path.check,
+svg .place-double.green_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.magenta_label circle.place_label, svg #DataCopy > .magenta_label.place-double circle.place_label,
+svg .place.magenta_label path.place-union,
+svg #DataCopy > .magenta_label.place-double path.place-union,
+svg .place_new.magenta_label circle.place_label,
+svg .place_new.magenta_label path.place-union,
+svg .place-double.magenta_label circle.place_label,
+svg .place-double.magenta_label path.place-union {
+  fill: #291065;
+  stroke: #291065;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.magenta_label path.place-union,
+svg #DataCopy > .magenta_label.place-double path.place-union,
+svg .place_new.magenta_label path.place-union,
+svg .place-double.magenta_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.magenta_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .magenta_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.magenta_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.magenta_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.magenta_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .magenta_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.magenta_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.magenta_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.magenta_label circle.addition, svg #DataCopy > .magenta_label.place-double circle.addition,
+svg .place_new.magenta_label circle.addition,
+svg .place-double.magenta_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.magenta_label.marker circle, svg #DataCopy > .magenta_label.marker.place-double circle,
+svg .place_new.magenta_label.marker circle,
+svg .place-double.magenta_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.magenta_label.marker text, svg #DataCopy > .magenta_label.marker.place-double text,
+svg .place_new.magenta_label.marker text,
+svg .place-double.magenta_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.magenta_label.marker path.check, svg #DataCopy > .magenta_label.marker.place-double path.check,
+svg .place_new.magenta_label.marker path.check,
+svg .place-double.magenta_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.orange_label circle.place_label, svg #DataCopy > .orange_label.place-double circle.place_label,
+svg .place.orange_label path.place-union,
+svg #DataCopy > .orange_label.place-double path.place-union,
+svg .place_new.orange_label circle.place_label,
+svg .place_new.orange_label path.place-union,
+svg .place-double.orange_label circle.place_label,
+svg .place-double.orange_label path.place-union {
+  fill: #ea7208;
+  stroke: #ea7208;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.orange_label path.place-union,
+svg #DataCopy > .orange_label.place-double path.place-union,
+svg .place_new.orange_label path.place-union,
+svg .place-double.orange_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.orange_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .orange_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.orange_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.orange_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.orange_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .orange_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.orange_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.orange_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.orange_label circle.addition, svg #DataCopy > .orange_label.place-double circle.addition,
+svg .place_new.orange_label circle.addition,
+svg .place-double.orange_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.orange_label.marker circle, svg #DataCopy > .orange_label.marker.place-double circle,
+svg .place_new.orange_label.marker circle,
+svg .place-double.orange_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.orange_label.marker text, svg #DataCopy > .orange_label.marker.place-double text,
+svg .place_new.orange_label.marker text,
+svg .place-double.orange_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.orange_label.marker path.check, svg #DataCopy > .orange_label.marker.place-double path.check,
+svg .place_new.orange_label.marker path.check,
+svg .place-double.orange_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.purple_label circle.place_label, svg #DataCopy > .purple_label.place-double circle.place_label,
+svg .place.purple_label path.place-union,
+svg #DataCopy > .purple_label.place-double path.place-union,
+svg .place_new.purple_label circle.place_label,
+svg .place_new.purple_label path.place-union,
+svg .place-double.purple_label circle.place_label,
+svg .place-double.purple_label path.place-union {
+  fill: #e815af;
+  stroke: #e815af;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.purple_label path.place-union,
+svg #DataCopy > .purple_label.place-double path.place-union,
+svg .place_new.purple_label path.place-union,
+svg .place-double.purple_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.purple_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .purple_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.purple_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.purple_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.purple_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .purple_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.purple_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.purple_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.purple_label circle.addition, svg #DataCopy > .purple_label.place-double circle.addition,
+svg .place_new.purple_label circle.addition,
+svg .place-double.purple_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.purple_label.marker circle, svg #DataCopy > .purple_label.marker.place-double circle,
+svg .place_new.purple_label.marker circle,
+svg .place-double.purple_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.purple_label.marker text, svg #DataCopy > .purple_label.marker.place-double text,
+svg .place_new.purple_label.marker text,
+svg .place-double.purple_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.purple_label.marker path.check, svg #DataCopy > .purple_label.marker.place-double path.check,
+svg .place_new.purple_label.marker path.check,
+svg .place-double.purple_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.yellow_label circle.place_label, svg #DataCopy > .yellow_label.place-double circle.place_label,
+svg .place.yellow_label path.place-union,
+svg #DataCopy > .yellow_label.place-double path.place-union,
+svg .place_new.yellow_label circle.place_label,
+svg .place_new.yellow_label path.place-union,
+svg .place-double.yellow_label circle.place_label,
+svg .place-double.yellow_label path.place-union {
+  fill: #f2b603;
+  stroke: #f2b603;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.yellow_label path.place-union,
+svg #DataCopy > .yellow_label.place-double path.place-union,
+svg .place_new.yellow_label path.place-union,
+svg .place-double.yellow_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.yellow_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .yellow_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.yellow_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.yellow_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.yellow_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .yellow_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.yellow_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.yellow_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.yellow_label circle.addition, svg #DataCopy > .yellow_label.place-double circle.addition,
+svg .place_new.yellow_label circle.addition,
+svg .place-double.yellow_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.yellow_label.marker circle, svg #DataCopy > .yellow_label.marker.place-double circle,
+svg .place_new.yellow_label.marker circle,
+svg .place-double.yellow_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.yellow_label.marker text, svg #DataCopy > .yellow_label.marker.place-double text,
+svg .place_new.yellow_label.marker text,
+svg .place-double.yellow_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.yellow_label.marker path.check, svg #DataCopy > .yellow_label.marker.place-double path.check,
+svg .place_new.yellow_label.marker path.check,
+svg .place-double.yellow_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.lightgreen_label circle.place_label, svg #DataCopy > .lightgreen_label.place-double circle.place_label,
+svg .place.lightgreen_label path.place-union,
+svg #DataCopy > .lightgreen_label.place-double path.place-union,
+svg .place_new.lightgreen_label circle.place_label,
+svg .place_new.lightgreen_label path.place-union,
+svg .place-double.lightgreen_label circle.place_label,
+svg .place-double.lightgreen_label path.place-union {
+  fill: #67e532;
+  stroke: #67e532;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.lightgreen_label path.place-union,
+svg #DataCopy > .lightgreen_label.place-double path.place-union,
+svg .place_new.lightgreen_label path.place-union,
+svg .place-double.lightgreen_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.lightgreen_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .lightgreen_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.lightgreen_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.lightgreen_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.lightgreen_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .lightgreen_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.lightgreen_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.lightgreen_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.lightgreen_label circle.addition, svg #DataCopy > .lightgreen_label.place-double circle.addition,
+svg .place_new.lightgreen_label circle.addition,
+svg .place-double.lightgreen_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.lightgreen_label.marker circle, svg #DataCopy > .lightgreen_label.marker.place-double circle,
+svg .place_new.lightgreen_label.marker circle,
+svg .place-double.lightgreen_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.lightgreen_label.marker text, svg #DataCopy > .lightgreen_label.marker.place-double text,
+svg .place_new.lightgreen_label.marker text,
+svg .place-double.lightgreen_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.lightgreen_label.marker path.check, svg #DataCopy > .lightgreen_label.marker.place-double path.check,
+svg .place_new.lightgreen_label.marker path.check,
+svg .place-double.lightgreen_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.cherry_label circle.place_label, svg #DataCopy > .cherry_label.place-double circle.place_label,
+svg .place.cherry_label path.place-union,
+svg #DataCopy > .cherry_label.place-double path.place-union,
+svg .place_new.cherry_label circle.place_label,
+svg .place_new.cherry_label path.place-union,
+svg .place-double.cherry_label circle.place_label,
+svg .place-double.cherry_label path.place-union {
+  fill: #a21447;
+  stroke: #a21447;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.cherry_label path.place-union,
+svg #DataCopy > .cherry_label.place-double path.place-union,
+svg .place_new.cherry_label path.place-union,
+svg .place-double.cherry_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.cherry_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .cherry_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.cherry_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.cherry_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.cherry_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .cherry_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.cherry_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.cherry_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.cherry_label circle.addition, svg #DataCopy > .cherry_label.place-double circle.addition,
+svg .place_new.cherry_label circle.addition,
+svg .place-double.cherry_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.cherry_label.marker circle, svg #DataCopy > .cherry_label.marker.place-double circle,
+svg .place_new.cherry_label.marker circle,
+svg .place-double.cherry_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.cherry_label.marker text, svg #DataCopy > .cherry_label.marker.place-double text,
+svg .place_new.cherry_label.marker text,
+svg .place-double.cherry_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.cherry_label.marker path.check, svg #DataCopy > .cherry_label.marker.place-double path.check,
+svg .place_new.cherry_label.marker path.check,
+svg .place-double.cherry_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.highlight_label circle.place_label, svg #DataCopy > .highlight_label.place-double circle.place_label,
+svg .place.highlight_label path.place-union,
+svg #DataCopy > .highlight_label.place-double path.place-union,
+svg .place_new.highlight_label circle.place_label,
+svg .place_new.highlight_label path.place-union,
+svg .place-double.highlight_label circle.place_label,
+svg .place-double.highlight_label path.place-union {
+  fill: #ef0000;
+  stroke: #ef0000;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.highlight_label path.place-union,
+svg #DataCopy > .highlight_label.place-double path.place-union,
+svg .place_new.highlight_label path.place-union,
+svg .place-double.highlight_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.highlight_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .highlight_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.highlight_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.highlight_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.highlight_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .highlight_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.highlight_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.highlight_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.highlight_label circle.addition, svg #DataCopy > .highlight_label.place-double circle.addition,
+svg .place_new.highlight_label circle.addition,
+svg .place-double.highlight_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.highlight_label.marker circle, svg #DataCopy > .highlight_label.marker.place-double circle,
+svg .place_new.highlight_label.marker circle,
+svg .place-double.highlight_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.highlight_label.marker text, svg #DataCopy > .highlight_label.marker.place-double text,
+svg .place_new.highlight_label.marker text,
+svg .place-double.highlight_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.highlight_label.marker path.check, svg #DataCopy > .highlight_label.marker.place-double path.check,
+svg .place_new.highlight_label.marker path.check,
+svg .place-double.highlight_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.salmon_label circle.place_label, svg #DataCopy > .salmon_label.place-double circle.place_label,
+svg .place.salmon_label path.place-union,
+svg #DataCopy > .salmon_label.place-double path.place-union,
+svg .place_new.salmon_label circle.place_label,
+svg .place_new.salmon_label path.place-union,
+svg .place-double.salmon_label circle.place_label,
+svg .place-double.salmon_label path.place-union {
+  fill: #fa8072;
+  stroke: #fa8072;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.salmon_label path.place-union,
+svg #DataCopy > .salmon_label.place-double path.place-union,
+svg .place_new.salmon_label path.place-union,
+svg .place-double.salmon_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.salmon_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .salmon_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.salmon_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.salmon_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.salmon_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .salmon_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.salmon_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.salmon_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.salmon_label circle.addition, svg #DataCopy > .salmon_label.place-double circle.addition,
+svg .place_new.salmon_label circle.addition,
+svg .place-double.salmon_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.salmon_label.marker circle, svg #DataCopy > .salmon_label.marker.place-double circle,
+svg .place_new.salmon_label.marker circle,
+svg .place-double.salmon_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.salmon_label.marker text, svg #DataCopy > .salmon_label.marker.place-double text,
+svg .place_new.salmon_label.marker text,
+svg .place-double.salmon_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.salmon_label.marker path.check, svg #DataCopy > .salmon_label.marker.place-double path.check,
+svg .place_new.salmon_label.marker path.check,
+svg .place-double.salmon_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place.khaki_label circle.place_label, svg #DataCopy > .khaki_label.place-double circle.place_label,
+svg .place.khaki_label path.place-union,
+svg #DataCopy > .khaki_label.place-double path.place-union,
+svg .place_new.khaki_label circle.place_label,
+svg .place_new.khaki_label path.place-union,
+svg .place-double.khaki_label circle.place_label,
+svg .place-double.khaki_label path.place-union {
+  fill: #8b864e;
+  stroke: #8b864e;
+  stroke-opacity: 0.3;
+  stroke-width: 0;
+}
+
+
+svg .place.khaki_label path.place-union,
+svg #DataCopy > .khaki_label.place-double path.place-union,
+svg .place_new.khaki_label path.place-union,
+svg .place-double.khaki_label path.place-union {
+  fill-opacity: 0.3;
+}
+
+svg .place.khaki_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label, svg #DataCopy > .khaki_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place_new.khaki_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label,
+svg .place-double.khaki_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+  stroke-width: 3;
+}
+
+svg .place.khaki_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union, svg #DataCopy > .khaki_label.place-double:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place_new.khaki_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union,
+svg .place-double.khaki_label:not(.empty_label):not(.sold_label):not(.reserve_label):hover path.place-union {
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+svg .place.khaki_label circle.addition, svg #DataCopy > .khaki_label.place-double circle.addition,
+svg .place_new.khaki_label circle.addition,
+svg .place-double.khaki_label circle.addition {
+  stroke-width: 1.26;
+  stroke-opacity: 1;
+}
+
+svg .place.khaki_label.marker circle, svg #DataCopy > .khaki_label.marker.place-double circle,
+svg .place_new.khaki_label.marker circle,
+svg .place-double.khaki_label.marker circle {
+  opacity: 1;
+}
+
+svg .place.khaki_label.marker text, svg #DataCopy > .khaki_label.marker.place-double text,
+svg .place_new.khaki_label.marker text,
+svg .place-double.khaki_label.marker text {
+  fill-opacity: 0;
+}
+
+svg .place.khaki_label.marker path.check, svg #DataCopy > .khaki_label.marker.place-double path.check,
+svg .place_new.khaki_label.marker path.check,
+svg .place-double.khaki_label.marker path.check {
+  fill: #fff;
+}
+
+svg .place_new text {
+  font-size: 6px;
+  line-height: 8px;
+}
+
+svg .place-double:hover circle.place_label {
+  stroke-width: 0 !important;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: block;
+  max-width: 276px;
+  padding: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  font-size: .875rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0 solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+}
+
+.popover {
+  max-width: 320px;
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.18);
+}
+
+.popover-content {
+  display: none;
+}
+
+.popover .popover-content {
+  display: block;
+}
+
+.popover-body {
+  padding: 14px 20px;
+  color: #666;
+}
+
+.popover .arrow {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+  border-left: 8px solid transparent;
+  transform: translateY(100%);
+}
+
+.popover.bs-popover-top .arrow,
+.popover.bs-popover-auto[x-placement^="top"] .arrow {
+  bottom: 0;
+}
+
+.popover .close {
+  display: none;
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 24px;
+  line-height: 18px;
+  color: #ffc800;
+  cursor: pointer;
+}
+
+.popover-scheme {
+  display: table;
+  margin-bottom: 0;
+}
+
+.popover-scheme p {
+  display: table-row;
+  min-width: 120px;
+  margin-bottom: 0;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.popover-scheme p b {
+  display: table-cell;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+
+.popover-scheme .arrow {
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+  border-left: 8px solid transparent;
+  transform: translateY(100%);
+}
+
+.popover-scheme.pgroups-activated .pgroups {
+  display: table;
+}
+
+.popover-scheme.pgroups-activated .close {
+  display: block;
+}
+
+.pgroups {
+  display: none;
+  color: #111;
+  font-family: Verdana, "Geneva CY", "DejaVu Sans", sans-serif;
+  font-size: 14px;
+  padding: 0 12px;
+  border: 2px solid #ededed;
+}
+
+.pgroups-title {
+  margin-bottom: 10px;
+}
+
+.pgroups p {
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 120px;
+  margin: 0 -12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pgroups p span {
+  margin-left: auto;
+  padding-left: 12px;
+}
+
+.pgroups p.active, .pgroups p:hover {
+  background-color: #ffc800;
+}
+
+.pgroups p + p {
+  border-top: 1px solid #ededed;
+}
+
+.stehplatz-btn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 22px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ffc800;
+  vertical-align: middle;
+  text-decoration: none;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stehplatz-btn:hover {
+  color: #00398c;
+}
+
+.stehplatz_num {
+  display: inline-block;
+  min-width: 50px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.buttons-stehplatz .cat-itm {
+  position: relative;
+  padding: 12px 0;
+  line-height: 16px;
+}
+
+.buttons-stehplatz .cat-itm .catname {
+  margin: 0;
+  line-height: 24px;
+  font-size: 18px;
+}
+
+.buttons-stehplatz .cat-itm .actions {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-stehplatz .cat-itm .actions .catprice {
+  flex: 1 0 auto;
+  font-size: 16px;
+  margin-right: auto;
+}
+
+.buttons-stehplatz .cat-itm .actions .counter {
+  display: flex;
+  width: 80px;
+}
+
+.buttons-stehplatz .cat-itm .actions .counter .stehplatz-btn {
+  display: block;
+  width: 25%;
+  height: 25%;
+}
+
+.buttons-stehplatz .cat-itm .actions .counter .stehplatz_num {
+  display: block;
+  min-width: 50%;
+  height: 24px;
+  line-height: 24px;
+}
+
+.stehplatz {
+  position: absolute;
+}
+
+p.sthpltz {
+  vertical-align: middle;
+  line-height: 25px;
+}
+
+.scheme-wrapper,
+.minimap-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 2px solid #ededed;
+}
+
+.minimap-wrapper {
+  margin-bottom: 20px;
+}
+
+.minimap-wrapper #MainData {
+  margin-bottom: 0;
+}
+
+.scheme-control {
+  padding: 12px 18px;
+  line-height: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  border-width: 0;
+  border-style: solid;
+  border-color: #ededed;
+}
+
+.scheme-wrapper .scheme-control {
+  border-bottom-width: 2px;
+}
+
+.minimap-wrapper .scheme-control {
+  border-top-width: 2px;
+}
+
+.scheme-control__label {
+  flex: 0 0 auto;
+  margin-right: auto;
+}
+
+.scale-control__status {
+  flex: 0 0 auto;
+  width: 60px;
+  text-align: center;
+}
+
+.scale-control__btn {
+  line-height: 0.8em;
+  color: #ffc800;
+  font-size: 1.8em;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+.scale-control__btn:hover {
+  color: #00398c;
+}
+
+.scale-control__btn.disabled {
+  color: #ededed;
+}
+
+.scheme-holder .scale-control {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  border-width: 0;
+  background: #fff;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12);
+}
+
+.scheme-holder .scale-control .scheme-control__label {
+  display: none;
+}
+
+.scroll-shadow {
+  position: relative;
+}
+
+.scroll-shadow:before, .scroll-shadow:after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  left: 0;
+  height: 10px;
+  transition: background-size .2s ease;
+}
+
+.scroll-shadow:before {
+  top: 0;
+  background: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, 0.18), transparent) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+
+.scroll-shadow:after {
+  bottom: 0;
+  border-top-width: 1px;
+  background: radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.18), transparent) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0;
+}
+
+.scroll-shadow__outer {
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-shadow__scroller {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.scroll-shadow__scroller ::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-shadow__target {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+
+.scroll-shadow__scrollbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 2px;
+}
+
+.scroll-shadow__scrollbar .bar {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 2px;
+  background: theme-color(primary);
+}
+
+.scroll-shadow.not-start:before {
+  background-size: 100% 8px;
+}
+
+.scroll-shadow.not-end:after {
+  background-size: 100% 8px;
+}
