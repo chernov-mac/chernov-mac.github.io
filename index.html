@@ -5,6 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Kontramarka</title>
 	<link rel="stylesheet" href="/css/kontramarka-theme.css">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v=xQzja549xG">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v=xQzja549xG">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png?v=xQzja549xG">
+	<link rel="manifest" href="/favicon/site.webmanifest?v=xQzja549xG">
+	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg?v=xQzja549xG" color="#00398c">
+	<link rel="shortcut icon" href="/favicon/favicon.ico?v=xQzja549xG">
+	<meta name="msapplication-TileColor" content="#00398c">
+	<meta name="msapplication-config" content="/favicon/browserconfig.xml?v=xQzja549xG">
+	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
 
@@ -300,6 +310,7 @@
         <section id="mainMenu">
 			<div class="container">
 				<div class="main-menu">
+					<a href="/" class="menu-item logo optional out"></a>
 					<!-- first toggler -->
 					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span class="d-none d-sm-inline">Меню</span></a>
 
@@ -536,7 +547,12 @@
 						<div class="drag-fog left d-none d-lg-block"></div>
 						<div class="drag-item menu-body collapse" id="mainMenuCategories">
 							<ul class="categories">
-								<li class="nav-item"><a href="/" class="nav-link active" title="Все события">Все события</a></li>
+								<li class="nav-item d-lg-none">
+									<a class="nav-link" href="/" title="Вернуться на главную">
+										<i class="icon-brand-logo colored"></i>Главная
+									</a>
+								</li>
+								<!-- <li class="nav-item"><a href="/" class="nav-link" title="Все события">Все события</a></li> -->
 								<li class="nav-item"><a href="/concerts/" class="nav-link" title="Концерты">Концерты</a></li>
 								<li class="nav-item dropdown reference" id="mainMenu_theaters">
 									<a href="/" class="nav-link" title="Театры">Театры</a>
@@ -2945,11 +2961,13 @@
             <div class="container">
                 <h2 class="page-block-title">События в избранных городах</h2>
 				<div class="cities">
+
+					<!-- Berlin -->
 					<div class="cities__item">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/berlin.png" alt="Berlin">
+									<img src="/images/cities/berlin.jpg" alt="Berlin">
 								</div>
 							</div>
 							<div class="card__body">
@@ -2960,11 +2978,14 @@
 							</div>
 						</a>
 					</div>
+					<!-- / Berlin -->
+
+					<!-- Hamburg -->
 					<div class="cities__item">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/hamburg.png" alt="Berlin">
+									<img src="/images/cities/hamburg.jpg" alt="Berlin">
 								</div>
 							</div>
 							<div class="card__body">
@@ -2975,11 +2996,14 @@
 							</div>
 						</a>
 					</div>
+					<!-- / Hamburg -->
+
+					<!-- Munchen -->
 					<div class="cities__item">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/munchen.png" alt="Berlin">
+									<img src="/images/cities/munchen.jpg" alt="Berlin">
 								</div>
 							</div>
 							<div class="card__body">
@@ -2990,11 +3014,14 @@
 							</div>
 						</a>
 					</div>
+					<!-- / Munchen -->
+
+					<!-- Bern -->
 					<div class="cities__item">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/bern.png" alt="Berlin">
+									<img src="/images/cities/bern.jpg" alt="Berlin">
 								</div>
 							</div>
 							<div class="card__body">
@@ -3005,11 +3032,14 @@
 							</div>
 						</a>
 					</div>
+					<!-- / Bern -->
+
+					<!-- Koln -->
 					<div class="cities__item">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/koln.png" alt="Berlin">
+									<img src="/images/cities/koln.jpg" alt="Berlin">
 								</div>
 							</div>
 							<div class="card__body">
@@ -3020,11 +3050,14 @@
 							</div>
 						</a>
 					</div>
+					<!-- / Koln -->
+
+					<!-- Stuttgart -->
 					<div class="cities__item">
 						<a href="#" class="card">
 							<div class="card__img  card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/stuttgart.png" alt="Berlin">
+									<img src="/images/cities/stuttgart.jpg" alt="Berlin">
 								</div>
 							</div>
 							<div class="card__body">
@@ -3035,11 +3068,14 @@
 							</div>
 						</a>
 					</div>
-					<div class="cities__item d-lg-none d-xl-block">
+					<!-- / Stuttgart -->
+
+					<!-- Düsseldorf -->
+					<!-- <div class="cities__item d-lg-none d-xl-block">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/dusseldorf.png" alt="Berlin">
+									<img src="/images/cities/dusseldorf.jpg" alt="Düsseldorf">
 								</div>
 							</div>
 							<div class="card__body">
@@ -3049,12 +3085,15 @@
 								</div>
 							</div>
 						</a>
-					</div>
-					<div class="cities__item d-lg-none d-xl-block">
+					</div> -->
+					<!-- / Düsseldorf -->
+
+					<!-- Dortmund -->
+					<!-- <div class="cities__item d-lg-none d-xl-block">
 						<a href="#" class="card">
 							<div class="card__img card__img--animated">
 								<div class="card__img--fix">
-									<img src="/images/cities/dortmund.png" alt="Berlin">
+									<img src="/images/cities/dortmund.jpg" alt="Dortmund">
 								</div>
 							</div>
 							<div class="card__body">
@@ -3064,7 +3103,45 @@
 								</div>
 							</div>
 						</a>
+					</div> -->
+					<!-- / Dortmund -->
+
+					<!-- Karlsruhe -->
+					<div class="cities__item d-lg-none d-xl-block">
+						<a href="#" class="card">
+							<div class="card__img card__img--animated">
+								<div class="card__img--fix">
+									<img src="/images/cities/karlsruhe.jpg" alt="Karlsruhe">
+								</div>
+							</div>
+							<div class="card__body">
+								<div class="block-title">
+									<span class="block-title__text">Karlsruhe</span>
+									<small class="block-title__label d-none d-sm-block">2 события</small>
+								</div>
+							</div>
+						</a>
 					</div>
+					<!-- / Karlsruhe -->
+
+					<!-- Frankfurt am Main -->
+					<div class="cities__item d-lg-none d-xl-block">
+						<a href="#" class="card">
+							<div class="card__img card__img--animated">
+								<div class="card__img--fix">
+									<img src="/images/cities/frankfurt-am-main.jpg" alt="Frankfurt am Main">
+								</div>
+							</div>
+							<div class="card__body">
+								<div class="block-title">
+									<span class="block-title__text">Frankfurt am Main</span>
+									<small class="block-title__label d-none d-sm-block">2 события</small>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- / Frankfurt am Main -->
+
 				</div>
             </div>
         </section>
@@ -3242,6 +3319,7 @@
 								<li class="method"><div class="visa" title="Visa"></div></li>
 	                            <li class="method"><div class="mastercard" title="MasterCard"></div></li>
 	                            <li class="method"><div class="paypal" title="PayPal"></div></li>
+	                            <li class="method"><div class="sofort" title="Sofort"></div></li>
 	                            <li class="method"><div class="vorkasse" title="Vorkasse"></div></li>
 	                        </ul>
 						</div>
@@ -3358,6 +3436,75 @@
 		</div>
 	</div>
 </div>
+<div class="modal fade" id="redesignAnnouncement" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content announcement">
+			<div class="modal-body">
+				<div class="announcement__img text-center">
+					<img src="/images/logo.svg" class="logo" alt="Kontramarka.de">
+				</div>
+				<div class="h1 mt-4 text-center">Добро пожаловать!</div>
+				<div class="announcement__text">
+					<p>Мы рады сообщить о завершении работ по обновлению дизайна! Здесь мы расскажем Вам немного о редизайне сайта.</p>
+					<!-- <div class="d-flex justify-content-center align-items-center">
+						<img src="/images/old_logo.png" alt="" class="m-3" style="height: 60px;">
+						<i class="icon-chevron-right"></i>
+						<img src="/images/logo-no-text-2.svg" alt="" class="m-3" style="height: 60px; transform: translateY(-5px)">
+					</div> -->
+					<div class="transformation-scene">
+						<div class="transformation mx-auto">
+							<img src="/images/old_logo.png" alt="Kontramarka.de" class="transformation__logo transformation__logo--old">
+							<img src="/images/logo-no-text-2.svg" alt="Kontramarka.de" class="transformation__logo transformation__logo--new">
+						</div>
+					</div>
+					<div class="row my-5" style="margin-right: -30px;">
+						<div class="col col-lg-8">
+							<div class="row">
+								<div class="col">
+									<p>Сайт стал полностью адаптивным и более дружелюбным для пользователей. Теперь весь функционал доступен в удобном виде на устройствах с любым разрешением.</p>
+									<p>Мы учли большое количество посетителей с мобильных устройств (более <b>60%</b>) и сконцентрировались на достижении максимально комфортных условий для таких пользователей. Результатом стала разработка уникального дизайна по стратегии <b>Mobile First</b>.</p>
+								</div>
+								<div class="col col-md-4 mockup-col d-lg-none">
+									<img src="/images/mockups/iphone-mockup.jpg" alt="Kontramarka.de" class="iphone-mockup">
+								</div>
+							</div>
+							<p>Не нужно делать выбор между мобильностью и эффективнстью. Новый дизайн одинаково высоко эффективен на любых разрешениях!</p>
+						</div>
+						<div class="col col-lg-4 mockup-col d-none d-lg-block">
+							<img src="/images/mockups/iphone-mockup.jpg" alt="Kontramarka.de" class="iphone-mockup iphone-mockup-lg">
+						</div>
+					</div>
+					<div class="row my-5" style="margin-left: -30px;">
+						<div class="col col-lg-4 mockup-col d-none d-lg-block">
+							<img src="/images/mockups/iphone-scheme-mockup.jpg" alt="Kontramarka.de" class="iphone-scheme-mockup iphone-scheme-mockup-lg">
+						</div>
+						<div class="col col-lg-8">
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-4 mockup-col d-lg-none">
+									<img src="/images/mockups/iphone-scheme-mockup.jpg" alt="Kontramarka.de" class="iphone-scheme-mockup">
+								</div>
+								<div class="col">
+									<p>Страница выбора билетов стала просторнее и чище. Выбрать билеты стало гораздо проще благодаря новому взаимодействию со схемой.</p>
+									<p>Теперь схему можно таскать за курсором нажатием левой кнопки мыши или тачпада, на мобильных устройствах - движением пальца. Однако, миникарту мы оставили, поскольку многие привыкли к такому формату.</p>
+								</div>
+							</div>
+							<p>Также стало возможным масштабирование схемы для более удобного выбора мест. Это будет особенно полезно для пользователей с мобильных устройств.</p>
+							<p>Новое взаимодействие со схемой стало доступным благодаря переходу на векторные схемы без растровых изображений. Однако, должны сообщить, что на данный момент не все схемы переведены в векторный формат. Поскольку мы оперируем более чем <b>1300</b> залами, мы не успели перерисовать их все, придётся немножко подождать.</p>
+						</div>
+					</div>
+					<p>Команда Kontramarka.de работала над новым дизайном более <b>6 месяцев</b>, за это время в конференциях в Skype были наговорены <b>178 часов</b>, было произведено более <b>200 коммитов</b> и было выпито <b>1800 чашек кофе</b>! :)</p>
+					<p>Мы действительно очень много трудились ради этого момента, и это на самом деле для нас огромное событие. Наконец, мы готовы представить нашу работу, и мы очень надеемся, что Вам понравится!</p>
+					<p>На этом наша работа не заканчивается, мы ещё много всего для Вас приготовили!</p>
+					<p>Не стесняйтесь делиться своими впечатлениями, а также задавать вопросы или оставлять пожелания нам на почту <b><a href="mailto:info@kontramarka.de" class="link">info@kontramarka.de</a></b>.</p>
+					<p>По всем техническим вопросам и неполадкам пишите на <b><a href="mailto:support@kontramarka.de" class="link">support@kontramarka.de</a></b></p>
+				</div>
+				<div class="text-center">
+					<button type="button" class="btn btn-primary mt-4 mb-2" data-dismiss="modal">Ознакомиться!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Options -->
 <script>
@@ -3375,10 +3522,24 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
+
+<script>
+	$(function(){
+		$('#redesignAnnouncement').on('shown.bs.modal', function(){
+			$('.transformation').addClass('transformed');
+		});
+		$('#redesignAnnouncement').modal('show');
+		$('#redesignAnnouncement').on('hide.bs.modal', function(){
+			console.log('must set cookie to not show again');
+		});
+	})
+</script>
 </body>
 </html>
